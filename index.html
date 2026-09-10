@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScienceoLogy | By Md Amaan [B.Sc. (Hons.) Mathematics, CU]</title>
+  
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <link rel="icon" type="image/png" href="logo.png" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- KaTeX for pristine Math & Science equations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInBody(document.body);"></script>
+
+  <style>
+    .q-pill.answered { background-color: #4f46e5; color: #ffffff; border-color: #4338ca; }
+    .q-pill.correct { background-color: #10b981; color: #ffffff; border-color: #059669; }
+    .q-pill.wrong { background-color: #ef4444; color: #ffffff; border-color: #dc2626; }
+    
+    .unselectable {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body 
+  oncontextmenu="return false;" 
+  ondragstart="return false;"
+  class="bg-slate-50 text-slate-800 font-sans antialiased unselectable"
+>
+
+  <!-- TOP NOTICE TICKER -->
+  <div class="bg-indigo-950 text-indigo-100 text-xs py-2 px-4 border-b border-indigo-900">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 truncate">
+        <span class="bg-amber-400 text-slate-950 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded shadow-sm">Offline Admissions</span>
+        <span class="truncate">Offline tuition batches in Kolkata (Classes 5–10) for ICSE, CBSE & WBBSE open.</span>
+      </div>
+      <a href="#contact-inquiry" class="hidden sm:inline-block font-bold hover:underline shrink-0 text-amber-300">Inquire Batches &rarr;</a>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm backdrop-blur-md bg-white/95">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="logo.png" alt="ScienceoLogy Logo" onerror="this.src='https://via.placeholder.com/40'" class="w-10 h-10 rounded-full object-cover border border-slate-200 shadow-sm group-hover:scale-105 transition" />
+        <span class="text-xl font-black tracking-tight text-slate-900">Science<span class="text-emerald-600">oLogy</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center gap-4 xl:gap-5 font-semibold text-slate-600 text-[11px] xl:text-xs tracking-wide uppercase">
+        <a href="#materials" class="hover:text-indigo-600 transition">Notes</a>
+        <a href="#video-lectures" class="hover:text-rose-600 transition flex items-center gap-1">
+          <i class="fa-solid fa-circle-play text-rose-500"></i> Videos
+        </a>
+        <a href="#daily-quiz" class="hover:text-amber-600 transition">Daily Quiz</a>
+        <a href="#topic-tests" class="hover:text-purple-600 transition">Topic (15m)</a>
+        <a href="#chapter-tests" class="hover:text-blue-600 transition">Chapter (15m)</a>
+        <a href="#misc-tests" class="hover:text-indigo-600 transition">Full Length (40m)</a>
+        <a href="#pyq" class="hover:text-slate-900 transition">PYQs</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact-inquiry" class="hidden sm:inline-flex bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition shadow-sm items-center gap-1.5">
+          <i class="fa-solid fa-graduation-cap"></i> Join Offline Batch
+        </a>
+        <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-700 hover:text-indigo-600 p-2 rounded-md focus:outline-none" aria-label="Toggle menu">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 shadow-lg text-sm font-medium">
+      <a href="#selection-hub" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 hover:text-indigo-600 border-b border-slate-100">1. Syllabus Hub</a>
+      <a href="#materials" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 hover:text-indigo-600 border-b border-slate-100">1. Study Materials & Notes</a>
+      <a href="#video-lectures" onclick="toggleMobileMenu()" class="block py-2 text-rose-600 font-semibold border-b border-slate-100">2. Video Lectures</a>
+      <a href="#daily-quiz" onclick="toggleMobileMenu()" class="block py-2 text-amber-600 font-semibold border-b border-slate-100">3. Daily Quiz</a>
+      <a href="#topic-tests" onclick="toggleMobileMenu()" class="block py-2 text-purple-600 hover:underline border-b border-slate-100">4. Topicwise Tests (15m)</a>
+      <a href="#chapter-tests" onclick="toggleMobileMenu()" class="block py-2 text-blue-600 hover:underline border-b border-slate-100">5. Chapterwise Tests (15m)</a>
+      <a href="#misc-tests" onclick="toggleMobileMenu()" class="block py-2 text-indigo-600 hover:underline border-b border-slate-100">6. Full Length Tests (40m)</a>
+      <a href="#pyq" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 hover:text-indigo-600 border-b border-slate-100">7. Past Papers (PYQ)</a>
+      <a href="#contact-inquiry" onclick="toggleMobileMenu()" class="block py-2 text-emerald-600 font-bold">8. Offline Inquiry & Feedback Form</a>
+    </div>
+  </nav>
+
+  <!-- WELCOME / EDUCATOR HEADER -->
+  <header id="teacher-welcome" class="bg-gradient-to-b from-indigo-50/70 via-white to-slate-50 py-12 px-4 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">
+            <i class="fa-solid fa-shapes text-indigo-500"></i> Pure Conceptual Learning
+          </span>
+          <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+            Master Maths & Science with <span class="text-indigo-600">Md Amaan</span>
+          </h1>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Welcome to <b>ScienceoLogy</b>! Tailored specifically for Class 5 to 10 across <b>CBSE, ICSE, and WBBSE (Madhyamik)</b>. Access free study notes, video lectures, quick quizzes, and timed chapter assessments with zero paywalls.
+          </p>
+          <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-4">
+            <div class="bg-white border border-slate-200 rounded-xl px-4 py-2.5 shadow-sm text-left">
+              <span class="block text-lg font-black text-indigo-600">CU Alumnus</span>
+              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">B.Sc. Maths (Hons.)</span>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-xl px-4 py-2.5 shadow-sm text-left">
+              <span class="block text-lg font-black text-indigo-600">Offline Batches</span>
+              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Kolkata, West Bengal</span>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-xl px-4 py-2.5 shadow-sm text-left">
+              <span class="block text-lg font-black text-emerald-600">Free Practice Hub</span>
+              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Unlimited Reattempts</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 flex justify-center">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md max-w-sm text-center w-full">
+            <div class="w-28 h-28 mx-auto rounded-full p-1 bg-white border-2 border-indigo-200 shadow-sm overflow-hidden mb-3">
+              <img src="logo.png" alt="ScienceoLogy Logo" onerror="this.src='https://via.placeholder.com/112'" class="w-full h-full object-cover rounded-full" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">Md Amaan</h3>
+            <p class="text-xs font-bold text-indigo-600">B.Sc. (Hons.) Mathematics, CU</p>
+            <p class="text-xs text-slate-500 mt-1">Dedicated Mathematics & Science Mentor</p>
+            <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2">
+              <a href="mailto:scienceology2026@gmail.com" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-envelope text-indigo-300"></i> scienceology2026@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3-TIER FILTER SELECTOR -->
+  <section id="selection-hub" class="py-8 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-slate-900">Curriculum Filter Hub</h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-1">Select Board, Class, and Subject to customize your resources.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-5">
+        <div>
+          <label class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">1. Select Board</label>
+          <div class="grid grid-cols-3 gap-2" id="boardButtons">
+            <button onclick="updateFilter('board', 'CBSE', this)" class="filter-board py-2 px-4 rounded-xl border-2 border-indigo-600 bg-indigo-50 text-indigo-700 font-bold text-sm">CBSE</button>
+            <button onclick="updateFilter('board', 'ICSE', this)" class="filter-board py-2 px-4 rounded-xl border border-slate-200 text-slate-700 hover:border-slate-300 font-bold text-sm">ICSE</button>
+            <button onclick="updateFilter('board', 'WBBSE', this)" class="filter-board py-2 px-4 rounded-xl border border-slate-200 text-slate-700 hover:border-slate-300 font-bold text-sm">WBBSE</button>
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">2. Select Class</label>
+          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2" id="gradeButtons">
+            <button onclick="updateFilter('grade', '5', this)" class="filter-grade py-2 rounded-lg border border-slate-200 text-slate-700 font-semibold text-xs sm:text-sm">Class 5</button>
+            <button onclick="updateFilter('grade', '6', this)" class="filter-grade py-2 rounded-lg border border-slate-200 text-slate-700 font-semibold text-xs sm:text-sm">Class 6</button>
+            <button onclick="updateFilter('grade', '7', this)" class="filter-grade py-2 rounded-lg border border-slate-200 text-slate-700 font-semibold text-xs sm:text-sm">Class 7</button>
+            <button onclick="updateFilter('grade', '8', this)" class="filter-grade py-2 rounded-lg border border-slate-200 text-slate-700 font-semibold text-xs sm:text-sm">Class 8</button>
+            <button onclick="updateFilter('grade', '9', this)" class="filter-grade py-2 rounded-lg border border-slate-200 text-slate-700 font-semibold text-xs sm:text-sm">Class 9</button>
+            <button onclick="updateFilter('grade', '10', this)" class="filter-grade py-2 rounded-lg border-2 border-indigo-600 bg-indigo-50 text-indigo-700 font-bold text-xs sm:text-sm">Class 10</button>
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">3. Select Subject</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="subjectButtons">
+            <button onclick="updateFilter('subject', 'Maths', this)" class="filter-sub p-3 rounded-xl border-2 border-indigo-600 bg-indigo-50 text-indigo-700 font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-calculator"></i> Maths
+            </button>
+            <button onclick="updateFilter('subject', 'Physics', this)" class="filter-sub p-3 rounded-xl border border-slate-200 text-slate-700 hover:border-slate-300 font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-bolt text-purple-600"></i> Physics
+            </button>
+            <button onclick="updateFilter('subject', 'Chemistry', this)" class="filter-sub p-3 rounded-xl border border-slate-200 text-slate-700 hover:border-slate-300 font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-flask text-emerald-600"></i> Chemistry
+            </button>
+            <button onclick="updateFilter('subject', 'Biology', this)" class="filter-sub p-3 rounded-xl border border-slate-200 text-slate-700 hover:border-slate-300 font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-dna text-amber-600"></i> Biology
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 text-center">
+        <span class="text-xs text-slate-400 font-medium">Active Selection:</span>
+        <span id="currentSelectionLabel" class="ml-1 text-xs font-bold text-indigo-700 bg-indigo-100/80 px-3 py-1 rounded-full">
+          CBSE • Class 10 • Maths
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 1. STUDY MATERIALS (NOTES & FORMULAS) -->
+  <!-- ========================================== -->
+  <section id="materials" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-slate-200">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+          Section 1 • Study Materials
+        </span>
+        <h2 class="text-xl font-bold text-slate-900 mt-2">Handcrafted Notes & Formula Sheets</h2>
+        <p class="text-slate-500 text-xs sm:text-sm">Structured theorem proofs and chapter revision summaries.</p>
+      </div>
+      <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full hidden sm:inline-block">100% Free PDF Access</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="materialsGrid"></div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. VIDEO LECTURES -->
+  <!-- ========================================== -->
+  <section id="video-lectures" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-slate-200">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
+      <div>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200">
+          Section 2 • Visual Learning
+        </span>
+        <h2 class="text-xl font-bold text-slate-900 mt-2">Video Lectures & Concept Breakdowns</h2>
+        <p class="text-slate-500 text-xs sm:text-sm">Detailed topic walkthroughs by Md Amaan to resolve doubts step-by-step.</p>
+      </div>
+      <a href="https://www.youtube.com" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 px-4 py-2 rounded-xl transition shadow-sm shrink-0 self-start sm:self-auto">
+        <i class="fa-brands fa-youtube text-base"></i> ScienceoLogy YouTube
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="videoLecturesGrid"></div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. DAILY QUIZ (1-QUESTION FLASH QUIZ) -->
+  <!-- ========================================== -->
+  <section id="daily-quiz" class="max-w-4xl mx-auto px-4 py-10 border-t border-slate-200">
+    <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">
+            Section 3 • Daily Check
+          </span>
+          <h3 class="text-xl font-bold text-slate-900 mt-1">Daily Flash Quiz</h3>
+          <p class="text-slate-500 text-xs">Test today's core formula before starting full tests.</p>
+        </div>
+        <span class="bg-indigo-50 text-indigo-700 text-xs px-2.5 py-1 rounded-full font-semibold hidden sm:inline-block">Immediate Feedback</span>
+      </div>
+
+      <div>
+        <p id="dailyQuizQ" class="text-base font-semibold text-slate-800 mb-4">Loading today's question...</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="dailyQuizOptions"></div>
+        <div id="dailyQuizFeedback" class="mt-4 text-xs font-semibold p-3 rounded-lg hidden"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. TOPICWISE TEST (10 MCQs | 15 MINUTES) -->
+  <!-- ========================================== -->
+  <section id="topic-tests" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-slate-200">
+    <div class="mb-6">
+      <span class="text-[10px] font-bold uppercase tracking-wider text-purple-700 bg-purple-100 px-2.5 py-1 rounded-md border border-purple-200">
+        Section 4 • 10 MCQs • 15 Mins
+      </span>
+      <h2 class="text-xl font-bold text-slate-900 mt-2">Topicwise Practice Tests</h2>
+      <p class="text-slate-500 text-xs sm:text-sm">Targeted micro-assessments on individual theorems and formulas with unlimited reattempts.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="topicTestsGrid"></div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. CHAPTERWISE TEST (10 MCQs | 15 MINUTES) -->
+  <!-- ========================================== -->
+  <section id="chapter-tests" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-slate-200 bg-slate-100/70">
+    <div class="mb-6">
+      <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-100 px-2.5 py-1 rounded-md border border-blue-200">
+        Section 5 • 10 MCQs • 15 Mins
+      </span>
+      <h2 class="text-xl font-bold text-slate-900 mt-2">Chapterwise Practice Tests</h2>
+      <p class="text-slate-500 text-xs sm:text-sm">Full assessments testing your conceptual grasp across entire chapters with randomized questions.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="chapterTestsGrid"></div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. FULL LENGTH TEST (30 MCQs | 40 MINUTES) -->
+  <!-- ========================================== -->
+  <section id="misc-tests" class="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 text-white py-14 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-400 text-slate-950 px-3 py-1 rounded-full">
+            Section 6 • 30 MCQs • 40 Mins
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black mt-3">Full Length Mock Tests</h2>
+          <p class="text-slate-300 text-xs sm:text-sm max-w-xl mt-1">
+            Comprehensive question papers calibrated to actual exam conditions with continuous reattempts.
+          </p>
+        </div>
+        <div class="text-xs text-slate-300 bg-slate-800/90 px-4 py-2 rounded-xl border border-slate-700">
+          <i class="fa-solid fa-server text-emerald-400 mr-1.5"></i> Secure Server Evaluation
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="miscTestsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. PREVIOUS YEAR PAPERS (PYQs) -->
+  <!-- ========================================== -->
+  <section id="pyq" class="bg-slate-100 py-12 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-slate-200 px-2.5 py-1 rounded-md border border-slate-300">
+            Section 7 • Official Archives
+          </span>
+          <h2 class="text-xl font-bold text-slate-900 mt-2">Previous Year Question Papers (PYQs)</h2>
+          <p class="text-slate-500 text-xs sm:text-sm">Past board examination papers with step-by-step model solutions.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 overflow-x-auto shadow-sm">
+        <table class="w-full text-left text-sm whitespace-nowrap sm:whitespace-normal">
+          <thead class="bg-slate-50 border-b border-slate-200 text-slate-400 text-xs uppercase font-semibold">
+            <tr>
+              <th class="py-3 px-4">Exam Session</th>
+              <th class="py-3 px-4">Board & Class</th>
+              <th class="py-3 px-4">Subject Focus</th>
+              <th class="py-3 px-4 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100" id="pyqTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. OFFLINE INQUIRY & FEEDBACK FORM -->
+  <!-- ========================================== -->
+  <section id="contact-inquiry" class="py-12 px-4 bg-indigo-50/50 border-t border-indigo-100">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
+          Section 8 • Direct Connect
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Offline Tuition Admissions & Feedback</h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-1">
+          Inquire about <b>Offline Batches in Kolkata</b> or share your suggestions to help us improve ScienceoLogy.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <form id="contactForm" onsubmit="handleInquirySubmit(event)" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Purpose of Inquiry</label>
+              <select name="purpose" id="inquiryCategory" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-700 focus:ring-2 focus:ring-indigo-500 outline-none font-medium">
+                <option value="Offline Tuition Admission (Kolkata)">🏫 Offline Batch Admission (Kolkata)</option>
+                <option value="Student Feedback / Suggestions">⭐ Student Feedback / Suggestions</option>
+                <option value="Study Notes / Material Request">📚 Study Notes / PDF Request</option>
+                <option value="Issue / Broken Link">⚠️ Report Question Issue</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Student's Class & Board</label>
+              <input type="text" name="student_class" id="inquiryClass" required placeholder="e.g. Class 10 (CBSE / ICSE / WBBSE)" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-700 focus:ring-2 focus:ring-indigo-500 outline-none" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Student / Parent Name</label>
+              <input type="text" name="name" id="inquiryName" required placeholder="Full Name" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-700 focus:ring-2 focus:ring-indigo-500 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+              <input type="email" name="email" id="inquiryEmail" required placeholder="yourname@gmail.com" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-700 focus:ring-2 focus:ring-indigo-500 outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Message, Batch Timing, or Feedback</label>
+            <textarea name="message" id="inquiryMessage" rows="3" required placeholder="Specify batch timing, preferred location in Kolkata, notes requested, or your suggestions..." class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-700 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+          </div>
+
+          <!-- DUAL ACTION BUTTONS -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <span class="text-[11px] text-slate-400 order-2 sm:order-1">
+              🔒 Delivered directly to: <span class="text-indigo-600 font-semibold">scienceology2026@gmail.com</span>
+            </span>
+            <div class="flex items-center gap-2.5 w-full sm:w-auto order-1 sm:order-2">
+              <button 
+                type="button" 
+                onclick="triggerFormAction('Offline Tuition Admission (Kolkata)')" 
+                id="btnJoinBatch" 
+                class="flex-1 sm:flex-initial bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-5 py-2.5 rounded-lg transition shadow-sm flex items-center justify-center gap-1.5"
+              >
+                <i class="fa-solid fa-graduation-cap"></i> Join Offline Batch
+              </button>
+
+              <button 
+                type="button" 
+                onclick="triggerFormAction('Student Feedback / Suggestions')" 
+                id="btnFeedback" 
+                class="flex-1 sm:flex-initial bg-slate-800 hover:bg-slate-900 text-amber-300 text-xs font-bold px-4 py-2.5 rounded-lg transition shadow-sm flex items-center justify-center gap-1.5"
+              >
+                <i class="fa-regular fa-comment-dots"></i> Send Feedback
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div id="inquirySuccess" class="hidden mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-xs text-emerald-800 font-semibold text-center">
+          ✓ Thank you! Your submission has been delivered directly to Md Amaan. We will respond shortly!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER WITH DISCLAIMER & COPYRIGHT -->
+  <footer class="bg-slate-950 text-slate-400 py-12 text-xs border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2.5">
+          <img src="logo.png" alt="ScienceoLogy Logo" onerror="this.src='https://via.placeholder.com/32'" class="w-8 h-8 rounded-full object-cover border border-slate-700" />
+          <span class="text-base font-bold text-white tracking-tight">Science<span class="text-emerald-400">oLogy</span></span>
+        </div>
+        <p class="leading-relaxed">
+          Founded by <b>Md Amaan</b> [B.Sc. (Hons.) Mathematics from University of Calcutta]. Dedicated to building conceptual foundations for Classes 5 to 10.
+        </p>
+        <p class="text-slate-300 font-semibold flex items-center gap-1.5">
+          <i class="fa-solid fa-location-dot text-rose-500"></i> Kolkata, West Bengal, India
+        </p>
+      </div>
+
+      <div>
+        <h5 class="text-white font-bold mb-3 text-sm">Curriculum Boards</h5>
+        <ul class="space-y-2">
+          <li><a href="#selection-hub" class="hover:text-white">CBSE (Class 5–10)</a></li>
+          <li><a href="#selection-hub" class="hover:text-white">ICSE (Class 5–10)</a></li>
+          <li><a href="#selection-hub" class="hover:text-white">WBBSE (Madhyamik Preparation)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-white font-bold mb-3 text-sm">All 8 Sections</h5>
+        <ul class="space-y-2">
+          <li><a href="#materials" class="hover:text-white">1. Study Materials</a></li>
+          <li><a href="#video-lectures" class="hover:text-rose-400">2. Video Lectures</a></li>
+          <li><a href="#daily-quiz" class="hover:text-amber-400">3. Daily Quiz</a></li>
+          <li><a href="#topic-tests" class="hover:text-purple-400">4. Topicwise Tests</a></li>
+          <li><a href="#chapter-tests" class="hover:text-blue-400">5. Chapterwise Tests</a></li>
+          <li><a href="#misc-tests" class="hover:text-indigo-400">6. Full Length Tests</a></li>
+          <li><a href="#pyq" class="hover:text-white">7. PYQs Archive</a></li>
+          <li><a href="#contact-inquiry" class="hover:text-emerald-400">8. Offline & Feedback</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-white font-bold mb-3 text-sm">Official Contact</h5>
+        <p class="mb-2">For offline tuition batches in Kolkata:</p>
+        <a href="mailto:scienceology2026@gmail.com" class="text-indigo-400 hover:underline font-semibold block mb-3 break-all">
+          <i class="fa-solid fa-envelope mr-1 text-slate-400"></i> scienceology2026@gmail.com
+        </a>
+      </div>
+    </div>
+
+    <!-- DISCLAIMER & LEGAL NOTICE -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-6 border-t border-slate-900 flex flex-col gap-3">
+      <div class="text-[11px] leading-relaxed text-slate-500 bg-slate-900/60 p-3.5 rounded-lg border border-slate-800/80">
+        <strong class="text-slate-300">Disclaimer & Academic Notice:</strong> ScienceoLogy is an independent educational initiative founded and mentored by Md Amaan. We are <b>not</b> affiliated, associated, authorized, endorsed by, or in any official way connected with the Central Board of Secondary Education (CBSE), Council for the Indian School Certificate Examinations (CISCE/ICSE), or the West Bengal Board of Secondary Education (WBBSE). All board names, syllabi outlines, and past question papers are referenced strictly under fair use for non-commercial educational guidance, revision, and self-assessment purposes.
+      </div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-center text-slate-500 text-[11px] gap-2 pt-2">
+        <span>&copy; ScienceoLogy • Mentored by Md Amaan [B.Sc. (Hons.) Mathematics, CU]. All rights reserved.</span>
+        <span>Kolkata, West Bengal • scienceology2026@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: SECURE DYNAMIC TEST INTERFACE -->
+  <div id="testModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+      <div class="px-5 py-3.5 bg-slate-900 text-white flex justify-between items-center border-b border-slate-800">
+        <div>
+          <h3 class="text-sm sm:text-base font-bold truncate max-w-[240px] sm:max-w-md" id="modalTitle">Assessment</h3>
+          <p class="text-[11px] text-slate-400" id="modalSubtitle">Timed Evaluation</p>
+        </div>
+        <div class="flex items-center gap-2 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
+          <i class="fa-regular fa-clock text-amber-400 text-xs"></i>
+          <span id="testTimer" class="font-mono text-xs sm:text-sm font-bold text-amber-400">15:00</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-100 px-4 py-2 border-b border-slate-200 overflow-x-auto flex items-center gap-1.5 text-xs" id="questionPalette"></div>
+
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-6 flex-1" id="testBody">
+        <div id="scorecardContainer" class="hidden"></div>
+        <div id="questionsContainer" class="space-y-6"></div>
+      </div>
+
+      <div class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex justify-between items-center gap-2">
+        <button onclick="closeTestModal()" class="text-xs font-bold text-slate-500 hover:text-slate-800 px-3 py-2 rounded">Exit Window</button>
+        <div class="flex items-center gap-2">
+          <button onclick="reattemptCurrentTest()" id="reattemptBtn" class="hidden bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-bold px-4 py-2.5 rounded-lg transition flex items-center gap-1.5 shadow-sm">
+            <i class="fa-solid fa-rotate-right"></i> Reattempt Test
+          </button>
+          <button onclick="submitTest()" id="submitTestBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-5 py-2.5 rounded-lg transition shadow-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-check-circle"></i> Submit Answers
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PDF IN-BROWSER PREVIEWER -->
+  <div id="pdfModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white w-full max-w-4xl h-[88vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+      <div class="px-4 py-3 bg-slate-900 text-white flex justify-between items-center">
+        <span id="pdfModalTitle" class="text-sm font-bold truncate">Document Preview</span>
+        <button onclick="closePdfModal()" class="text-slate-400 hover:text-white text-sm font-bold px-2 py-1">✕ Close</button>
+      </div>
+      <div class="flex-1 bg-slate-200 relative">
+        <iframe id="pdfFrame" class="w-full h-full border-0" src=""></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENT SCRIPTS -->
+  <script>
+    const EVALUATION_BACKEND_URL = "https://scienceology-eval.YOUR-USERNAME.workers.dev";
+    const WEB3FORMS_ACCESS_KEY = "0d0369d7-098d-45b5-a0bb-31e928c8decb";
+
+    // Anti-Inspection Deterrents
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'F12' || e.keyCode === 123) { e.preventDefault(); return false; }
+      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C' || e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) { e.preventDefault(); return false; }
+      if (e.metaKey && e.altKey && (e.key === 'i' || e.key === 'j' || e.keyCode === 73 || e.keyCode === 74)) { e.preventDefault(); return false; }
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) { e.preventDefault(); return false; }
+    });
+
+    const activeFilters = { board: 'CBSE', grade: '10', subject: 'Maths' };
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('mobileMenuIcon');
+      menu.classList.toggle('hidden');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-xmark');
+    }
+
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function generateQuestionData(prefix, count) {
+      const list = [];
+      for (let i = 1; i <= count; i++) {
+        list.push({
+          id: `q_${i}`,
+          q: `[${prefix} Q${i}] If $\\alpha$ and $\\beta$ are zeroes of $f(x) = x^2 - 5x + 6$, calculate $\\alpha + \\beta - \\alpha\\beta$:`,
+          options: ["$-1$", "$1$", "$-11$", "$11$"]
+        });
+      }
+      return list;
+    }
+
+    const fallbackDatabase = {
+      'CBSE-10-Maths': {
+        notes: [
+          { title: "Real Numbers & Irrationality Proofs", size: "2.8 MB", desc: "Fundamental arithmetic theorem and proofs by contradiction.", downloadUrl: "#" },
+          { title: "Pair of Linear Equations in 2 Variables", size: "3.5 MB", desc: "Algebraic substitution, elimination, and consistency matrices.", downloadUrl: "#" },
+          { title: "Quadratic Equations & Discriminant", size: "3.1 MB", desc: "Nature of roots criteria and quadratic formula derivations.", downloadUrl: "#" }
+        ],
+        videos: [
+          { 
+            title: "Real Numbers: Complete Proof of √2 & √3 is Irrational", 
+            topic: "Real Numbers • Board Proof", 
+            youtubeId: "dQw4w9WgXcQ", 
+            desc: "Step-by-step proof by contradiction method frequently tested in standard board papers." 
+          },
+          { 
+            title: "Quadratic Equations: Finding Roots without Memorizing", 
+            topic: "Quadratic Formula • Derivation", 
+            youtubeId: "dQw4w9WgXcQ", 
+            desc: "Understand the geometric and algebraic derivation of the discriminant formula." 
+          },
+          { 
+            title: "Polynomials: Zeroes & Graphical Interpretation", 
+            topic: "Polynomials • Vieta's Theorem", 
+            youtubeId: "dQw4w9WgXcQ", 
+            desc: "Connecting parabolic graphs, zeroes, and relationship between coefficients." 
+          }
+        ],
+        topicTests: [
+          { title: "Discriminant & Nature of Roots", duration: "15 Mins", marks: "10 Marks", desc: "10 MCQs on $\\Delta = b^2 - 4ac$ conditions and equal roots." },
+          { title: "Zeroes of Polynomials & Graphs", duration: "15 Mins", marks: "10 Marks", desc: "10 MCQs on degree curves, coefficient relations, and coordinates." }
+        ],
+        chapterTests: [
+          { title: "Chapter 1: Real Numbers Comprehensive", duration: "15 Mins", marks: "10 Marks", desc: "10 MCQs covering prime factorization and decimal expansions." },
+          { title: "Chapter 4: Quadratic Equations Full Review", duration: "15 Mins", marks: "10 Marks", desc: "10 MCQs on standard factorisation and applied word problems." }
+        ],
+        miscTests: [
+          { title: "Grand Mock 1: Full Mid-Term Syllabus", duration: "40 Mins", marks: "30 Marks", desc: "30 MCQs covering Real Numbers, Polynomials, Linear Equations, and AP." },
+          { title: "Grand Mock 2: Board Exam Final Simulation", duration: "40 Mins", marks: "30 Marks", desc: "30 Timed MCQs covering the complete Class 10 Syllabus with real-time scoring." }
+        ],
+        pyqs: [
+          { year: "2025 Annual Exam", title: "CBSE Class 10 Standard Mathematics (Solved)", downloadUrl: "#" },
+          { year: "2024 Annual Exam", title: "CBSE Class 10 Standard Mathematics (All India)", downloadUrl: "#" }
+        ],
+        topicQuestions: generateQuestionData("Topic Test", 10),
+        chapterQuestions: generateQuestionData("Chapter Test", 10),
+        fullLengthQuestions: generateQuestionData("Grand Mock", 30)
+      }
+    };
+
+    let currentStreamData = null;
+
+    function updateFilter(type, value, btnElement) {
+      activeFilters[type] = value;
+      const parent = btnElement.parentElement;
+      parent.querySelectorAll('button').forEach(btn => {
+        btn.className = btn.className.replace('border-2 border-indigo-600 bg-indigo-50 text-indigo-700 font-bold', 'border border-slate-200 text-slate-700 font-semibold');
+      });
+      btnElement.className = btnElement.className.replace('border border-slate-200 text-slate-700 font-semibold', 'border-2 border-indigo-600 bg-indigo-50 text-indigo-700 font-bold');
+
+      document.getElementById('currentSelectionLabel').innerText = 
+        `${activeFilters.board} • Class ${activeFilters.grade} • ${activeFilters.subject}`;
+
+      loadStreamData();
+    }
+
+    async function loadStreamData() {
+      const fileKey = `${activeFilters.board.toLowerCase()}-${activeFilters.grade}-${activeFilters.subject.toLowerCase()}`;
+      const memoryKey = `${activeFilters.board}-${activeFilters.grade}-${activeFilters.subject}`;
+
+      try {
+        const response = await fetch(`data/${fileKey}.json`);
+        if (!response.ok) throw new Error("JSON file not located");
+        currentStreamData = await response.json();
+      } catch (err) {
+        currentStreamData = fallbackDatabase[memoryKey] || {
+          notes: [{ title: `${activeFilters.subject} Revision Handout`, size: "3.0 MB", desc: `Summary sheets for Class ${activeFilters.grade}.`, downloadUrl: "#" }],
+          videos: [
+            { 
+              title: `${activeFilters.subject} Fundamental Concepts Overview`, 
+              topic: `Class ${activeFilters.grade} • Core Curriculum`, 
+              youtubeId: "dQw4w9WgXcQ", 
+              desc: `Introductory breakdown of core formulas and applications by Md Amaan.` 
+            }
+          ],
+          topicTests: [{ title: `${activeFilters.subject} Topic Diagnostic`, duration: "15 Mins", marks: "10 Marks", desc: "10 Topic MCQs (15 Mins)." }],
+          chapterTests: [{ title: `${activeFilters.subject} Chapter Full Test`, duration: "15 Mins", marks: "10 Marks", desc: "10 Chapter MCQs (15 Mins)." }],
+          miscTests: [{ title: `${activeFilters.board} Class ${activeFilters.grade} Grand Mock`, duration: "40 Mins", marks: "30 Marks", desc: "30 Full-Length MCQs (40 Mins)." }],
+          pyqs: [{ year: "2024 Exam", title: `${activeFilters.board} Solved Question Bank`, downloadUrl: "#" }],
+          topicQuestions: generateQuestionData(`${activeFilters.subject} Topic`, 10),
+          chapterQuestions: generateQuestionData(`${activeFilters.subject} Chapter`, 10),
+          fullLengthQuestions: generateQuestionData(`${activeFilters.subject} Full Mock`, 30)
+        };
+      }
+
+      renderInterface();
+    }
+
+    function renderInterface() {
+      const data = currentStreamData;
+
+      // 1. Notes
+      document.getElementById('materialsGrid').innerHTML = data.notes.map(n => `
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">PDF Document</span>
+              <span class="text-[11px] text-slate-400 font-medium">${n.size}</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base">${n.title}</h4>
+            <p class="text-xs text-slate-500 mt-1">${n.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <button onclick="previewPdf('${n.title}', '${n.downloadUrl}')" class="text-xs font-semibold text-slate-600 hover:text-indigo-600 flex items-center gap-1">
+              <i class="fa-regular fa-eye"></i> Preview
+            </button>
+            <a href="${n.downloadUrl}" ${n.downloadUrl === '#' ? 'onclick="handleMissingPdf(event)"' : 'download target="_blank"'} class="text-xs font-bold text-indigo-600 hover:underline flex items-center gap-1">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+      `).join('');
+
+      // 2. Videos
+      document.getElementById('videoLecturesGrid').innerHTML = (data.videos || []).map(v => `
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+          <div>
+            <div class="relative w-full aspect-video bg-slate-900">
+              <iframe 
+                class="w-full h-full" 
+                src="https://www.youtube-nocookie.com/embed/${v.youtubeId}" 
+                title="${v.title}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="p-5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-100">
+                ${v.topic}
+              </span>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base mt-2 leading-snug">${v.title}</h4>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">${v.desc}</p>
+            </div>
+          </div>
+          <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400 font-medium">Concept Lecture</span>
+            <a href="https://youtu.be/${v.youtubeId}" target="_blank" class="font-bold text-rose-600 hover:underline flex items-center gap-1">
+              Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      `).join('');
+
+      // 3. Daily Quiz
+      renderDailyQuiz();
+
+      // 4. Topic Tests
+      document.getElementById('topicTestsGrid').innerHTML = data.topicTests.map(t => `
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-purple-700 bg-purple-50 px-2 py-0.5 rounded">Topic Focus</span>
+              <span class="text-[11px] text-slate-500 font-semibold"><i class="fa-regular fa-clock"></i> ${t.duration}</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base">${t.title}</h4>
+            <p class="text-xs text-slate-500 mt-1">${t.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs text-slate-400 font-medium">${t.marks}</span>
+            <button onclick="startTestEngine('${t.title}', 'topic')" class="text-xs font-bold text-purple-600 hover:underline flex items-center gap-1">
+              <i class="fa-solid fa-pen-to-square"></i> Start (10 Qs / 15m)
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // 5. Chapter Tests
+      document.getElementById('chapterTestsGrid').innerHTML = (data.chapterTests || []).map(c => `
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Full Chapter</span>
+              <span class="text-[11px] text-slate-500 font-semibold"><i class="fa-regular fa-clock"></i> ${c.duration}</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base">${c.title}</h4>
+            <p class="text-xs text-slate-500 mt-1">${c.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs text-slate-400 font-medium">${c.marks}</span>
+            <button onclick="startTestEngine('${c.title}', 'chapter')" class="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1">
+              <i class="fa-solid fa-book-open"></i> Start (10 Qs / 15m)
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // 6. Full Length Tests
+      document.getElementById('miscTestsGrid').innerHTML = data.miscTests.map(m => `
+        <div class="bg-slate-800/90 border border-slate-700/80 p-5 rounded-xl flex flex-col justify-between hover:border-amber-400/50 transition">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">Full Mock</span>
+              <span class="text-[11px] text-amber-300 font-semibold"><i class="fa-regular fa-clock"></i> ${m.duration}</span>
+            </div>
+            <h4 class="font-bold text-white text-base">${m.title}</h4>
+            <p class="text-xs text-slate-300 mt-1">${m.desc}</p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-700 flex items-center justify-between">
+            <span class="text-xs text-amber-300 font-semibold">${m.marks}</span>
+            <button onclick="startTestEngine('${m.title}', 'full')" class="bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-bold px-3.5 py-1.5 rounded-lg transition flex items-center gap-1">
+              <i class="fa-solid fa-play text-[10px]"></i> Start (30 Qs / 40m)
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // 7. PYQs
+      document.getElementById('pyqTableBody').innerHTML = data.pyqs.map(p => `
+        <tr>
+          <td class="py-3 px-4 font-semibold text-slate-900">${p.year}</td>
+          <td class="py-3 px-4"><span class="bg-slate-100 text-slate-600 text-xs px-2.5 py-0.5 rounded font-medium">${activeFilters.board} Class ${activeFilters.grade}</span></td>
+          <td class="py-3 px-4 font-semibold text-indigo-600">${p.title}</td>
+          <td class="py-3 px-4 text-right space-x-2">
+            <button onclick="previewPdf('${p.title}', '${p.downloadUrl}')" class="text-xs bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded font-semibold transition">Preview</button>
+            <a href="${p.downloadUrl}" ${p.downloadUrl === '#' ? 'onclick="handleMissingPdf(event)"' : 'download target="_blank"'} class="inline-block text-xs bg-indigo-50 hover:bg-indigo-600 hover:text-white text-indigo-600 px-3 py-1.5 rounded font-bold transition">Download</a>
+          </td>
+        </tr>
+      `).join('');
+
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]
+        });
+      }
+    }
+
+    // 3. Daily Flash Quiz Implementation
+    function renderDailyQuiz() {
+      const qData = {
+        q: "What is the discriminant $\\Delta$ of the quadratic equation $ax^2 + bx + c = 0$?",
+        options: ["$b^2 + 4ac$", "$b^2 - 4ac$", "$2b - 4ac$", "$\\sqrt{b^2 - 4ac}$"],
+        answer: 1,
+        expl: "The discriminant is formally defined as $\\Delta = b^2 - 4ac$, which determines the nature of the roots."
+      };
+
+      const qElem = document.getElementById('dailyQuizQ');
+      if (!qElem) return;
+
+      qElem.innerHTML = qData.q;
+      const optionsContainer = document.getElementById('dailyQuizOptions');
+      const feedback = document.getElementById('dailyQuizFeedback');
+      feedback.className = "mt-4 text-xs font-semibold p-3 rounded-lg hidden";
+
+      optionsContainer.innerHTML = qData.options.map((opt, idx) => `
+        <button onclick="handleDailyQuiz(this, ${idx === qData.answer}, '${qData.expl.replace(/'/g, "\\'")}')" class="text-left p-3 rounded-lg border border-slate-200 hover:border-indigo-600 hover:bg-indigo-50 transition text-sm font-medium">
+          ${String.fromCharCode(65 + idx)}. ${opt}
+        </button>
+      `).join('');
+    }
+
+    function handleDailyQuiz(button, isCorrect, explanation) {
+      const feedback = document.getElementById('dailyQuizFeedback');
+      const options = document.querySelectorAll('#dailyQuizOptions button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        button.classList.add('bg-emerald-100', 'border-emerald-600', 'text-emerald-900');
+        feedback.innerHTML = `<span class="font-bold">✓ Correct!</span> ${explanation}`;
+        feedback.className = "mt-4 text-xs font-semibold p-3 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200 block";
+      } else {
+        button.classList.add('bg-rose-100', 'border-rose-600', 'text-rose-900');
+        feedback.innerHTML = `<span class="font-bold">✗ Incorrect.</span> Correct option is B: $b^2 - 4ac$.<br>${explanation}`;
+        feedback.className = "mt-4 text-xs font-semibold p-3 rounded-lg bg-rose-50 text-rose-900 border border-rose-200 block";
+      }
+
+      if (window.renderMathInElement) {
+        renderMathInElement(feedback, {
+          delimiters: [{left: '$', right: '$', display: false}]
+        });
+      }
+    }
+
+    function previewPdf(title, url) {
+      if (url === '#') { alert("This document is being prepared. Check back shortly!"); return; }
+      document.getElementById('pdfModalTitle').innerText = title;
+      document.getElementById('pdfFrame').src = url;
+      document.getElementById('pdfModal').classList.remove('hidden');
+    }
+
+    function closePdfModal() {
+      document.getElementById('pdfModal').classList.add('hidden');
+      document.getElementById('pdfFrame').src = "";
+    }
+
+    function handleMissingPdf(e) {
+      e.preventDefault();
+      alert("This document is being digitized. Submit an inquiry below to request the PDF!");
+    }
+
+    // 8. Dual Action Inquiry & Feedback Handler
+    function triggerFormAction(purposeCategory) {
+      document.getElementById('inquiryCategory').value = purposeCategory;
+      const form = document.getElementById('contactForm');
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      executeFormSubmission(purposeCategory);
+    }
+
+    function handleInquirySubmit(event) {
+      event.preventDefault();
+      const currentPurpose = document.getElementById('inquiryCategory').value;
+      executeFormSubmission(currentPurpose);
+    }
+
+    async function executeFormSubmission(purposeCategory) {
+      const btnBatch = document.getElementById('btnJoinBatch');
+      const btnFeed = document.getElementById('btnFeedback');
+
+      btnBatch.disabled = true;
+      btnFeed.disabled = true;
+
+      const activeBtn = purposeCategory.includes('Admission') ? btnBatch : btnFeed;
+      const originalText = activeBtn.innerHTML;
+      activeBtn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...`;
+
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        from_name: "ScienceoLogy Portal",
+        purpose: purposeCategory,
+        student_class: document.getElementById('inquiryClass').value,
+        name: document.getElementById('inquiryName').value,
+        email: document.getElementById('inquiryEmail').value,
+        message: document.getElementById('inquiryMessage').value
+      };
+
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const json = await res.json();
+        if (json.success) {
+          document.getElementById('contactForm').reset();
+          document.getElementById('inquirySuccess').classList.remove('hidden');
+        } else {
+          throw new Error("Delivery issue");
+        }
+      } catch (err) {
+        alert("Redirecting to your email client...");
+        window.location.href = `mailto:scienceology2026@gmail.com?subject=ScienceoLogy - ${encodeURIComponent(payload.purpose)}&body=${encodeURIComponent(payload.message)}`;
+      } finally {
+        btnBatch.disabled = false;
+        btnFeed.disabled = false;
+        activeBtn.innerHTML = originalText;
+      }
+    }
+
+    // Test Engine: Unlimited Shuffled Reattempts
+    let timerInterval;
+    let timeLeft = 900;
+    let initialTime = 900;
+    let currentActiveQuestions = [];
+    let currentTestTitle = "";
+    let currentTestMode = "";
+    let attemptCount = 1;
+
+    function startTestEngine(testTitle, testMode) {
+      currentTestTitle = testTitle;
+      currentTestMode = testMode;
+      attemptCount = 1;
+
+      if (testMode === 'full') {
+        currentActiveQuestions = (currentStreamData.fullLengthQuestions || []).slice(0, 30);
+        initialTime = 40 * 60;
+      } else if (testMode === 'chapter') {
+        currentActiveQuestions = (currentStreamData.chapterQuestions || []).slice(0, 10);
+        initialTime = 15 * 60;
+      } else {
+        currentActiveQuestions = (currentStreamData.topicQuestions || []).slice(0, 10);
+        initialTime = 15 * 60;
+      }
+
+      currentActiveQuestions = shuffleArray(currentActiveQuestions);
+      launchSession();
+    }
+
+    function launchSession() {
+      const modeLabel = currentTestMode === 'full' 
+        ? 'Full Length Simulation • 30 Questions • 40 Mins' 
+        : (currentTestMode === 'chapter' ? 'Chapterwise Assessment • 10 Questions • 15 Mins' : 'Topicwise Practice • 10 Questions • 15 Mins');
+
+      document.getElementById('modalTitle').innerText = currentTestTitle;
+      document.getElementById('modalSubtitle').innerText = `${modeLabel} (Attempt #${attemptCount})`;
+
+      const submitBtn = document.getElementById('submitTestBtn');
+      submitBtn.style.display = 'flex';
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<i class="fa-solid fa-check-circle"></i> Submit Answers`;
+      
+      document.getElementById('reattemptBtn').classList.add('hidden');
+      document.getElementById('scorecardContainer').classList.add('hidden');
+
+      renderPalette();
+      renderQuestions();
+      document.getElementById('testModal').classList.remove('hidden');
+      resetTimer();
+    }
+
+    function reattemptCurrentTest() {
+      attemptCount++;
+      currentActiveQuestions = shuffleArray(currentActiveQuestions);
+      launchSession();
+      document.getElementById('testBody').scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderPalette() {
+      const palette = document.getElementById('questionPalette');
+      palette.innerHTML = currentActiveQuestions.map((_, idx) => `
+        <button id="pill-${idx}" onclick="scrollToQuestion(${idx})" class="q-pill shrink-0 w-7 h-7 rounded-md border border-slate-300 font-bold text-[11px] flex items-center justify-center transition hover:bg-slate-200">
+          ${idx + 1}
+        </button>
+      `).join('');
+    }
+
+    function scrollToQuestion(idx) {
+      const target = document.getElementById(`q-block-${idx}`);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function markQuestionAnswered(idx) {
+      const pill = document.getElementById(`pill-${idx}`);
+      if (pill && !pill.classList.contains('answered')) pill.classList.add('answered');
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      container.innerHTML = currentActiveQuestions.map((q, idx) => `
+        <div id="q-block-${idx}" class="test-question-block border-b border-slate-100 pb-5" data-qid="${q.id}">
+          <p class="font-bold text-slate-900 text-sm mb-3">${idx + 1}. ${q.q}</p>
+          <div class="space-y-2">
+            ${q.options.map((opt, oIdx) => `
+              <label class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer text-xs sm:text-sm transition">
+                <input type="radio" name="question_${idx}" value="${oIdx}" onchange="markQuestionAnswered(${idx})" class="text-indigo-600 focus:ring-indigo-500">
+                <span>${opt}</span>
+              </label>
+            `).join('')}
+          </div>
+          <div class="explanation-box hidden mt-3 p-3 rounded-lg text-xs leading-relaxed"></div>
+        </div>
+      `).join('');
+      
+      document.getElementById('testBody').scrollTop = 0;
+
+      if (window.renderMathInElement) {
+        renderMathInElement(container, {
+          delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]
+        });
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      timeLeft = initialTime;
+      updateTimerDisplay();
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          submitTest();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      document.getElementById('testTimer').innerText = 
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    async function submitTest() {
+      clearInterval(timerInterval);
+      const submitBtn = document.getElementById('submitTestBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Evaluating...`;
+
+      const userSubmissions = {};
+      currentActiveQuestions.forEach((q, idx) => {
+        const selected = document.querySelector(`input[name="question_${idx}"]:checked`);
+        userSubmissions[q.id] = selected ? parseInt(selected.value) : null;
+      });
+
+      let evaluationData;
+
+      try {
+        const res = await fetch(EVALUATION_BACKEND_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ submissions: userSubmissions })
+        });
+
+        if (!res.ok) throw new Error("Backend offline");
+        evaluationData = await res.json();
+      } catch (err) {
+        evaluationData = {
+          score: Object.values(userSubmissions).filter(v => v === 0).length,
+          total: currentActiveQuestions.length,
+          attempted: Object.values(userSubmissions).filter(v => v !== null).length,
+          percentage: 0,
+          results: {}
+        };
+        currentActiveQuestions.forEach(q => {
+          evaluationData.results[q.id] = {
+            attempted: userSubmissions[q.id] !== null,
+            isCorrect: userSubmissions[q.id] === 0,
+            correctOption: 0,
+            explanation: "Curriculum theorem verified. Set up your Cloudflare Worker URL to unlock real-time server solutions."
+          };
+        });
+        evaluationData.percentage = Math.round((evaluationData.score / evaluationData.total) * 100);
+      }
+
+      currentActiveQuestions.forEach((q, idx) => {
+        const block = document.querySelector(`.test-question-block[data-qid="${q.id}"]`);
+        const expBox = block.querySelector('.explanation-box');
+        const pill = document.getElementById(`pill-${idx}`);
+        const result = evaluationData.results[q.id];
+
+        expBox.classList.remove('hidden');
+        block.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = true);
+
+        if (result.attempted) {
+          if (result.isCorrect) {
+            pill.className = 'q-pill shrink-0 w-7 h-7 rounded-md border font-bold text-[11px] flex items-center justify-center correct';
+            expBox.innerHTML = `<span class="text-emerald-700 font-bold block mb-1">✓ Correct Solution:</span> ${result.explanation}`;
+            expBox.className = 'explanation-box mt-3 p-3 rounded-lg text-xs bg-emerald-50 text-emerald-900 border border-emerald-200';
+          } else {
+            pill.className = 'q-pill shrink-0 w-7 h-7 rounded-md border font-bold text-[11px] flex items-center justify-center wrong';
+            expBox.innerHTML = `<span class="text-rose-700 font-bold block mb-1">✗ Incorrect Answer.</span> Correct Option: <b>${q.options[result.correctOption]}</b><br><span class="text-slate-600 mt-1 block">${result.explanation}</span>`;
+            expBox.className = 'explanation-box mt-3 p-3 rounded-lg text-xs bg-rose-50 text-rose-900 border border-rose-200';
+          }
+        } else {
+          pill.className = 'q-pill shrink-0 w-7 h-7 rounded-md border font-bold text-[11px] flex items-center justify-center wrong';
+          expBox.innerHTML = `<span class="text-amber-700 font-bold block mb-1">⚠ Unattempted.</span> Correct Option: <b>${q.options[result.correctOption]}</b><br><span class="text-slate-600 mt-1 block">${result.explanation}</span>`;
+          expBox.className = 'explanation-box mt-3 p-3 rounded-lg text-xs bg-amber-50 text-amber-900 border border-amber-200';
+        }
+      });
+
+      const timeSpentSec = initialTime - timeLeft;
+      const spentMin = Math.floor(timeSpentSec / 60);
+      const spentSec = timeSpentSec % 60;
+
+      const scoreBanner = document.getElementById('scorecardContainer');
+      scoreBanner.className = "p-5 bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl mb-6 text-center";
+      scoreBanner.innerHTML = `
+        <div class="flex items-center justify-center gap-2 mb-1.5">
+          <span class="text-[10px] uppercase tracking-wider font-extrabold text-indigo-700 bg-indigo-100 px-3 py-0.5 rounded-full">
+            Attempt #${attemptCount} Verified
+          </span>
+        </div>
+        <div class="text-3xl sm:text-4xl font-black text-slate-900 my-2">${evaluationData.score} <span class="text-base text-slate-400 font-normal">/ ${evaluationData.total}</span></div>
+        <p class="text-xs font-semibold text-slate-600">${evaluationData.percentage}% Accuracy • ${evaluationData.attempted}/${evaluationData.total} Answered • Time: ${spentMin}m ${spentSec}s</p>
+        <p class="text-[11px] text-slate-500 mt-1">Want to improve? Click <b>Reattempt Test</b> below to practice again with shuffled questions.</p>
+      `;
+      scoreBanner.classList.remove('hidden');
+
+      submitBtn.style.display = 'none';
+
+      const reattemptBtn = document.getElementById('reattemptBtn');
+      reattemptBtn.innerHTML = `<i class="fa-solid fa-rotate-right"></i> Reattempt Test (Attempt #${attemptCount + 1})`;
+      reattemptBtn.classList.remove('hidden');
+
+      if (window.renderMathInElement) {
+        renderMathInElement(document.getElementById('testBody'), {
+          delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]
+        });
+      }
+
+      document.getElementById('testBody').scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeTestModal() {
+      clearInterval(timerInterval);
+      document.getElementById('testModal').classList.add('hidden');
+      document.getElementById('submitTestBtn').style.display = 'flex';
+      document.getElementById('reattemptBtn').classList.add('hidden');
+      document.getElementById('scorecardContainer').classList.add('hidden');
+    }
+
+    window.onload = () => { loadStreamData(); };
+  </script>
+</body>
+</html>

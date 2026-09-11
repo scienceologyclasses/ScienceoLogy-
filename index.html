@@ -9,7 +9,6 @@
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-  <!-- Logo Favicon -->
   <link rel="icon" type="image/png" href="logo.png" />
   
   <!-- Fonts -->
@@ -81,19 +80,19 @@
 
   <div class="flex-1 w-full">
 
-    <!-- TOP HEADER -->
+    <!-- TOP HEADER (CLEAN MOBILE ERGONOMICS) -->
     <header class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800/80 px-4 py-2.5">
       <div class="max-w-4xl mx-auto flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold text-xs">
+        <div class="flex items-center gap-2.5 truncate">
+          <div class="w-7 h-7 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold text-xs shrink-0">
             <i class="fa-solid fa-graduation-cap"></i>
           </div>
-          <div>
-            <div class="text-[10px] text-slate-400 font-medium leading-none">Welcome Student 👋</div>
-            <div class="text-xs font-bold text-white tracking-wide">ScienceoLogy Learning Portal</div>
+          <div class="truncate">
+            <span class="text-xs font-bold text-white tracking-wide">Welcome Student 👋</span>
+            <span class="hidden sm:inline text-[10px] text-slate-400 font-medium ml-1.5">• ScienceoLogy Portal</span>
           </div>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 shrink-0">
           <span class="inline-flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-700/50 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
             Academic Session
@@ -102,16 +101,19 @@
       </div>
     </header>
 
-    <!-- NAVIGATION BAR (LOGO INTEGRATED) -->
+    <!-- NAVIGATION BAR -->
     <nav class="bg-brandDark/95 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-40 transition-all">
       <div class="max-w-4xl mx-auto px-4 flex justify-between h-16 items-center">
         <div onclick="navigateToHome()" class="flex items-center gap-3 cursor-pointer group">
-          <img 
-            src="logo.png" 
-            alt="ScienceoLogy Logo" 
-            onerror="this.onerror=null; this.src='https://via.placeholder.com/40x40/0E1626/06B6D4?text=S';"
-            class="w-10 h-10 rounded-full object-cover border border-slate-700 shadow-md group-hover:scale-105 transition"
-          />
+          <div class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shadow-md group-hover:scale-105 transition shrink-0">
+            <img 
+              src="logo.png" 
+              alt="ScienceoLogy Logo" 
+              onerror="this.onerror=null; this.src='1000127927_2.png'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};"
+              class="w-full h-full object-cover"
+            />
+            <div class="hidden w-full h-full bg-cyan-500/10 text-cyan-400 font-black items-center justify-center text-sm">S</div>
+          </div>
           <div>
             <span class="text-xl font-black tracking-tight text-white block leading-none">
               Science<span class="text-accentCyan">oLogy</span>
@@ -133,33 +135,35 @@
     <!-- ============================================================== -->
     <main id="home-screen" class="space-y-6 pb-12">
       
-      <!-- SPOTLIGHT HEADER (MENTOR & FOUNDER PHOTO INTEGRATED) -->
+      <!-- HERO SPOTLIGHT SECTION (RESPONSIVE ALIGNMENT & NO TEXT CLIPPING) -->
       <section class="max-w-4xl mx-auto px-4 pt-6">
-        <div class="relative overflow-hidden bg-gradient-to-br from-surfaceDark via-cardDark to-surfaceDark border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+        <div class="relative overflow-hidden bg-gradient-to-br from-surfaceDark via-cardDark to-surfaceDark border border-slate-800 rounded-3xl p-5 sm:p-7 shadow-2xl">
           <div class="absolute -top-16 -right-16 w-56 h-56 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
             
-            <div class="text-center sm:text-left space-y-3.5 flex-1">
-              <div class="inline-flex items-center gap-2 bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 text-[11px] font-extrabold uppercase px-3.5 py-1 rounded-full tracking-wider">
+            <div class="text-center md:text-left space-y-3.5 flex-1 order-2 md:order-1">
+              <div class="inline-flex items-center gap-2 bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 text-[10px] sm:text-[11px] font-extrabold uppercase px-3 py-1 rounded-full tracking-wider">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
                 Educational Platform
               </div>
 
+              <!-- EXACT HEADER TITLE -->
               <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
-                Master Maths & Science with <br />
+                Master Maths & Science with <br class="hidden sm:inline" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
                   ScienceoLogy
                 </span>
               </h1>
 
+              <!-- EXACT DESCRIPTION (PUNCTUATION CLEANED) -->
               <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
-                ScienceoLogy is founded and mentored by <b>Md. Amaan</b> [B.Sc. (Hons.) Mathematics, University of Calcutta]. Built to deliver free study materials, video lectures, daily quiz, test series and pyqs of Classes 5-10 across CBSE, ICSE, and WBBSE.
+                ScienceoLogy is founded and mentored by <b>Md. Amaan</b> [B.Sc. (Hons.) Mathematics, University of Calcutta]. Built to deliver free study materials, video lectures, daily quiz, test series, and PYQs of Classes 5–10 across CBSE, ICSE, and WBBSE.
               </p>
 
               <!-- Metric Badges -->
-              <div class="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2 text-[11px] font-semibold text-slate-300">
+              <div class="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-2 text-[11px] font-semibold text-slate-300">
                 <span class="bg-brandDark/80 border border-slate-800 px-3 py-1 rounded-lg">
                   <i class="fa-solid fa-graduation-cap text-cyan-400 mr-1"></i> CU Alumnus
                 </span>
@@ -173,29 +177,29 @@
             </div>
 
             <!-- Founder & Mentor Photo Avatar -->
-            <div class="shrink-0 flex flex-col items-center">
+            <div class="shrink-0 flex flex-col items-center order-1 md:order-2">
               <div class="relative group">
                 <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-600 opacity-70 blur group-hover:opacity-100 transition duration-300"></div>
-                <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-brandDark p-1 border-2 border-slate-700 shadow-2xl overflow-hidden">
+                <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-slate-900 p-1 border-2 border-slate-700 shadow-2xl overflow-hidden flex items-center justify-center">
                   <img 
                     src="mentor.jpg" 
                     alt="Md Amaan - Founder & Mentor" 
-                    onerror="this.onerror=null; this.src='mentor.png';"
-                    class="w-full h-full object-cover object-center rounded-full group-hover:scale-105 transition"
+                    onerror="this.onerror=null; this.src='mentor.png'; this.onerror=function(){this.src='mentor.webp'; this.onerror=function(){this.src='1000031206.webp';};};"
+                    class="w-full h-full object-cover object-top rounded-full group-hover:scale-105 transition duration-300"
                   />
                 </div>
               </div>
-              <span class="text-xs font-extrabold text-white mt-3 flex items-center gap-1">
+              <span class="text-xs font-extrabold text-white mt-2.5 flex items-center gap-1.5">
                 Md Amaan <i class="fa-solid fa-circle-check text-cyan-400 text-[10px]"></i>
               </span>
-              <span class="text-[10px] text-cyan-400 font-semibold">Founder & Mentor</span>
+              <span class="text-[10px] text-cyan-400 font-semibold uppercase tracking-wider">Founder & Mentor</span>
             </div>
 
           </div>
         </div>
       </section>
 
-      <!-- 1. BOARD & CLASS FILTER -->
+      <!-- 1. BOARD & CLASS FILTER (ENHANCED TOUCH TARGETS) -->
       <section class="max-w-4xl mx-auto px-4">
         <div class="bg-surfaceDark border border-slate-800 rounded-3xl p-5 shadow-lg">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800/80">
@@ -203,7 +207,7 @@
               <span class="text-[10px] font-extrabold uppercase tracking-widest text-cyan-400">Curriculum Filter</span>
               <h2 class="text-base font-black text-white">Target Your Board & Class</h2>
             </div>
-            <div id="currentSelectionLabel" class="text-xs font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-800/60 px-3 py-1 rounded-full self-start sm:self-auto">
+            <div id="currentSelectionLabel" class="text-xs font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-800/60 px-3.5 py-1 rounded-full self-start sm:self-auto">
               CBSE • Class 10 • Maths
             </div>
           </div>
@@ -213,13 +217,13 @@
             <div>
               <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Select Board</label>
               <div class="grid grid-cols-3 gap-1.5 bg-cardDark p-1.5 rounded-2xl border border-slate-800">
-                <button onclick="updateFilter('board', 'CBSE', this)" class="filter-btn py-2 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 shadow-md transition flex items-center justify-center gap-1.5">
+                <button onclick="updateFilter('board', 'CBSE', this)" class="filter-btn py-2.5 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 shadow-md transition flex items-center justify-center gap-1.5">
                   <i class="fa-solid fa-landmark text-[10px]"></i> CBSE
                 </button>
-                <button onclick="updateFilter('board', 'ICSE', this)" class="filter-btn py-2 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5">
+                <button onclick="updateFilter('board', 'ICSE', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5">
                   <i class="fa-solid fa-graduation-cap text-[10px]"></i> ICSE
                 </button>
-                <button onclick="updateFilter('board', 'WBBSE', this)" class="filter-btn py-2 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5">
+                <button onclick="updateFilter('board', 'WBBSE', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5">
                   <i class="fa-solid fa-book-open text-[10px]"></i> WBBSE
                 </button>
               </div>
@@ -229,19 +233,19 @@
             <div>
               <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Select Class</label>
               <div class="grid grid-cols-6 gap-1 bg-cardDark p-1.5 rounded-2xl border border-slate-800 text-center">
-                <button onclick="updateFilter('grade', '5', this)" class="filter-btn py-2 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">5</button>
-                <button onclick="updateFilter('grade', '6', this)" class="filter-btn py-2 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">6</button>
-                <button onclick="updateFilter('grade', '7', this)" class="filter-btn py-2 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">7</button>
-                <button onclick="updateFilter('grade', '8', this)" class="filter-btn py-2 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">8</button>
-                <button onclick="updateFilter('grade', '9', this)" class="filter-btn py-2 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">9</button>
-                <button onclick="updateFilter('grade', '10', this)" class="filter-btn py-2 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 shadow-md transition">10</button>
+                <button onclick="updateFilter('grade', '5', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">5</button>
+                <button onclick="updateFilter('grade', '6', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">6</button>
+                <button onclick="updateFilter('grade', '7', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">7</button>
+                <button onclick="updateFilter('grade', '8', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">8</button>
+                <button onclick="updateFilter('grade', '9', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">9</button>
+                <button onclick="updateFilter('grade', '10', this)" class="filter-btn py-2.5 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 shadow-md transition">10</button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 2. LARGE ATTRACTIVE SUBJECT BUTTONS -->
+      <!-- 2. LARGE ATTRACTIVE SUBJECT BUTTONS (TYPO FIXED: MATHEMATICS) -->
       <section class="max-w-4xl mx-auto px-4">
         <div class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
           <span class="w-1.5 h-4 rounded-full bg-cyan-400"></span> Select Subject Focus
@@ -258,7 +262,7 @@
               <span class="sub-status text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-cyan-500 text-slate-950">Active</span>
             </div>
             <div class="mt-6">
-              <h3 class="text-lg font-black text-white leading-tight">Mathematics</h3>
+              <h3 class="text-base sm:text-lg font-black text-white leading-tight">Mathematics</h3>
               <p class="text-xs text-slate-400 mt-1">Arithmetic, Algebra & Geometry</p>
             </div>
             <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
@@ -278,7 +282,7 @@
               <span class="sub-status hidden text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-purple-500 text-white">Active</span>
             </div>
             <div class="mt-6">
-              <h3 class="text-lg font-black text-white leading-tight">Physics</h3>
+              <h3 class="text-base sm:text-lg font-black text-white leading-tight">Physics</h3>
               <p class="text-xs text-slate-400 mt-1">Mechanics, Optics & Energy</p>
             </div>
             <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
@@ -298,7 +302,7 @@
               <span class="sub-status hidden text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-500 text-slate-950">Active</span>
             </div>
             <div class="mt-6">
-              <h3 class="text-lg font-black text-white leading-tight">Chemistry</h3>
+              <h3 class="text-base sm:text-lg font-black text-white leading-tight">Chemistry</h3>
               <p class="text-xs text-slate-400 mt-1">Reactions, Acids & Formulas</p>
             </div>
             <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
@@ -318,7 +322,7 @@
               <span class="sub-status hidden text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-rose-500 text-white">Active</span>
             </div>
             <div class="mt-6">
-              <h3 class="text-lg font-black text-white leading-tight">Biology</h3>
+              <h3 class="text-base sm:text-lg font-black text-white leading-tight">Biology</h3>
               <p class="text-xs text-slate-400 mt-1">Life Processes & Diagrams</p>
             </div>
             <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
@@ -332,7 +336,7 @@
         </div>
       </section>
 
-      <!-- 3. LARGE APP-STYLE CORE ACTION CARDS -->
+      <!-- 3. LARGE CORE MODULE ACTION CARDS -->
       <section class="max-w-4xl mx-auto px-4 pt-2">
         <div class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
           <span class="w-1.5 h-4 rounded-full bg-indigo-500"></span> Core Learning Modules
@@ -673,7 +677,14 @@
     <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
       <div class="space-y-3">
         <div class="flex items-center gap-2.5">
-          <img src="logo.png" alt="ScienceoLogy Logo" onerror="this.src='https://via.placeholder.com/32'" class="w-8 h-8 rounded-full object-cover border border-slate-700" />
+          <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shadow-md shrink-0">
+            <img 
+              src="logo.png" 
+              alt="ScienceoLogy Logo" 
+              onerror="this.onerror=null; this.src='1000127927_2.png'; this.onerror=function(){this.style.display='none';};"
+              class="w-full h-full object-cover" 
+            />
+          </div>
           <span class="text-lg font-black text-white tracking-tight">Science<span class="text-cyan-400">oLogy</span></span>
         </div>
         <p class="leading-relaxed text-slate-400 text-xs">

@@ -80,7 +80,7 @@
 
   <div class="flex-1 w-full">
 
-    <!-- TOP HEADER (CLEAN MOBILE ERGONOMICS) -->
+    <!-- TOP HEADER -->
     <header class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800/80 px-4 py-2.5">
       <div class="max-w-4xl mx-auto flex items-center justify-between">
         <div class="flex items-center gap-2.5 truncate">
@@ -135,71 +135,71 @@
     <!-- ============================================================== -->
     <main id="home-screen" class="space-y-6 pb-12">
       
-      <!-- HERO SPOTLIGHT SECTION (RESPONSIVE ALIGNMENT & NO TEXT CLIPPING) -->
+      <!-- HERO SPOTLIGHT SECTION (PHOTO AT THE END OF DESCRIPTION) -->
       <section class="max-w-4xl mx-auto px-4 pt-6">
         <div class="relative overflow-hidden bg-gradient-to-br from-surfaceDark via-cardDark to-surfaceDark border border-slate-800 rounded-3xl p-5 sm:p-7 shadow-2xl">
           <div class="absolute -top-16 -right-16 w-56 h-56 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+          <div class="relative z-10 space-y-4">
             
-            <div class="text-center md:text-left space-y-3.5 flex-1 order-2 md:order-1">
-              <div class="inline-flex items-center gap-2 bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 text-[10px] sm:text-[11px] font-extrabold uppercase px-3 py-1 rounded-full tracking-wider">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
-                Educational Platform
-              </div>
-
-              <!-- EXACT HEADER TITLE -->
-              <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
-                Master Maths & Science with <br class="hidden sm:inline" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
-                  ScienceoLogy
-                </span>
-              </h1>
-
-              <!-- EXACT DESCRIPTION (PUNCTUATION CLEANED) -->
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
-                ScienceoLogy is founded and mentored by <b>Md. Amaan</b> [B.Sc. (Hons.) Mathematics, University of Calcutta]. Built to deliver free study materials, video lectures, daily quiz, test series, and PYQs of Classes 5–10 across CBSE, ICSE, and WBBSE.
-              </p>
-
-              <!-- Metric Badges -->
-              <div class="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-2 text-[11px] font-semibold text-slate-300">
-                <span class="bg-brandDark/80 border border-slate-800 px-3 py-1 rounded-lg">
-                  <i class="fa-solid fa-graduation-cap text-cyan-400 mr-1"></i> CU Alumnus
-                </span>
-                <span class="bg-brandDark/80 border border-slate-800 px-3 py-1 rounded-lg">
-                  <i class="fa-solid fa-location-dot text-rose-400 mr-1"></i> Kolkata Classroom Batches
-                </span>
-                <span class="bg-brandDark/80 border border-slate-800 px-3 py-1 rounded-lg">
-                  <i class="fa-solid fa-rotate-right text-emerald-400 mr-1"></i> Free Unlimited Reattempts
-                </span>
-              </div>
+            <div class="inline-flex items-center gap-2 bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 text-[10px] sm:text-[11px] font-extrabold uppercase px-3.5 py-1 rounded-full tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+              Educational Platform
             </div>
 
-            <!-- Founder & Mentor Photo Avatar -->
-            <div class="shrink-0 flex flex-col items-center order-1 md:order-2">
-              <div class="relative group">
-                <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-600 opacity-70 blur group-hover:opacity-100 transition duration-300"></div>
-                <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-slate-900 p-1 border-2 border-slate-700 shadow-2xl overflow-hidden flex items-center justify-center">
-                  <img 
-                    src="mentor.jpg" 
-                    alt="Md Amaan - Founder & Mentor" 
-                    onerror="this.onerror=null; this.src='mentor.png'; this.onerror=function(){this.src='mentor.webp'; this.onerror=function(){this.src='1000031206.webp';};};"
-                    class="w-full h-full object-cover object-top rounded-full group-hover:scale-105 transition duration-300"
-                  />
+            <!-- Header Title -->
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+              Master Maths & Science with <br class="hidden sm:inline" />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
+                ScienceoLogy
+              </span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+              ScienceoLogy is founded and mentored by <b>Md. Amaan</b> [B.Sc. (Hons.) Mathematics, University of Calcutta]. Built to deliver free study materials, video lectures, daily quiz, test series, and PYQs of Classes 5–10 across CBSE, ICSE, and WBBSE.
+            </p>
+
+            <!-- Founder Profile Block (Positioned at the end of Description) -->
+            <div class="pt-2 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div class="flex items-center gap-3.5">
+                <div class="relative shrink-0">
+                  <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-70 blur"></div>
+                  <div class="relative w-14 h-14 rounded-full bg-slate-900 border-2 border-cyan-400 overflow-hidden shadow-lg flex items-center justify-center">
+                    <img 
+                      src="mentor.jpg" 
+                      alt="Md Amaan - Founder & Mentor" 
+                      onerror="this.onerror=null; this.src='mentor.png'; this.onerror=function(){this.src='mentor.webp'; this.onerror=function(){this.src='1000031206.webp';};};"
+                      class="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div class="text-sm font-black text-white flex items-center gap-1.5">
+                    Md Amaan <i class="fa-solid fa-circle-check text-cyan-400 text-xs"></i>
+                  </div>
+                  <p class="text-[11px] text-cyan-300 font-semibold">Founder & Mentor • B.Sc. (Hons.) Mathematics, CU</p>
+                  <p class="text-[10px] text-slate-400 mt-0.5">Classes 5–10 Foundation Expert</p>
                 </div>
               </div>
-              <span class="text-xs font-extrabold text-white mt-2.5 flex items-center gap-1.5">
-                Md Amaan <i class="fa-solid fa-circle-check text-cyan-400 text-[10px]"></i>
-              </span>
-              <span class="text-[10px] text-cyan-400 font-semibold uppercase tracking-wider">Founder & Mentor</span>
+
+              <!-- Quick Badges -->
+              <div class="flex flex-wrap items-center gap-1.5 text-[10px] font-semibold text-slate-300">
+                <span class="bg-brandDark/90 border border-slate-700/80 px-2.5 py-1 rounded-lg">
+                  <i class="fa-solid fa-location-dot text-rose-400 mr-1"></i> Kolkata Batches
+                </span>
+                <span class="bg-brandDark/90 border border-slate-700/80 px-2.5 py-1 rounded-lg">
+                  <i class="fa-solid fa-rotate-right text-emerald-400 mr-1"></i> Free Practice Hub
+                </span>
+              </div>
             </div>
 
           </div>
         </div>
       </section>
 
-      <!-- 1. BOARD & CLASS FILTER (ENHANCED TOUCH TARGETS) -->
+      <!-- 1. BOARD & CLASS FILTER -->
       <section class="max-w-4xl mx-auto px-4">
         <div class="bg-surfaceDark border border-slate-800 rounded-3xl p-5 shadow-lg">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800/80">
@@ -245,91 +245,75 @@
         </div>
       </section>
 
-      <!-- 2. LARGE ATTRACTIVE SUBJECT BUTTONS (TYPO FIXED: MATHEMATICS) -->
+      <!-- 2. BALANCED SUBJECT SELECTOR (2x2 COMPACT GRID) -->
       <section class="max-w-4xl mx-auto px-4">
         <div class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
           <span class="w-1.5 h-4 rounded-full bg-cyan-400"></span> Select Subject Focus
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5" id="subject-cards-group">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="subject-cards-group">
           
-          <!-- Mathematics Card -->
-          <div onclick="selectSubjectCard('Maths', this)" class="subject-card active-subject large-app-card cursor-pointer bg-gradient-to-b from-[#18233C] to-[#0E1626] border-2 border-cyan-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between relative overflow-hidden group">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition">
+          <!-- Mathematics -->
+          <div onclick="selectSubjectCard('Maths', this)" class="subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 border-cyan-500 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg shrink-0">
                 <i class="fa-solid fa-calculator"></i>
               </div>
-              <span class="sub-status text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-cyan-500 text-slate-950">Active</span>
-            </div>
-            <div class="mt-6">
-              <h3 class="text-base sm:text-lg font-black text-white leading-tight">Mathematics</h3>
-              <p class="text-xs text-slate-400 mt-1">Arithmetic, Algebra & Geometry</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
-              <span class="text-[11px] text-slate-400 font-semibold">Classes 5–10</span>
-              <div class="w-7 h-7 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md">
-                <i class="fa-solid fa-arrow-right"></i>
+              <div>
+                <h3 class="text-sm sm:text-base font-black text-white leading-tight">Mathematics</h3>
+                <span class="sub-status text-[10px] text-cyan-400 font-semibold mt-0.5 inline-block">Active Selection</span>
               </div>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md shrink-0">
+              <i class="fa-solid fa-check"></i>
             </div>
           </div>
 
-          <!-- Physics Card -->
-          <div onclick="selectSubjectCard('Physics', this)" class="subject-card large-app-card cursor-pointer bg-gradient-to-b from-cardDark to-surfaceDark border border-slate-800 rounded-3xl p-5 shadow-xl flex flex-col justify-between relative overflow-hidden group hover:border-purple-500/50">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition">
+          <!-- Physics -->
+          <div onclick="selectSubjectCard('Physics', this)" class="subject-card cursor-pointer bg-surfaceDark border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-purple-500/50 hover:scale-[1.01]">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg shrink-0">
                 <i class="fa-solid fa-atom"></i>
               </div>
-              <span class="sub-status hidden text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-purple-500 text-white">Active</span>
-            </div>
-            <div class="mt-6">
-              <h3 class="text-base sm:text-lg font-black text-white leading-tight">Physics</h3>
-              <p class="text-xs text-slate-400 mt-1">Mechanics, Optics & Energy</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
-              <span class="text-[11px] text-slate-400 font-semibold">Classes 5–10</span>
-              <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center text-xs font-bold group-hover:bg-purple-500 group-hover:text-white transition">
-                <i class="fa-solid fa-arrow-right"></i>
+              <div>
+                <h3 class="text-sm sm:text-base font-black text-white leading-tight">Physics</h3>
+                <span class="sub-status text-[10px] text-slate-500 mt-0.5 inline-block">Tap to Select</span>
               </div>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold shrink-0">
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
 
-          <!-- Chemistry Card -->
-          <div onclick="selectSubjectCard('Chemistry', this)" class="subject-card large-app-card cursor-pointer bg-gradient-to-b from-cardDark to-surfaceDark border border-slate-800 rounded-3xl p-5 shadow-xl flex flex-col justify-between relative overflow-hidden group hover:border-emerald-500/50">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition">
+          <!-- Chemistry -->
+          <div onclick="selectSubjectCard('Chemistry', this)" class="subject-card cursor-pointer bg-surfaceDark border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-emerald-500/50 hover:scale-[1.01]">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg shrink-0">
                 <i class="fa-solid fa-flask"></i>
               </div>
-              <span class="sub-status hidden text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-500 text-slate-950">Active</span>
-            </div>
-            <div class="mt-6">
-              <h3 class="text-base sm:text-lg font-black text-white leading-tight">Chemistry</h3>
-              <p class="text-xs text-slate-400 mt-1">Reactions, Acids & Formulas</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
-              <span class="text-[11px] text-slate-400 font-semibold">Classes 5–10</span>
-              <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center text-xs font-bold group-hover:bg-emerald-500 group-hover:text-slate-950 transition">
-                <i class="fa-solid fa-arrow-right"></i>
+              <div>
+                <h3 class="text-sm sm:text-base font-black text-white leading-tight">Chemistry</h3>
+                <span class="sub-status text-[10px] text-slate-500 mt-0.5 inline-block">Tap to Select</span>
               </div>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold shrink-0">
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
 
-          <!-- Biology Card -->
-          <div onclick="selectSubjectCard('Biology', this)" class="subject-card large-app-card cursor-pointer bg-gradient-to-b from-cardDark to-surfaceDark border border-slate-800 rounded-3xl p-5 shadow-xl flex flex-col justify-between relative overflow-hidden group hover:border-rose-500/50">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xl group-hover:scale-110 transition">
+          <!-- Biology -->
+          <div onclick="selectSubjectCard('Biology', this)" class="subject-card cursor-pointer bg-surfaceDark border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-rose-500/50 hover:scale-[1.01]">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-lg shrink-0">
                 <i class="fa-solid fa-dna"></i>
               </div>
-              <span class="sub-status hidden text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-rose-500 text-white">Active</span>
-            </div>
-            <div class="mt-6">
-              <h3 class="text-base sm:text-lg font-black text-white leading-tight">Biology</h3>
-              <p class="text-xs text-slate-400 mt-1">Life Processes & Diagrams</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
-              <span class="text-[11px] text-slate-400 font-semibold">Classes 5–10</span>
-              <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center text-xs font-bold group-hover:bg-rose-500 group-hover:text-white transition">
-                <i class="fa-solid fa-arrow-right"></i>
+              <div>
+                <h3 class="text-sm sm:text-base font-black text-white leading-tight">Biology</h3>
+                <span class="sub-status text-[10px] text-slate-500 mt-0.5 inline-block">Tap to Select</span>
               </div>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold shrink-0">
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
 
@@ -813,28 +797,37 @@
       loadStreamData();
     }
 
-    // Large Subject Cards Controller
+    // Compact Subject Selector Controller
     function selectSubjectCard(subjectName, cardElement) {
       activeFilters.subject = subjectName;
 
       // Reset all subject cards
       document.querySelectorAll('#subject-cards-group .subject-card').forEach(c => {
-        c.className = "subject-card large-app-card cursor-pointer bg-gradient-to-b from-cardDark to-surfaceDark border border-slate-800 rounded-3xl p-5 shadow-xl flex flex-col justify-between relative overflow-hidden group";
-        const tag = c.querySelector('.sub-status');
-        if (tag) tag.classList.add('hidden');
-        const arrow = c.querySelector('.fa-arrow-right').parentElement;
-        arrow.className = "w-7 h-7 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center text-xs font-bold transition";
+        c.className = "subject-card cursor-pointer bg-surfaceDark border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]";
+        const status = c.querySelector('.sub-status');
+        if (status) {
+          status.className = "sub-status text-[10px] text-slate-500 mt-0.5 inline-block";
+          status.innerText = "Tap to Select";
+        }
+        const arrow = c.querySelector('.rounded-full:last-child');
+        if (arrow) {
+          arrow.className = "w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold shrink-0";
+          arrow.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+        }
       });
 
-      // Highlight active subject card
-      cardElement.className = "subject-card active-subject large-app-card cursor-pointer bg-gradient-to-b from-[#18233C] to-[#0E1626] border-2 border-cyan-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between relative overflow-hidden group";
-      const activeTag = cardElement.querySelector('.sub-status');
-      if (activeTag) {
-        activeTag.classList.remove('hidden');
-        activeTag.className = "sub-status text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-cyan-500 text-slate-950";
+      // Highlight active card
+      cardElement.className = "subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 border-cyan-500 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]";
+      const activeStatus = cardElement.querySelector('.sub-status');
+      if (activeStatus) {
+        activeStatus.className = "sub-status text-[10px] text-cyan-400 font-semibold mt-0.5 inline-block";
+        activeStatus.innerText = "Active Selection";
       }
-      const activeArrow = cardElement.querySelector('.fa-arrow-right').parentElement;
-      activeArrow.className = "w-7 h-7 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md";
+      const activeArrow = cardElement.querySelector('.rounded-full:last-child');
+      if (activeArrow) {
+        activeArrow.className = "w-7 h-7 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md shrink-0";
+        activeArrow.innerHTML = '<i class="fa-solid fa-check"></i>';
+      }
 
       syncLabels();
       loadStreamData();

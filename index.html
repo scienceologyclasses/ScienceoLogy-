@@ -68,7 +68,6 @@
     }
     .large-app-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 28px -10px rgba(6, 182, 212, 0.25);
     }
   </style>
 </head>
@@ -80,11 +79,11 @@
 
   <div class="flex-1 w-full">
 
-    <!-- TOP HEADER -->
-    <header class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800/80 px-4 py-2.5">
+    <!-- TOP BAR -->
+    <header class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b-2 border-slate-800 px-4 py-2.5">
       <div class="max-w-4xl mx-auto flex items-center justify-between">
         <div class="flex items-center gap-2.5 truncate">
-          <div class="w-7 h-7 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold text-xs shrink-0">
+          <div class="w-7 h-7 rounded-full bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 font-bold text-xs shrink-0">
             <i class="fa-solid fa-graduation-cap"></i>
           </div>
           <div class="truncate">
@@ -93,7 +92,7 @@
           </div>
         </div>
         <div class="flex items-center gap-2 shrink-0">
-          <span class="inline-flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-700/50 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full">
+          <span class="inline-flex items-center gap-1.5 bg-emerald-950/80 border-2 border-emerald-500 text-emerald-400 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
             Academic Session
           </span>
@@ -102,10 +101,10 @@
     </header>
 
     <!-- NAVIGATION BAR -->
-    <nav class="bg-brandDark/95 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-40 transition-all">
+    <nav class="bg-brandDark/95 backdrop-blur-md border-b-2 border-slate-800 sticky top-0 z-40 transition-all">
       <div class="max-w-4xl mx-auto px-4 flex justify-between h-16 items-center">
         <div onclick="navigateToHome()" class="flex items-center gap-3 cursor-pointer group">
-          <div class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shadow-md group-hover:scale-105 transition shrink-0">
+          <div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-cyan-400 overflow-hidden flex items-center justify-center shadow-md group-hover:scale-105 transition shrink-0">
             <img 
               src="logo.png" 
               alt="ScienceoLogy Logo" 
@@ -123,7 +122,7 @@
         </div>
 
         <div class="flex items-center gap-2">
-          <button onclick="navigateTo('contact-inquiry')" class="bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 text-xs font-bold px-3.5 py-2 rounded-xl transition shadow-lg shadow-cyan-500/20 flex items-center gap-1.5">
+          <button onclick="navigateTo('contact-inquiry')" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-extrabold px-3.5 py-2 rounded-xl border-2 border-cyan-300 transition shadow-lg flex items-center gap-1.5">
             <i class="fa-solid fa-graduation-cap"></i> <span>Offline Batches</span>
           </button>
         </div>
@@ -135,79 +134,93 @@
     <!-- ============================================================== -->
     <main id="home-screen" class="space-y-6 pb-12">
       
-      <!-- HERO SPOTLIGHT SECTION (PHOTO AT THE END OF DESCRIPTION) -->
+      <!-- HERO HEADER FORMAT: LOGO (LEFT), CONTENT (CENTER), PHOTO (RIGHT) -->
       <section class="max-w-4xl mx-auto px-4 pt-6">
-        <div class="relative overflow-hidden bg-gradient-to-br from-surfaceDark via-cardDark to-surfaceDark border border-slate-800 rounded-3xl p-5 sm:p-7 shadow-2xl">
+        <div class="relative overflow-hidden bg-gradient-to-br from-surfaceDark via-cardDark to-surfaceDark border-2 border-cyan-500/50 rounded-3xl p-5 sm:p-7 shadow-2xl">
           <div class="absolute -top-16 -right-16 w-56 h-56 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div class="relative z-10 space-y-4">
+          <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6">
             
-            <div class="inline-flex items-center gap-2 bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 text-[10px] sm:text-[11px] font-extrabold uppercase px-3.5 py-1 rounded-full tracking-wider">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
-              Educational Platform
+            <!-- LEFT: OFFICIAL WEBSITE LOGO -->
+            <div class="shrink-0 flex flex-col items-center">
+              <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-900 border-2 border-cyan-400 p-1 shadow-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="logo.png" 
+                  alt="ScienceoLogy Logo" 
+                  onerror="this.onerror=null; this.src='1000127927_2.png'; this.onerror=function(){this.style.display='none';};"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <span class="text-[10px] font-bold text-cyan-300 uppercase tracking-wider mt-1.5">ScienceoLogy</span>
             </div>
 
-            <!-- Header Title -->
-            <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
-              Master Maths & Science with <br class="hidden sm:inline" />
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
-                ScienceoLogy
+            <!-- CENTER: BALANCED TITLE & SIZED DESCRIPTION -->
+            <div class="text-center md:text-left space-y-3 flex-1">
+              <div class="inline-flex items-center gap-2 bg-cyan-950/80 border-2 border-cyan-500/60 text-cyan-300 text-[10px] sm:text-[11px] font-extrabold uppercase px-3 py-1 rounded-full tracking-wider">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                Educational Platform
+              </div>
+
+              <!-- ADJUSTED TITLE SIZE -->
+              <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                Master Maths & Science with <br class="hidden sm:inline" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
+                  ScienceoLogy
+                </span>
+              </h1>
+
+              <!-- ADJUSTED DESCRIPTION SIZE WITH BOLD CREDENTIALS -->
+              <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+                ScienceoLogy is founded and mentored by <strong class="text-white font-extrabold">Md Amaan [B.Sc. (Hons.) Mathematics, CU]</strong>. Built to deliver free study materials, video lectures, daily quiz, test series, and pyqs of Classes 5–10 across CBSE, ICSE, and WBBSE.
+              </p>
+
+              <!-- Outlined Metrics -->
+              <div class="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-2 text-[11px] font-bold text-slate-200">
+                <span class="bg-brandDark/80 border-2 border-cyan-500/60 px-3 py-1 rounded-xl flex items-center gap-1.5">
+                  <i class="fa-solid fa-graduation-cap text-cyan-400"></i> CU Alumnus
+                </span>
+                <span class="bg-brandDark/80 border-2 border-rose-500/60 px-3 py-1 rounded-xl flex items-center gap-1.5">
+                  <i class="fa-solid fa-location-dot text-rose-400"></i> Kolkata Classroom Batches
+                </span>
+                <span class="bg-brandDark/80 border-2 border-emerald-500/60 px-3 py-1 rounded-xl flex items-center gap-1.5">
+                  <i class="fa-solid fa-rotate-right text-emerald-400"></i> Free Unlimited Reattempts
+                </span>
+              </div>
+            </div>
+
+            <!-- RIGHT: FOUNDER & MENTOR PHOTO -->
+            <div class="shrink-0 flex flex-col items-center">
+              <div class="relative group">
+                <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-600 opacity-80 blur"></div>
+                <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-slate-900 p-1 border-2 border-cyan-400 shadow-2xl overflow-hidden flex items-center justify-center">
+                  <img 
+                    src="mentor.jpg" 
+                    alt="Md Amaan - Founder & Mentor" 
+                    onerror="this.onerror=null; this.src='mentor.png'; this.onerror=function(){this.src='mentor.webp'; this.onerror=function(){this.src='1000031206.webp';};};"
+                    class="w-full h-full object-cover object-top rounded-full"
+                  />
+                </div>
+              </div>
+              <span class="text-xs font-extrabold text-white mt-2.5 flex items-center gap-1">
+                Md Amaan <i class="fa-solid fa-circle-check text-cyan-400 text-[10px]"></i>
               </span>
-            </h1>
-
-            <!-- Description -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
-              ScienceoLogy is founded and mentored by <b>Md. Amaan</b> [B.Sc. (Hons.) Mathematics, University of Calcutta]. Built to deliver free study materials, video lectures, daily quiz, test series, and PYQs of Classes 5–10 across CBSE, ICSE, and WBBSE.
-            </p>
-
-            <!-- Founder Profile Block (Positioned at the end of Description) -->
-            <div class="pt-2 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div class="flex items-center gap-3.5">
-                <div class="relative shrink-0">
-                  <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-70 blur"></div>
-                  <div class="relative w-14 h-14 rounded-full bg-slate-900 border-2 border-cyan-400 overflow-hidden shadow-lg flex items-center justify-center">
-                    <img 
-                      src="mentor.jpg" 
-                      alt="Md Amaan - Founder & Mentor" 
-                      onerror="this.onerror=null; this.src='mentor.png'; this.onerror=function(){this.src='mentor.webp'; this.onerror=function(){this.src='1000031206.webp';};};"
-                      class="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div class="text-sm font-black text-white flex items-center gap-1.5">
-                    Md Amaan <i class="fa-solid fa-circle-check text-cyan-400 text-xs"></i>
-                  </div>
-                  <p class="text-[11px] text-cyan-300 font-semibold">Founder & Mentor • B.Sc. (Hons.) Mathematics, CU</p>
-                  <p class="text-[10px] text-slate-400 mt-0.5">Classes 5–10 Foundation Expert</p>
-                </div>
-              </div>
-
-              <!-- Quick Badges -->
-              <div class="flex flex-wrap items-center gap-1.5 text-[10px] font-semibold text-slate-300">
-                <span class="bg-brandDark/90 border border-slate-700/80 px-2.5 py-1 rounded-lg">
-                  <i class="fa-solid fa-location-dot text-rose-400 mr-1"></i> Kolkata Batches
-                </span>
-                <span class="bg-brandDark/90 border border-slate-700/80 px-2.5 py-1 rounded-lg">
-                  <i class="fa-solid fa-rotate-right text-emerald-400 mr-1"></i> Free Practice Hub
-                </span>
-              </div>
+              <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-wider">Founder & Mentor</span>
             </div>
 
           </div>
         </div>
       </section>
 
-      <!-- 1. BOARD & CLASS FILTER -->
+      <!-- 1. BOARD & CLASS FILTER WITH BOLD COLOR-CODED OUTLINES -->
       <section class="max-w-4xl mx-auto px-4">
-        <div class="bg-surfaceDark border border-slate-800 rounded-3xl p-5 shadow-lg">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800/80">
+        <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-5 shadow-lg">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b-2 border-slate-800">
             <div>
               <span class="text-[10px] font-extrabold uppercase tracking-widest text-cyan-400">Curriculum Filter</span>
               <h2 class="text-base font-black text-white">Target Your Board & Class</h2>
             </div>
-            <div id="currentSelectionLabel" class="text-xs font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-800/60 px-3.5 py-1 rounded-full self-start sm:self-auto">
+            <div id="currentSelectionLabel" class="text-xs font-extrabold text-cyan-300 bg-cyan-950/80 border-2 border-cyan-500 px-3.5 py-1 rounded-full self-start sm:self-auto">
               CBSE • Class 10 • Maths
             </div>
           </div>
@@ -216,14 +229,14 @@
             <!-- Board -->
             <div>
               <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Select Board</label>
-              <div class="grid grid-cols-3 gap-1.5 bg-cardDark p-1.5 rounded-2xl border border-slate-800">
-                <button onclick="updateFilter('board', 'CBSE', this)" class="filter-btn py-2.5 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 shadow-md transition flex items-center justify-center gap-1.5">
+              <div class="grid grid-cols-3 gap-2 bg-cardDark p-2 rounded-2xl border-2 border-slate-800">
+                <button onclick="updateFilter('board', 'CBSE', this)" class="filter-btn py-2.5 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-md transition flex items-center justify-center gap-1.5">
                   <i class="fa-solid fa-landmark text-[10px]"></i> CBSE
                 </button>
-                <button onclick="updateFilter('board', 'ICSE', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5">
+                <button onclick="updateFilter('board', 'ICSE', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 border-2 border-slate-700 hover:border-cyan-400 hover:text-white transition flex items-center justify-center gap-1.5">
                   <i class="fa-solid fa-graduation-cap text-[10px]"></i> ICSE
                 </button>
-                <button onclick="updateFilter('board', 'WBBSE', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5">
+                <button onclick="updateFilter('board', 'WBBSE', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 border-2 border-slate-700 hover:border-cyan-400 hover:text-white transition flex items-center justify-center gap-1.5">
                   <i class="fa-solid fa-book-open text-[10px]"></i> WBBSE
                 </button>
               </div>
@@ -232,87 +245,87 @@
             <!-- Class -->
             <div>
               <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Select Class</label>
-              <div class="grid grid-cols-6 gap-1 bg-cardDark p-1.5 rounded-2xl border border-slate-800 text-center">
-                <button onclick="updateFilter('grade', '5', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">5</button>
-                <button onclick="updateFilter('grade', '6', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">6</button>
-                <button onclick="updateFilter('grade', '7', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">7</button>
-                <button onclick="updateFilter('grade', '8', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">8</button>
-                <button onclick="updateFilter('grade', '9', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition">9</button>
-                <button onclick="updateFilter('grade', '10', this)" class="filter-btn py-2.5 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 shadow-md transition">10</button>
+              <div class="grid grid-cols-6 gap-1.5 bg-cardDark p-2 rounded-2xl border-2 border-slate-800 text-center">
+                <button onclick="updateFilter('grade', '5', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 border-2 border-slate-700 hover:border-cyan-400 hover:text-white transition">5</button>
+                <button onclick="updateFilter('grade', '6', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 border-2 border-slate-700 hover:border-cyan-400 hover:text-white transition">6</button>
+                <button onclick="updateFilter('grade', '7', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 border-2 border-slate-700 hover:border-cyan-400 hover:text-white transition">7</button>
+                <button onclick="updateFilter('grade', '8', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 border-2 border-slate-700 hover:border-cyan-400 hover:text-white transition">8</button>
+                <button onclick="updateFilter('grade', '9', this)" class="filter-btn py-2.5 text-xs font-semibold rounded-xl text-slate-300 border-2 border-slate-700 hover:border-cyan-400 hover:text-white transition">9</button>
+                <button onclick="updateFilter('grade', '10', this)" class="filter-btn py-2.5 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-md transition">10</button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 2. BALANCED SUBJECT SELECTOR (2x2 COMPACT GRID) -->
+      <!-- 2. SUBJECT BUTTONS WITH BOLD COLOR-CODED OUTLINES -->
       <section class="max-w-4xl mx-auto px-4">
         <div class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
           <span class="w-1.5 h-4 rounded-full bg-cyan-400"></span> Select Subject Focus
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="subject-cards-group">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="subject-cards-group">
           
-          <!-- Mathematics -->
-          <div onclick="selectSubjectCard('Maths', this)" class="subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 border-cyan-500 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]">
-            <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg shrink-0">
+          <!-- Mathematics (Cyan Border) -->
+          <div onclick="selectSubjectCard('Maths', this, 'cyan')" class="subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 border-cyan-400 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-lg shrink-0">
                 <i class="fa-solid fa-calculator"></i>
               </div>
               <div>
-                <h3 class="text-sm sm:text-base font-black text-white leading-tight">Mathematics</h3>
-                <span class="sub-status text-[10px] text-cyan-400 font-semibold mt-0.5 inline-block">Active Selection</span>
+                <h3 class="text-base font-black text-white leading-tight">Mathematics</h3>
+                <span class="sub-status text-[11px] text-cyan-400 font-bold mt-0.5 inline-block">Active Selection</span>
               </div>
             </div>
-            <div class="w-7 h-7 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md shrink-0">
+            <div class="w-7 h-7 rounded-full bg-cyan-500 text-slate-950 border-2 border-cyan-300 flex items-center justify-center text-xs font-bold shadow-md shrink-0">
               <i class="fa-solid fa-check"></i>
             </div>
           </div>
 
-          <!-- Physics -->
-          <div onclick="selectSubjectCard('Physics', this)" class="subject-card cursor-pointer bg-surfaceDark border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-purple-500/50 hover:scale-[1.01]">
-            <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg shrink-0">
+          <!-- Physics (Purple Border) -->
+          <div onclick="selectSubjectCard('Physics', this, 'purple')" class="subject-card cursor-pointer bg-surfaceDark border-2 border-purple-500/40 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-purple-400 hover:scale-[1.01]">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-purple-500/10 border-2 border-purple-400 flex items-center justify-center text-purple-400 text-lg shrink-0">
                 <i class="fa-solid fa-atom"></i>
               </div>
               <div>
-                <h3 class="text-sm sm:text-base font-black text-white leading-tight">Physics</h3>
-                <span class="sub-status text-[10px] text-slate-500 mt-0.5 inline-block">Tap to Select</span>
+                <h3 class="text-base font-black text-white leading-tight">Physics</h3>
+                <span class="sub-status text-[11px] text-slate-500 mt-0.5 inline-block font-semibold">Tap to Select</span>
               </div>
             </div>
-            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold shrink-0">
+            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 border-2 border-slate-700 flex items-center justify-center text-xs font-bold shrink-0">
               <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
 
-          <!-- Chemistry -->
-          <div onclick="selectSubjectCard('Chemistry', this)" class="subject-card cursor-pointer bg-surfaceDark border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-emerald-500/50 hover:scale-[1.01]">
-            <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg shrink-0">
+          <!-- Chemistry (Emerald Border) -->
+          <div onclick="selectSubjectCard('Chemistry', this, 'emerald')" class="subject-card cursor-pointer bg-surfaceDark border-2 border-emerald-500/40 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-emerald-400 hover:scale-[1.01]">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border-2 border-emerald-400 flex items-center justify-center text-emerald-400 text-lg shrink-0">
                 <i class="fa-solid fa-flask"></i>
               </div>
               <div>
-                <h3 class="text-sm sm:text-base font-black text-white leading-tight">Chemistry</h3>
-                <span class="sub-status text-[10px] text-slate-500 mt-0.5 inline-block">Tap to Select</span>
+                <h3 class="text-base font-black text-white leading-tight">Chemistry</h3>
+                <span class="sub-status text-[11px] text-slate-500 mt-0.5 inline-block font-semibold">Tap to Select</span>
               </div>
             </div>
-            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold shrink-0">
+            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 border-2 border-slate-700 flex items-center justify-center text-xs font-bold shrink-0">
               <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
 
-          <!-- Biology -->
-          <div onclick="selectSubjectCard('Biology', this)" class="subject-card cursor-pointer bg-surfaceDark border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-rose-500/50 hover:scale-[1.01]">
-            <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-lg shrink-0">
+          <!-- Biology (Rose Border) -->
+          <div onclick="selectSubjectCard('Biology', this, 'rose')" class="subject-card cursor-pointer bg-surfaceDark border-2 border-rose-500/40 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-rose-400 hover:scale-[1.01]">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-rose-500/10 border-2 border-rose-400 flex items-center justify-center text-rose-400 text-lg shrink-0">
                 <i class="fa-solid fa-dna"></i>
               </div>
               <div>
-                <h3 class="text-sm sm:text-base font-black text-white leading-tight">Biology</h3>
-                <span class="sub-status text-[10px] text-slate-500 mt-0.5 inline-block">Tap to Select</span>
+                <h3 class="text-base font-black text-white leading-tight">Biology</h3>
+                <span class="sub-status text-[11px] text-slate-500 mt-0.5 inline-block font-semibold">Tap to Select</span>
               </div>
             </div>
-            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold shrink-0">
+            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 border-2 border-slate-700 flex items-center justify-center text-xs font-bold shrink-0">
               <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
@@ -320,7 +333,7 @@
         </div>
       </section>
 
-      <!-- 3. LARGE CORE MODULE ACTION CARDS -->
+      <!-- 3. CORE MODULE CARDS WITH BOLD COLOR-CODED OUTLINES -->
       <section class="max-w-4xl mx-auto px-4 pt-2">
         <div class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
           <span class="w-1.5 h-4 rounded-full bg-indigo-500"></span> Core Learning Modules
@@ -328,121 +341,121 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           
-          <!-- Test Series -->
-          <div onclick="navigateTo('test-series')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#1C1838] to-cardDark border border-indigo-500/30 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden">
+          <!-- Test Series (Indigo Outline) -->
+          <div onclick="navigateTo('test-series')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#1C1838] to-cardDark border-2 border-indigo-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-indigo-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-xl group-hover:scale-110 transition">
+              <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border-2 border-indigo-400 flex items-center justify-center text-indigo-400 text-xl group-hover:scale-110 transition">
                 <i class="fa-solid fa-stopwatch-20"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Timed MCQs</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border-2 border-indigo-500/60">Timed MCQs</span>
             </div>
             <div class="my-5">
               <h3 class="text-lg font-black text-white">Timed Test Series</h3>
-              <p class="text-xs text-slate-400 mt-1">Topicwise, Chapterwise & Full Mocks with infinite reattempts.</p>
+              <p class="text-xs text-slate-300 mt-1">Topicwise, Chapterwise & Full Mocks with infinite reattempts.</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs">
-              <span class="text-indigo-300 font-bold">Launch Assessment</span>
-              <div class="w-8 h-8 rounded-full bg-indigo-600 group-hover:bg-indigo-500 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
+            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
+              <span class="text-indigo-300 font-extrabold">Launch Assessment</span>
+              <div class="w-8 h-8 rounded-full bg-indigo-600 border-2 border-indigo-400 group-hover:bg-indigo-500 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Study Notes -->
-          <div onclick="navigateTo('materials')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#112435] to-cardDark border border-cyan-500/30 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden">
+          <!-- Study Notes (Cyan Outline) -->
+          <div onclick="navigateTo('materials')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#112435] to-cardDark border-2 border-cyan-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-cyan-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition">
                 <i class="fa-solid fa-file-lines"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Free PDFs</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border-2 border-cyan-500/60">Free PDFs</span>
             </div>
             <div class="my-5">
               <h3 class="text-lg font-black text-white">Study Materials</h3>
-              <p class="text-xs text-slate-400 mt-1">Verified theorem proofs and structured chapter revision sheets.</p>
+              <p class="text-xs text-slate-300 mt-1">Verified theorem proofs and structured chapter revision sheets.</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs">
-              <span class="text-cyan-300 font-bold">Open Library</span>
-              <div class="w-8 h-8 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
+            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
+              <span class="text-cyan-300 font-extrabold">Open Library</span>
+              <div class="w-8 h-8 rounded-full bg-cyan-500 border-2 border-cyan-300 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Daily Quiz -->
-          <div onclick="navigateTo('daily-quiz')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#282115] to-cardDark border border-amber-500/30 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden">
+          <!-- Daily Quiz (Amber Outline) -->
+          <div onclick="navigateTo('daily-quiz')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#282115] to-cardDark border-2 border-amber-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-amber-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl group-hover:scale-110 transition">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border-2 border-amber-400 flex items-center justify-center text-amber-400 text-xl group-hover:scale-110 transition">
                 <i class="fa-solid fa-bolt-lightning"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">1-Min Check</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border-2 border-amber-500/60">1-Min Check</span>
             </div>
             <div class="my-5">
               <h3 class="text-lg font-black text-white">Daily Flash Quiz</h3>
-              <p class="text-xs text-slate-400 mt-1">Quick single-question concept diagnostics with instant keys.</p>
+              <p class="text-xs text-slate-300 mt-1">Quick single-question concept diagnostics with instant keys.</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs">
-              <span class="text-amber-300 font-bold">Attempt Question</span>
-              <div class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
+            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
+              <span class="text-amber-300 font-extrabold">Attempt Question</span>
+              <div class="w-8 h-8 rounded-full bg-amber-500 border-2 border-amber-300 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Video Lessons -->
-          <div onclick="navigateTo('video-lectures')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#291720] to-cardDark border border-rose-500/30 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden">
+          <!-- Video Lessons (Rose Outline) -->
+          <div onclick="navigateTo('video-lectures')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#291720] to-cardDark border-2 border-rose-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-rose-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xl group-hover:scale-110 transition">
+              <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border-2 border-rose-400 flex items-center justify-center text-rose-400 text-xl group-hover:scale-110 transition">
                 <i class="fa-solid fa-circle-play"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">Modular</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border-2 border-rose-500/60">Modular</span>
             </div>
             <div class="my-5">
               <h3 class="text-lg font-black text-white">Video Lessons</h3>
-              <p class="text-xs text-slate-400 mt-1">Detailed concept walkthroughs designed and curated by Md Amaan.</p>
+              <p class="text-xs text-slate-300 mt-1">Detailed concept walkthroughs designed and curated by Md Amaan.</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs">
-              <span class="text-rose-300 font-bold">Browse Sessions</span>
-              <div class="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
+            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
+              <span class="text-rose-300 font-extrabold">Browse Sessions</span>
+              <div class="w-8 h-8 rounded-full bg-rose-500 border-2 border-rose-300 text-white flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- PYQs -->
-          <div onclick="navigateTo('pyq')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#211630] to-cardDark border border-purple-500/30 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden">
+          <!-- PYQs (Purple Outline) -->
+          <div onclick="navigateTo('pyq')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#211630] to-cardDark border-2 border-purple-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-purple-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition">
+              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border-2 border-purple-400 flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition">
                 <i class="fa-solid fa-book-bookmark"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">Solved Papers</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border-2 border-purple-500/60">Solved Papers</span>
             </div>
             <div class="my-5">
               <h3 class="text-lg font-black text-white">Board PYQ Archive</h3>
-              <p class="text-xs text-slate-400 mt-1">Official board papers from CBSE, ICSE, and WBBSE with solutions.</p>
+              <p class="text-xs text-slate-300 mt-1">Official board papers from CBSE, ICSE, and WBBSE with solutions.</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs">
-              <span class="text-purple-300 font-bold">Access Papers</span>
-              <div class="w-8 h-8 rounded-full bg-purple-600 group-hover:bg-purple-500 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
+            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
+              <span class="text-purple-300 font-extrabold">Access Papers</span>
+              <div class="w-8 h-8 rounded-full bg-purple-600 border-2 border-purple-400 group-hover:bg-purple-500 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Offline Batches -->
-          <div onclick="navigateTo('contact-inquiry')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#142322] to-cardDark border border-emerald-500/30 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden">
+          <!-- Offline Batches (Emerald Outline) -->
+          <div onclick="navigateTo('contact-inquiry')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#142322] to-cardDark border-2 border-emerald-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-emerald-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border-2 border-emerald-400 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition">
                 <i class="fa-solid fa-chalkboard-user"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Kolkata</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border-2 border-emerald-500/60">Kolkata</span>
             </div>
             <div class="my-5">
               <h3 class="text-lg font-black text-white">Offline Tuition Admissions</h3>
-              <p class="text-xs text-slate-400 mt-1">Join classroom mentorship batches in Kolkata or provide feedback.</p>
+              <p class="text-xs text-slate-300 mt-1">Join classroom mentorship batches in Kolkata or provide feedback.</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs">
-              <span class="text-emerald-300 font-bold">Inquire Seats</span>
-              <div class="w-8 h-8 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
+            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
+              <span class="text-emerald-300 font-extrabold">Inquire Seats</span>
+              <div class="w-8 h-8 rounded-full bg-emerald-500 border-2 border-emerald-300 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
@@ -459,19 +472,19 @@
     <main id="section-viewport" class="hidden max-w-4xl mx-auto px-4 py-6">
 
       <!-- TOP STICKY SCREEN BAR -->
-      <div class="flex items-center justify-between bg-surfaceDark border border-slate-800 rounded-2xl p-4 mb-6 shadow-lg">
-        <button onclick="navigateToHome()" class="inline-flex items-center gap-2 bg-cardDark hover:bg-slate-800 border border-slate-700 text-cyan-400 hover:text-cyan-300 text-xs font-bold px-4 py-2.5 rounded-xl transition shadow-md">
+      <div class="flex items-center justify-between bg-surfaceDark border-2 border-slate-800 rounded-2xl p-4 mb-6 shadow-lg">
+        <button onclick="navigateToHome()" class="inline-flex items-center gap-2 bg-cardDark hover:bg-slate-800 border-2 border-cyan-500 text-cyan-400 hover:text-cyan-300 text-xs font-bold px-4 py-2 rounded-xl transition shadow-md">
           <i class="fa-solid fa-arrow-left"></i> Back to Home
         </button>
-        <div id="sectionActiveTag" class="text-xs font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-800/60 px-3 py-1 rounded-full flex items-center gap-1.5">
+        <div id="sectionActiveTag" class="text-xs font-bold text-cyan-300 bg-cyan-950/80 border-2 border-cyan-500 px-3.5 py-1 rounded-full flex items-center gap-1.5">
           <i class="fa-solid fa-filter text-[10px]"></i> CBSE • Class 10 • Maths
         </div>
       </div>
 
       <!-- SECTION: 1. STUDY MATERIALS -->
       <section id="view-materials" class="portal-pane hidden space-y-4">
-        <div class="bg-surfaceDark border border-slate-800 rounded-3xl p-6 shadow-xl">
-          <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+        <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-6 shadow-xl">
+          <div class="flex items-center justify-between pb-4 mb-4 border-b-2 border-slate-800">
             <div>
               <span class="text-[10px] font-extrabold uppercase tracking-widest text-cyan-400 flex items-center gap-1.5">
                 <i class="fa-solid fa-file-pdf"></i> Downloadable PDFs
@@ -479,7 +492,7 @@
               <h2 class="text-2xl font-black text-white mt-1">Study Materials & Theorem Proofs</h2>
               <p class="text-slate-400 text-xs mt-0.5">Comprehensive formula summaries and verified steps.</p>
             </div>
-            <span class="text-xs font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-3 py-1 rounded-full hidden sm:inline-block">
+            <span class="text-xs font-bold text-emerald-400 bg-emerald-950/80 border-2 border-emerald-500 px-3 py-1 rounded-full hidden sm:inline-block">
               100% Free Access
             </span>
           </div>
@@ -489,8 +502,8 @@
 
       <!-- SECTION: 2. VIDEO LESSONS -->
       <section id="view-video-lectures" class="portal-pane hidden space-y-4">
-        <div class="bg-surfaceDark border border-slate-800 rounded-3xl p-6 shadow-xl">
-          <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+        <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-6 shadow-xl">
+          <div class="flex items-center justify-between pb-4 mb-4 border-b-2 border-slate-800">
             <div>
               <span class="text-[10px] font-extrabold uppercase tracking-widest text-rose-400 flex items-center gap-1.5">
                 <i class="fa-solid fa-video"></i> Lecture Archive
@@ -498,7 +511,7 @@
               <h2 class="text-2xl font-black text-white mt-1">Video Concept Walkthroughs</h2>
               <p class="text-slate-400 text-xs mt-0.5">Modular concept breakdowns designed by Md Amaan.</p>
             </div>
-            <span class="text-xs font-bold text-rose-400 bg-rose-950/80 border border-rose-800/60 px-3 py-1 rounded-full">
+            <span class="text-xs font-bold text-rose-400 bg-rose-950/80 border-2 border-rose-500 px-3 py-1 rounded-full">
               Full Walkthroughs
             </span>
           </div>
@@ -508,8 +521,8 @@
 
       <!-- SECTION: 3. DAILY QUIZ -->
       <section id="view-daily-quiz" class="portal-pane hidden space-y-4">
-        <div class="bg-surfaceDark border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl max-w-2xl mx-auto">
-          <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-800">
+        <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl max-w-2xl mx-auto">
+          <div class="flex items-center justify-between pb-4 mb-5 border-b-2 border-slate-800">
             <div class="flex items-center gap-2.5">
               <span class="w-3 h-3 rounded-full bg-accentAmber animate-pulse"></span>
               <h2 class="text-xl font-black text-white flex items-center gap-2">
@@ -527,21 +540,21 @@
 
       <!-- SECTION: 4, 5, 6. TIMED TEST SERIES -->
       <section id="view-test-series" class="portal-pane hidden space-y-6">
-        <div class="bg-gradient-to-r from-indigo-950 via-surfaceDark to-cardDark border border-indigo-800/60 rounded-3xl p-6 shadow-xl text-center">
-          <div class="inline-flex items-center gap-2 bg-indigo-900/60 border border-indigo-700/50 text-cyan-300 text-[11px] font-extrabold uppercase px-3 py-1 rounded-full tracking-wider mb-2">
+        <div class="bg-gradient-to-r from-indigo-950 via-surfaceDark to-cardDark border-2 border-indigo-500/60 rounded-3xl p-6 shadow-xl text-center">
+          <div class="inline-flex items-center gap-2 bg-indigo-900/60 border-2 border-indigo-500/50 text-cyan-300 text-[11px] font-extrabold uppercase px-3 py-1 rounded-full tracking-wider mb-2">
             <i class="fa-solid fa-list-check"></i> Comprehensive Question Bank
           </div>
           <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">Chapter-wise & Full Test Series</h2>
           <p class="text-slate-400 text-xs sm:text-sm mt-1">Select your practice module below. All tests feature randomized questions and server verification.</p>
 
-          <div class="inline-flex items-center p-1.5 bg-brandDark/90 border border-slate-800 rounded-2xl mt-5 text-xs font-bold gap-1">
-            <button onclick="switchTestTab('topic')" id="tabBtnTopic" class="py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 shadow-sm transition flex items-center gap-1.5">
+          <div class="inline-flex items-center p-1.5 bg-brandDark/90 border-2 border-slate-800 rounded-2xl mt-5 text-xs font-bold gap-1">
+            <button onclick="switchTestTab('topic')" id="tabBtnTopic" class="py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-sm transition flex items-center gap-1.5">
               <i class="fa-solid fa-bolt"></i> Topicwise (15m)
             </button>
-            <button onclick="switchTestTab('chapter')" id="tabBtnChapter" class="py-2 px-4 rounded-xl text-slate-400 hover:text-white transition flex items-center gap-1.5">
+            <button onclick="switchTestTab('chapter')" id="tabBtnChapter" class="py-2 px-4 rounded-xl text-slate-400 border-2 border-transparent hover:text-white transition flex items-center gap-1.5">
               <i class="fa-solid fa-book"></i> Chapterwise (15m)
             </button>
-            <button onclick="switchTestTab('full')" id="tabBtnFull" class="py-2 px-4 rounded-xl text-slate-400 hover:text-white transition flex items-center gap-1.5">
+            <button onclick="switchTestTab('full')" id="tabBtnFull" class="py-2 px-4 rounded-xl text-slate-400 border-2 border-transparent hover:text-white transition flex items-center gap-1.5">
               <i class="fa-solid fa-award"></i> Full Mock (40m)
             </button>
           </div>
@@ -562,8 +575,8 @@
 
       <!-- SECTION: 7. PYQs ARCHIVE -->
       <section id="view-pyq" class="portal-pane hidden space-y-4">
-        <div class="bg-surfaceDark border border-slate-800 rounded-3xl p-6 shadow-xl">
-          <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+        <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-6 shadow-xl">
+          <div class="flex items-center justify-between pb-4 mb-4 border-b-2 border-slate-800">
             <div>
               <span class="text-[10px] font-extrabold uppercase tracking-widest text-purple-400 flex items-center gap-1.5">
                 <i class="fa-solid fa-box-archive"></i> Board Archives
@@ -573,9 +586,9 @@
             </div>
           </div>
 
-          <div class="overflow-hidden rounded-2xl border border-slate-800">
+          <div class="overflow-hidden rounded-2xl border-2 border-slate-800">
             <table class="w-full text-left text-xs whitespace-nowrap sm:whitespace-normal">
-              <thead class="bg-cardDark border-b border-slate-800 text-slate-400 uppercase font-bold text-[10px] tracking-wider">
+              <thead class="bg-cardDark border-b-2 border-slate-800 text-slate-400 uppercase font-bold text-[10px] tracking-wider">
                 <tr>
                   <th class="py-3 px-4">Exam Session</th>
                   <th class="py-3 px-4">Board & Class</th>
@@ -583,7 +596,7 @@
                   <th class="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-800/60" id="pyqTableBody"></tbody>
+              <tbody class="divide-y-2 divide-slate-800/60" id="pyqTableBody"></tbody>
             </table>
           </div>
         </div>
@@ -591,9 +604,9 @@
 
       <!-- SECTION: 8. ADMISSIONS & FEEDBACK -->
       <section id="view-contact-inquiry" class="portal-pane hidden space-y-4">
-        <div class="bg-surfaceDark border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden max-w-2xl mx-auto">
+        <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden max-w-2xl mx-auto">
           <div class="text-center mb-6">
-            <span class="text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-3 py-1 rounded-full flex items-center justify-center gap-1.5 w-fit mx-auto">
+            <span class="text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-950/80 border-2 border-emerald-500 px-3 py-1 rounded-full flex items-center justify-center gap-1.5 w-fit mx-auto">
               <i class="fa-solid fa-chalkboard-user"></i> Direct Admissions
             </span>
             <h2 class="text-2xl font-black text-white mt-2">Offline Tuition Admissions (Kolkata)</h2>
@@ -604,7 +617,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <div>
                 <label class="block text-[11px] font-bold text-slate-300 mb-1">Purpose</label>
-                <select name="purpose" id="inquiryCategory" class="w-full bg-cardDark border border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:ring-2 focus:ring-cyan-500 outline-none">
+                <select name="purpose" id="inquiryCategory" class="w-full bg-cardDark border-2 border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:border-cyan-500 outline-none">
                   <option value="Offline Tuition Admission (Kolkata)">Offline Batch Admission (Kolkata)</option>
                   <option value="Student Feedback / Suggestions">Student Feedback & Suggestions</option>
                   <option value="Study Notes / Material Request">Study Notes / PDF Request</option>
@@ -613,40 +626,40 @@
               </div>
               <div>
                 <label class="block text-[11px] font-bold text-slate-300 mb-1">Student's Class & Board</label>
-                <input type="text" name="student_class" id="inquiryClass" required placeholder="e.g. Class 10 (CBSE / ICSE / WBBSE)" class="w-full bg-cardDark border border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:ring-2 focus:ring-cyan-500 outline-none" />
+                <input type="text" name="student_class" id="inquiryClass" required placeholder="e.g. Class 10 (CBSE / ICSE / WBBSE)" class="w-full bg-cardDark border-2 border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:border-cyan-500 outline-none" />
               </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <div>
                 <label class="block text-[11px] font-bold text-slate-300 mb-1">Name</label>
-                <input type="text" name="name" id="inquiryName" required placeholder="Student or Parent Full Name" class="w-full bg-cardDark border border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:ring-2 focus:ring-cyan-500 outline-none" />
+                <input type="text" name="name" id="inquiryName" required placeholder="Student or Parent Full Name" class="w-full bg-cardDark border-2 border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:border-cyan-500 outline-none" />
               </div>
               <div>
                 <label class="block text-[11px] font-bold text-slate-300 mb-1">Email</label>
-                <input type="email" name="email" id="inquiryEmail" required placeholder="yourname@gmail.com" class="w-full bg-cardDark border border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:ring-2 focus:ring-cyan-500 outline-none" />
+                <input type="email" name="email" id="inquiryEmail" required placeholder="yourname@gmail.com" class="w-full bg-cardDark border-2 border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:border-cyan-500 outline-none" />
               </div>
             </div>
 
             <div>
               <label class="block text-[11px] font-bold text-slate-300 mb-1">Message / Preferred Batch Time</label>
-              <textarea name="message" id="inquiryMessage" rows="3" required placeholder="Mention batch timing, Kolkata location, or notes needed..." class="w-full bg-cardDark border border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+              <textarea name="message" id="inquiryMessage" rows="3" required placeholder="Mention batch timing, Kolkata location, or notes needed..." class="w-full bg-cardDark border-2 border-slate-800 rounded-2xl p-2.5 text-xs text-slate-200 focus:border-cyan-500 outline-none"></textarea>
             </div>
 
             <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
               <span class="text-[11px] text-slate-400">Delivered directly to: <span class="text-cyan-400 font-semibold">scienceology2026@gmail.com</span></span>
               <div class="flex items-center gap-2.5 w-full sm:w-auto">
-                <button type="button" onclick="triggerFormAction('Offline Tuition Admission (Kolkata)')" id="btnJoinBatch" class="flex-1 sm:flex-initial bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 text-xs font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-1.5">
+                <button type="button" onclick="triggerFormAction('Offline Tuition Admission (Kolkata)')" id="btnJoinBatch" class="flex-1 sm:flex-initial bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold px-5 py-2.5 rounded-xl border-2 border-cyan-300 transition shadow-lg flex items-center justify-center gap-1.5">
                   <i class="fa-solid fa-graduation-cap"></i> Join Batch
                 </button>
-                <button type="button" onclick="triggerFormAction('Student Feedback / Suggestions')" id="btnFeedback" class="flex-1 sm:flex-initial bg-cardDark hover:bg-slate-800 text-accentAmber border border-slate-700 text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center justify-center gap-1.5">
+                <button type="button" onclick="triggerFormAction('Student Feedback / Suggestions')" id="btnFeedback" class="flex-1 sm:flex-initial bg-cardDark hover:bg-slate-800 text-amber-300 border-2 border-amber-500/70 text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center justify-center gap-1.5">
                   <i class="fa-regular fa-comment-dots"></i> Send Feedback
                 </button>
               </div>
             </div>
           </form>
 
-          <div id="inquirySuccess" class="hidden mt-4 p-3.5 bg-emerald-950/80 border border-emerald-800 rounded-2xl text-xs text-emerald-200 font-bold text-center">
+          <div id="inquirySuccess" class="hidden mt-4 p-3.5 bg-emerald-950/80 border-2 border-emerald-500 rounded-2xl text-xs text-emerald-200 font-bold text-center">
             ✓ Message delivered directly to Md Amaan. We will follow up shortly!
           </div>
         </div>
@@ -657,11 +670,11 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="bg-brandDark text-slate-400 py-10 text-xs border-t border-slate-800 w-full">
+  <footer class="bg-brandDark text-slate-400 py-10 text-xs border-t-2 border-slate-800 w-full">
     <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
       <div class="space-y-3">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shadow-md shrink-0">
+          <div class="w-8 h-8 rounded-full bg-slate-800 border-2 border-cyan-400 overflow-hidden flex items-center justify-center shadow-md shrink-0">
             <img 
               src="logo.png" 
               alt="ScienceoLogy Logo" 
@@ -672,7 +685,7 @@
           <span class="text-lg font-black text-white tracking-tight">Science<span class="text-cyan-400">oLogy</span></span>
         </div>
         <p class="leading-relaxed text-slate-400 text-xs">
-          Founded and Mentored by <b>Md Amaan</b> [B.Sc. (Hons.) Mathematics, University of Calcutta].
+          Founded and Mentored by <strong class="text-white">Md Amaan [B.Sc. (Hons.) Mathematics, CU]</strong>.
         </p>
         <p class="text-slate-300 text-xs font-semibold"><i class="fa-solid fa-location-dot text-rose-500 mr-1"></i> Kolkata, West Bengal, India</p>
       </div>
@@ -706,8 +719,8 @@
     </div>
 
     <!-- LEGAL DISCLAIMER -->
-    <div class="max-w-4xl mx-auto px-4 mt-8 pt-5 border-t border-slate-800/80 text-xs text-slate-500 space-y-2">
-      <div class="leading-relaxed bg-surfaceDark p-3.5 rounded-2xl border border-slate-800 text-[11px] text-slate-400">
+    <div class="max-w-4xl mx-auto px-4 mt-8 pt-5 border-t-2 border-slate-800 text-xs text-slate-500 space-y-2">
+      <div class="leading-relaxed bg-surfaceDark p-3.5 rounded-2xl border-2 border-slate-800 text-[11px] text-slate-400">
         <strong class="text-slate-200 block mb-0.5">Academic Notice & Fair Use:</strong>
         ScienceoLogy is an independent educational initiative mentored by Md Amaan. We are not affiliated with CBSE, CISCE, or WBBSE. Examination references are provided strictly for educational study and self-assessment purposes.
       </div>
@@ -720,32 +733,32 @@
 
   <!-- ASSESSMENT MODAL -->
   <div id="testModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4">
-    <div class="bg-surfaceDark text-slate-200 w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-800 overflow-hidden flex flex-col max-h-[90vh]">
-      <div class="px-5 py-3.5 bg-cardDark text-white flex justify-between items-center border-b border-slate-800">
+    <div class="bg-surfaceDark text-slate-200 w-full max-w-2xl rounded-3xl shadow-2xl border-2 border-cyan-500/40 overflow-hidden flex flex-col max-h-[90vh]">
+      <div class="px-5 py-3.5 bg-cardDark text-white flex justify-between items-center border-b-2 border-slate-800">
         <div>
           <h3 class="text-sm font-bold truncate max-w-[220px] sm:max-w-md text-white" id="modalTitle">Assessment</h3>
           <p class="text-[11px] text-slate-400" id="modalSubtitle">Timed Evaluation</p>
         </div>
-        <div class="flex items-center gap-2 bg-slate-900 px-3 py-1 rounded-xl border border-slate-800">
+        <div class="flex items-center gap-2 bg-slate-900 px-3 py-1 rounded-xl border-2 border-amber-500/60">
           <i class="fa-regular fa-clock text-accentAmber text-xs"></i>
           <span id="testTimer" class="font-mono text-xs font-bold text-accentAmber">15:00</span>
         </div>
       </div>
 
-      <div class="bg-brandDark px-4 py-2 border-b border-slate-800 overflow-x-auto flex items-center gap-1.5 text-xs" id="questionPalette"></div>
+      <div class="bg-brandDark px-4 py-2 border-b-2 border-slate-800 overflow-x-auto flex items-center gap-1.5 text-xs" id="questionPalette"></div>
 
       <div class="p-5 sm:p-6 overflow-y-auto space-y-6 flex-1" id="testBody">
         <div id="scorecardContainer" class="hidden"></div>
         <div id="questionsContainer" class="space-y-6"></div>
       </div>
 
-      <div class="px-5 py-3.5 bg-cardDark border-t border-slate-800 flex justify-between items-center gap-2">
+      <div class="px-5 py-3.5 bg-cardDark border-t-2 border-slate-800 flex justify-between items-center gap-2">
         <button onclick="closeTestModal()" class="text-xs font-bold text-slate-400 hover:text-white px-3 py-1.5 rounded-lg">Exit</button>
         <div class="flex items-center gap-2">
-          <button onclick="reattemptCurrentTest()" id="reattemptBtn" class="hidden bg-slate-800 hover:bg-slate-700 text-accentAmber text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-1.5">
+          <button onclick="reattemptCurrentTest()" id="reattemptBtn" class="hidden bg-slate-800 hover:bg-slate-700 text-accentAmber text-xs font-bold px-4 py-2.5 rounded-xl border-2 border-amber-500 transition flex items-center gap-1.5">
             <i class="fa-solid fa-rotate-right"></i> Reattempt
           </button>
-          <button onclick="submitTest()" id="submitTestBtn" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-cyan-500/20 flex items-center gap-1.5">
+          <button onclick="submitTest()" id="submitTestBtn" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold px-5 py-2.5 rounded-xl border-2 border-cyan-300 transition shadow-lg flex items-center gap-1.5">
             <i class="fa-solid fa-check"></i> Submit
           </button>
         </div>
@@ -755,8 +768,8 @@
 
   <!-- PDF MODAL -->
   <div id="pdfModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4">
-    <div class="bg-surfaceDark w-full max-w-4xl h-[88vh] rounded-3xl shadow-2xl border border-slate-800 overflow-hidden flex flex-col">
-      <div class="px-5 py-3.5 bg-cardDark text-white flex justify-between items-center border-b border-slate-800">
+    <div class="bg-surfaceDark w-full max-w-4xl h-[88vh] rounded-3xl shadow-2xl border-2 border-cyan-500/40 overflow-hidden flex flex-col">
+      <div class="px-5 py-3.5 bg-cardDark text-white flex justify-between items-center border-b-2 border-slate-800">
         <span id="pdfModalTitle" class="text-xs font-bold truncate">Document Preview</span>
         <button onclick="closePdfModal()" class="text-slate-400 hover:text-white text-xs font-bold px-2 py-1">✕ Close</button>
       </div>
@@ -766,7 +779,7 @@
     </div>
   </div>
 
-  <!-- SCRIPT LOGIC -->
+  <!-- CLIENT SCRIPT -->
   <script>
     const EVALUATION_BACKEND_URL = "https://scienceology-eval.YOUR-USERNAME.workers.dev";
     const WEB3FORMS_ACCESS_KEY = "0d0369d7-098d-45b5-a0bb-31e928c8decb";
@@ -786,46 +799,57 @@
 
       const parentContainer = clickedBtn.parentElement;
       parentContainer.querySelectorAll('button').forEach(btn => {
-        btn.classList.remove('bg-cyan-500', 'text-slate-950', 'font-bold', 'shadow-md');
-        btn.classList.add('text-slate-300', 'font-semibold');
+        btn.classList.remove('bg-cyan-500', 'text-slate-950', 'font-bold', 'border-cyan-300', 'shadow-md');
+        btn.classList.add('text-slate-300', 'border-slate-700', 'font-semibold');
       });
 
-      clickedBtn.classList.remove('text-slate-300', 'font-semibold');
-      clickedBtn.classList.add('bg-cyan-500', 'text-slate-950', 'font-bold', 'shadow-md');
+      clickedBtn.classList.remove('text-slate-300', 'border-slate-700', 'font-semibold');
+      clickedBtn.classList.add('bg-cyan-500', 'text-slate-950', 'font-bold', 'border-cyan-300', 'shadow-md');
 
       syncLabels();
       loadStreamData();
     }
 
-    // Compact Subject Selector Controller
-    function selectSubjectCard(subjectName, cardElement) {
+    // Subject Selector with color-coordinated bold outlines
+    function selectSubjectCard(subjectName, cardElement, colorKey) {
       activeFilters.subject = subjectName;
 
-      // Reset all subject cards
+      // Color mapping dictionary
+      const outlineMap = {
+        cyan: 'border-cyan-400',
+        purple: 'border-purple-400',
+        emerald: 'border-emerald-400',
+        rose: 'border-rose-400'
+      };
+
+      // Reset all cards
       document.querySelectorAll('#subject-cards-group .subject-card').forEach(c => {
-        c.className = "subject-card cursor-pointer bg-surfaceDark border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]";
+        c.className = "subject-card cursor-pointer bg-surfaceDark border-2 border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]";
         const status = c.querySelector('.sub-status');
         if (status) {
-          status.className = "sub-status text-[10px] text-slate-500 mt-0.5 inline-block";
+          status.className = "sub-status text-[11px] text-slate-500 mt-0.5 inline-block font-semibold";
           status.innerText = "Tap to Select";
         }
         const arrow = c.querySelector('.rounded-full:last-child');
         if (arrow) {
-          arrow.className = "w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold shrink-0";
+          arrow.className = "w-7 h-7 rounded-full bg-slate-800 text-slate-400 border-2 border-slate-700 flex items-center justify-center text-xs font-bold shrink-0";
           arrow.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
         }
       });
 
-      // Highlight active card
-      cardElement.className = "subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 border-cyan-500 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]";
+      // Highlight clicked card with its respective color outline
+      const chosenBorder = outlineMap[colorKey] || 'border-cyan-400';
+      cardElement.className = `subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 ${chosenBorder} rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]`;
+      
       const activeStatus = cardElement.querySelector('.sub-status');
       if (activeStatus) {
-        activeStatus.className = "sub-status text-[10px] text-cyan-400 font-semibold mt-0.5 inline-block";
+        activeStatus.className = `sub-status text-[11px] text-${colorKey === 'purple' ? 'purple' : colorKey === 'emerald' ? 'emerald' : colorKey === 'rose' ? 'rose' : 'cyan'}-400 font-bold mt-0.5 inline-block`;
         activeStatus.innerText = "Active Selection";
       }
+      
       const activeArrow = cardElement.querySelector('.rounded-full:last-child');
       if (activeArrow) {
-        activeArrow.className = "w-7 h-7 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md shrink-0";
+        activeArrow.className = `w-7 h-7 rounded-full bg-cyan-500 text-slate-950 border-2 border-cyan-300 flex items-center justify-center text-xs font-bold shadow-md shrink-0`;
         activeArrow.innerHTML = '<i class="fa-solid fa-check"></i>';
       }
 
@@ -839,7 +863,7 @@
       document.getElementById('sectionActiveTag').innerHTML = `<i class="fa-solid fa-filter text-[10px]"></i> ${tagText}`;
     }
 
-    // App Router: Switch Views
+    // App View Controller
     const SECTIONS = ['materials', 'video-lectures', 'daily-quiz', 'test-series', 'pyq', 'contact-inquiry'];
 
     function navigateTo(targetSection) {
@@ -871,7 +895,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Test Series Tab Switcher
+    // Test Series Switcher
     function switchTestTab(tab) {
       document.getElementById('topicTestsContainer').classList.add('hidden');
       document.getElementById('chapterTestsContainer').classList.add('hidden');
@@ -880,18 +904,18 @@
       const tabs = ['topic', 'chapter', 'full'];
       tabs.forEach(t => {
         const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
-        btn.className = "py-2 px-4 rounded-xl text-slate-400 hover:text-white transition flex items-center gap-1.5";
+        btn.className = "py-2 px-4 rounded-xl text-slate-400 border-2 border-transparent hover:text-white transition flex items-center gap-1.5";
       });
 
       if (tab === 'topic') {
         document.getElementById('topicTestsContainer').classList.remove('hidden');
-        document.getElementById('tabBtnTopic').className = "py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 shadow-sm transition flex items-center gap-1.5";
+        document.getElementById('tabBtnTopic').className = "py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-sm transition flex items-center gap-1.5";
       } else if (tab === 'chapter') {
         document.getElementById('chapterTestsContainer').classList.remove('hidden');
-        document.getElementById('tabBtnChapter').className = "py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 shadow-sm transition flex items-center gap-1.5";
+        document.getElementById('tabBtnChapter').className = "py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-sm transition flex items-center gap-1.5";
       } else {
         document.getElementById('miscTestsContainer').classList.remove('hidden');
-        document.getElementById('tabBtnFull').className = "py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 shadow-sm transition flex items-center gap-1.5";
+        document.getElementById('tabBtnFull').className = "py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-sm transition flex items-center gap-1.5";
       }
     }
 
@@ -982,16 +1006,16 @@
 
       // 1. Notes Grid
       document.getElementById('materialsGrid').innerHTML = data.notes.map(n => `
-        <div class="bg-cardDark p-5 rounded-2xl border border-slate-800 flex flex-col justify-between glow-card transition">
+        <div class="bg-cardDark p-5 rounded-2xl border-2 border-cyan-500/50 flex flex-col justify-between glow-card transition">
           <div>
             <div class="flex justify-between items-center mb-2">
-              <span class="text-[10px] font-black uppercase tracking-wider text-cyan-400 bg-cyan-950/80 border border-cyan-800/60 px-2 py-0.5 rounded">PDF</span>
+              <span class="text-[10px] font-black uppercase tracking-wider text-cyan-400 bg-cyan-950/80 border-2 border-cyan-500/60 px-2 py-0.5 rounded">PDF</span>
               <span class="text-[10px] text-slate-400 font-medium">${n.size}</span>
             </div>
             <h4 class="font-bold text-white text-sm leading-snug">${n.title}</h4>
-            <p class="text-xs text-slate-400 mt-1">${n.desc}</p>
+            <p class="text-xs text-slate-300 mt-1">${n.desc}</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+          <div class="mt-4 pt-3 border-t-2 border-slate-800 flex items-center justify-between text-xs">
             <button onclick="previewPdf('${n.title}', '${n.downloadUrl}')" class="font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
               <i class="fa-regular fa-eye"></i> Preview
             </button>
@@ -1004,21 +1028,21 @@
 
       // 2. Video Grid
       document.getElementById('videoLecturesGrid').innerHTML = (data.videos || []).map(v => `
-        <div class="bg-cardDark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between glow-card transition">
+        <div class="bg-cardDark rounded-2xl border-2 border-rose-500/50 p-5 flex flex-col justify-between glow-card transition">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] font-bold uppercase text-rose-400 bg-rose-950/80 border border-rose-800 px-2.5 py-0.5 rounded-full">${v.topic}</span>
+              <span class="text-[10px] font-bold uppercase text-rose-400 bg-rose-950/80 border-2 border-rose-500/60 px-2.5 py-0.5 rounded-full">${v.topic}</span>
               <span class="text-[11px] text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i>${v.duration || 'Full Session'}</span>
             </div>
-            <div class="w-full h-24 bg-surfaceDark rounded-xl border border-slate-800 flex items-center justify-center mb-3">
-              <div class="w-10 h-10 rounded-full bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400">
+            <div class="w-full h-24 bg-surfaceDark rounded-xl border-2 border-slate-800 flex items-center justify-center mb-3">
+              <div class="w-10 h-10 rounded-full bg-rose-500/10 border-2 border-rose-400 flex items-center justify-center text-rose-400">
                 <i class="fa-solid fa-play text-xs"></i>
               </div>
             </div>
             <h4 class="font-bold text-white text-sm leading-snug">${v.title}</h4>
-            <p class="text-xs text-slate-400 mt-1">${v.desc}</p>
+            <p class="text-xs text-slate-300 mt-1">${v.desc}</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+          <div class="mt-4 pt-3 border-t-2 border-slate-800 flex items-center justify-between text-xs">
             <span class="text-[11px] text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>Offline Batch Available</span>
             <button onclick="navigateTo('contact-inquiry')" class="font-bold text-cyan-400 hover:text-cyan-300">Request Lecture &rarr;</button>
           </div>
@@ -1030,9 +1054,9 @@
 
       // 4. Topic Tests Grid
       document.getElementById('topicTestsGrid').innerHTML = data.topicTests.map(t => `
-        <div class="bg-cardDark p-4 rounded-2xl border border-slate-800 flex items-center justify-between glow-card transition hover:border-cyan-500/50">
+        <div class="bg-cardDark p-4 rounded-2xl border-2 border-purple-500/50 flex items-center justify-between glow-card transition hover:border-purple-400">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-sm">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border-2 border-purple-400 flex items-center justify-center text-purple-400 text-sm">
               <i class="fa-solid fa-bolt"></i>
             </div>
             <div>
@@ -1040,7 +1064,7 @@
               <p class="text-[11px] text-slate-400 mt-0.5">${t.marks} • ${t.duration}</p>
             </div>
           </div>
-          <button onclick="startTestEngine('${t.title}', 'topic')" class="w-9 h-9 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center font-bold text-xs hover:scale-105 transition shadow-md">
+          <button onclick="startTestEngine('${t.title}', 'topic')" class="w-9 h-9 rounded-full bg-cyan-500 text-slate-950 border-2 border-cyan-300 flex items-center justify-center font-bold text-xs hover:scale-105 transition shadow-md">
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
@@ -1048,9 +1072,9 @@
 
       // 5. Chapter Tests Grid
       document.getElementById('chapterTestsGrid').innerHTML = (data.chapterTests || []).map(c => `
-        <div class="bg-cardDark p-4 rounded-2xl border border-slate-800 flex items-center justify-between glow-card transition hover:border-cyan-500/50">
+        <div class="bg-cardDark p-4 rounded-2xl border-2 border-cyan-500/50 flex items-center justify-between glow-card transition hover:border-cyan-400">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-sm">
               <i class="fa-solid fa-book"></i>
             </div>
             <div>
@@ -1058,7 +1082,7 @@
               <p class="text-[11px] text-slate-400 mt-0.5">${c.marks} • ${c.duration}</p>
             </div>
           </div>
-          <button onclick="startTestEngine('${c.title}', 'chapter')" class="w-9 h-9 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center font-bold text-xs hover:scale-105 transition shadow-md">
+          <button onclick="startTestEngine('${c.title}', 'chapter')" class="w-9 h-9 rounded-full bg-cyan-500 text-slate-950 border-2 border-cyan-300 flex items-center justify-center font-bold text-xs hover:scale-105 transition shadow-md">
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
@@ -1066,9 +1090,9 @@
 
       // 6. Full Mocks Grid
       document.getElementById('miscTestsGrid').innerHTML = data.miscTests.map(m => `
-        <div class="bg-cardDark p-4 rounded-2xl border border-slate-800 flex items-center justify-between glow-card transition hover:border-amber-500/50">
+        <div class="bg-cardDark p-4 rounded-2xl border-2 border-amber-500/50 flex items-center justify-between glow-card transition hover:border-amber-400">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-sm">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border-2 border-amber-400 flex items-center justify-center text-amber-400 text-sm">
               <i class="fa-solid fa-award"></i>
             </div>
             <div>
@@ -1076,7 +1100,7 @@
               <p class="text-[11px] text-amber-300 mt-0.5">${m.marks} • ${m.duration}</p>
             </div>
           </div>
-          <button onclick="startTestEngine('${m.title}', 'full')" class="w-9 h-9 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center font-bold text-xs hover:scale-105 transition shadow-md">
+          <button onclick="startTestEngine('${m.title}', 'full')" class="w-9 h-9 rounded-full bg-amber-400 text-slate-950 border-2 border-amber-300 flex items-center justify-center font-bold text-xs hover:scale-105 transition shadow-md">
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
@@ -1086,7 +1110,7 @@
       document.getElementById('pyqTableBody').innerHTML = data.pyqs.map(p => `
         <tr class="hover:bg-cardDark/50 transition">
           <td class="py-3.5 px-4 font-semibold text-white">${p.year}</td>
-          <td class="py-3.5 px-4"><span class="bg-cardDark text-slate-300 text-[10px] px-2 py-0.5 rounded border border-slate-800 font-medium">${activeFilters.board} Class ${activeFilters.grade}</span></td>
+          <td class="py-3.5 px-4"><span class="bg-cardDark text-slate-300 text-[10px] px-2.5 py-0.5 rounded-full border-2 border-slate-700 font-semibold">${activeFilters.board} Class ${activeFilters.grade}</span></td>
           <td class="py-3.5 px-4 font-semibold text-cyan-400">${p.title}</td>
           <td class="py-3.5 px-4 text-right space-x-3">
             <button onclick="previewPdf('${p.title}', '${p.downloadUrl}')" class="text-slate-300 hover:text-white font-semibold">Preview</button>
@@ -1118,7 +1142,7 @@
       feedback.className = "mt-4 text-xs font-semibold p-3.5 rounded-2xl hidden";
 
       optionsContainer.innerHTML = qData.options.map((opt, idx) => `
-        <button onclick="handleDailyQuiz(this, ${idx === qData.answer}, '${qData.expl.replace(/'/g, "\\'")}')" class="text-left p-3 rounded-2xl bg-cardDark border border-slate-800 hover:border-cyan-500 hover:bg-slate-800/80 transition text-xs font-semibold text-slate-200">
+        <button onclick="handleDailyQuiz(this, ${idx === qData.answer}, '${qData.expl.replace(/'/g, "\\'")}')" class="text-left p-3 rounded-2xl bg-cardDark border-2 border-slate-800 hover:border-cyan-400 hover:bg-slate-800/80 transition text-xs font-semibold text-slate-200">
           ${String.fromCharCode(65 + idx)}. ${opt}
         </button>
       `).join('');
@@ -1129,13 +1153,13 @@
       document.querySelectorAll('#dailyQuizOptions button').forEach(btn => btn.disabled = true);
 
       if (isCorrect) {
-        button.classList.add('bg-emerald-950/80', 'border-emerald-600', 'text-emerald-200');
+        button.classList.add('bg-emerald-950/80', 'border-emerald-500', 'text-emerald-200');
         feedback.innerHTML = `<span class="font-bold">✓ Correct!</span> ${explanation}`;
-        feedback.className = "mt-4 text-xs font-semibold p-3.5 rounded-2xl bg-emerald-950/80 text-emerald-200 border border-emerald-800 block";
+        feedback.className = "mt-4 text-xs font-semibold p-3.5 rounded-2xl bg-emerald-950/80 text-emerald-200 border-2 border-emerald-500 block";
       } else {
-        button.classList.add('bg-rose-950/80', 'border-rose-600', 'text-rose-200');
+        button.classList.add('bg-rose-950/80', 'border-rose-500', 'text-rose-200');
         feedback.innerHTML = `<span class="font-bold">✗ Incorrect.</span> Option B is correct.<br>${explanation}`;
-        feedback.className = "mt-4 text-xs font-semibold p-3.5 rounded-2xl bg-rose-950/80 text-rose-200 border border-rose-800 block";
+        feedback.className = "mt-4 text-xs font-semibold p-3.5 rounded-2xl bg-rose-950/80 text-rose-200 border-2 border-rose-500 block";
       }
 
       if (window.renderMathInElement) {
@@ -1269,7 +1293,7 @@
 
     function renderPalette() {
       document.getElementById('questionPalette').innerHTML = currentActiveQuestions.map((_, idx) => `
-        <button id="pill-${idx}" onclick="scrollToQuestion(${idx})" class="q-pill shrink-0 w-6 h-6 rounded-lg border border-slate-700 bg-cardDark font-bold text-[10px] text-slate-300 flex items-center justify-center transition hover:bg-slate-700">
+        <button id="pill-${idx}" onclick="scrollToQuestion(${idx})" class="q-pill shrink-0 w-6 h-6 rounded-lg border-2 border-slate-700 bg-cardDark font-bold text-[10px] text-slate-300 flex items-center justify-center transition hover:border-cyan-400">
           ${idx + 1}
         </button>
       `).join('');
@@ -1288,11 +1312,11 @@
     function renderQuestions() {
       const container = document.getElementById('questionsContainer');
       container.innerHTML = currentActiveQuestions.map((q, idx) => `
-        <div id="q-block-${idx}" class="test-question-block border-b border-slate-800 pb-5" data-qid="${q.id}">
+        <div id="q-block-${idx}" class="test-question-block border-b-2 border-slate-800 pb-5" data-qid="${q.id}">
           <p class="font-bold text-white text-xs sm:text-sm mb-3">${idx + 1}. ${q.q}</p>
           <div class="space-y-2">
             ${q.options.map((opt, oIdx) => `
-              <label class="flex items-center gap-3 p-3 rounded-xl bg-cardDark border border-slate-800 hover:border-slate-700 cursor-pointer text-xs transition">
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-cardDark border-2 border-slate-800 hover:border-cyan-500 cursor-pointer text-xs transition">
                 <input type="radio" name="question_${idx}" value="${oIdx}" onchange="markQuestionAnswered(${idx})" class="text-cyan-500 focus:ring-cyan-500">
                 <span class="text-slate-200">${opt}</span>
               </label>
@@ -1377,25 +1401,25 @@
 
         if (result.attempted) {
           if (result.isCorrect) {
-            pill.className = 'q-pill shrink-0 w-6 h-6 rounded-lg border font-bold text-[10px] flex items-center justify-center correct';
+            pill.className = 'q-pill shrink-0 w-6 h-6 rounded-lg border-2 font-bold text-[10px] flex items-center justify-center correct';
             expBox.innerHTML = `<span class="text-emerald-400 font-bold block mb-1">✓ Correct Solution:</span> ${result.explanation}`;
-            expBox.className = 'explanation-box mt-3 p-3 rounded-xl text-xs bg-emerald-950/80 text-emerald-200 border border-emerald-800';
+            expBox.className = 'explanation-box mt-3 p-3 rounded-xl text-xs bg-emerald-950/80 text-emerald-200 border-2 border-emerald-500';
           } else {
-            pill.className = 'q-pill shrink-0 w-6 h-6 rounded-lg border font-bold text-[10px] flex items-center justify-center wrong';
+            pill.className = 'q-pill shrink-0 w-6 h-6 rounded-lg border-2 font-bold text-[10px] flex items-center justify-center wrong';
             expBox.innerHTML = `<span class="text-rose-400 font-bold block mb-1">✗ Incorrect Answer.</span> Correct Option: <b>${q.options[result.correctOption]}</b><br>${result.explanation}`;
-            expBox.className = 'explanation-box mt-3 p-3 rounded-xl text-xs bg-rose-950/80 text-rose-200 border border-rose-800';
+            expBox.className = 'explanation-box mt-3 p-3 rounded-xl text-xs bg-rose-950/80 text-rose-200 border-2 border-rose-500';
           }
         } else {
-          pill.className = 'q-pill shrink-0 w-6 h-6 rounded-lg border font-bold text-[10px] flex items-center justify-center wrong';
+          pill.className = 'q-pill shrink-0 w-6 h-6 rounded-lg border-2 font-bold text-[10px] flex items-center justify-center wrong';
           expBox.innerHTML = `<span class="text-amber-400 font-bold block mb-1">⚠ Unattempted.</span> Correct: <b>${q.options[result.correctOption]}</b><br>${result.explanation}`;
-          expBox.className = 'explanation-box mt-3 p-3 rounded-xl text-xs bg-amber-950/80 text-amber-200 border border-amber-800';
+          expBox.className = 'explanation-box mt-3 p-3 rounded-xl text-xs bg-amber-950/80 text-amber-200 border-2 border-amber-500';
         }
       });
 
       const scoreBanner = document.getElementById('scorecardContainer');
-      scoreBanner.className = "p-5 bg-cardDark border border-slate-800 rounded-2xl mb-6 text-center shadow-lg";
+      scoreBanner.className = "p-5 bg-cardDark border-2 border-cyan-500/60 rounded-2xl mb-6 text-center shadow-lg";
       scoreBanner.innerHTML = `
-        <span class="text-[10px] uppercase font-bold text-cyan-400 bg-cyan-950/80 border border-cyan-800 px-3 py-1 rounded-full">Attempt #${attemptCount} Verified</span>
+        <span class="text-[10px] uppercase font-bold text-cyan-400 bg-cyan-950/80 border-2 border-cyan-500 px-3 py-1 rounded-full">Attempt #${attemptCount} Verified</span>
         <div class="text-3xl font-black text-white my-2">${evaluationData.score} / ${evaluationData.total}</div>
         <p class="text-xs text-slate-300 font-semibold">${evaluationData.percentage}% Accuracy • ${evaluationData.attempted}/${evaluationData.total} Attempted</p>
       `;

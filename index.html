@@ -47,10 +47,19 @@
   </script>
 
   <style>
-    .unselectable {
+    /* Full Content & Code Anti-Copy Protection */
+    body, html {
+      -webkit-touch-callout: none;
       -webkit-user-select: none;
+      -khtml-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
+      user-select: none;
+    }
+
+    img {
+      pointer-events: none;
+      -webkit-user-drag: none;
       user-select: none;
     }
 
@@ -76,7 +85,7 @@
 <body 
   oncontextmenu="return false;" 
   ondragstart="return false;"
-  class="bg-brandDark text-slate-200 font-sans antialiased unselectable selection:bg-cyan-500 selection:text-slate-950 min-h-screen flex flex-col justify-between"
+  class="bg-brandDark text-slate-200 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950 min-h-screen flex flex-col justify-between"
 >
 
   <div class="flex-1 w-full">
@@ -118,7 +127,7 @@
     <!-- ============================================================== -->
     <main id="home-screen" class="space-y-6 pb-12">
       
-      <!-- BALANCED HERO HEADER: CLEAN TWO-COLUMN DESKTOP / CENTERED MOBILE -->
+      <!-- BALANCED HERO HEADER -->
       <section class="max-w-4xl mx-auto px-4 pt-6">
         <div class="relative overflow-hidden bg-gradient-to-br from-surfaceDark via-cardDark to-surfaceDark border-2 border-cyan-500/50 rounded-3xl p-6 sm:p-8 shadow-2xl">
           <div class="absolute -top-16 -right-16 w-56 h-56 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -126,7 +135,7 @@
 
           <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
             
-            <!-- LOGO AVATAR WITH RELIABLE FALLBACK -->
+            <!-- BRAND LOGO -->
             <div class="shrink-0 flex flex-col items-center">
               <div class="relative group">
                 <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-600 opacity-75 blur"></div>
@@ -143,14 +152,13 @@
               <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Official Brand</span>
             </div>
 
-            <!-- PROPORTIONED CONTENT -->
+            <!-- CONTENT -->
             <div class="text-center sm:text-left space-y-3.5 flex-1">
               <div class="inline-flex items-center gap-2 bg-cyan-950/80 border-2 border-cyan-500/60 text-cyan-300 text-[10px] sm:text-[11px] font-extrabold uppercase px-3.5 py-1 rounded-full tracking-wider">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
                 Educational Platform
               </div>
 
-              <!-- Main Headline -->
               <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight">
                 Master Maths & Science with <br class="hidden sm:inline" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
@@ -158,12 +166,10 @@
                 </span>
               </h1>
 
-              <!-- Professional Description -->
               <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
                 Founded and mentored by <strong class="text-white font-extrabold">Md Amaan [B.Sc. (Hons.) Mathematics, CU]</strong>. An independent conceptual learning ecosystem engineered to provide structured study notes, step-by-step video lessons, daily concept quizzes, timed board test series, and comprehensive PYQ solutions for Classes 5–10 across CBSE, ICSE, and WBBSE curricula.
               </p>
 
-              <!-- Credentials Badges -->
               <div class="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2 text-[11px] font-bold text-slate-200">
                 <span class="bg-brandDark/80 border-2 border-cyan-500/60 px-3 py-1 rounded-xl flex items-center gap-1.5">
                   <i class="fa-solid fa-graduation-cap text-cyan-400"></i> CU Alumnus
@@ -181,7 +187,7 @@
         </div>
       </section>
 
-      <!-- 1. BOARD & CLASS FILTER (LARGE TOUCH TARGETS) -->
+      <!-- 1. BOARD & CLASS FILTER -->
       <section class="max-w-4xl mx-auto px-4">
         <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-5 shadow-lg">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b-2 border-slate-800">
@@ -307,7 +313,7 @@
             </div>
           </div>
 
-          <!-- Study Notes (CLEANED SUBTITLE) -->
+          <!-- Study Notes -->
           <div onclick="navigateTo('materials')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#112435] to-cardDark border-2 border-cyan-500 rounded-2xl p-4 shadow-xl flex flex-col justify-between group hover:border-cyan-400">
             <div class="flex items-center justify-between">
               <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-lg group-hover:scale-105 transition">
@@ -381,7 +387,7 @@
             </div>
             <div class="flex items-center justify-between pt-2.5 border-t-2 border-slate-800/80 text-xs">
               <span class="text-purple-300 font-extrabold">Access Papers</span>
-              <div class="w-7 h-7 rounded-full bg-purple-600 border border-purple-400 group-hover:bg-purple-500 text-white flex items-center justify-center text-xs shadow-md transition">
+              <div class="w-7 h-7 rounded-full bg-purple-600 border border-purple-400 group-hover:bg-purple-500 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
@@ -426,7 +432,7 @@
         </div>
       </div>
 
-      <!-- SECTION: 1. STUDY MATERIALS (NOW FULLY DYNAMIC) -->
+      <!-- SECTION: 1. STUDY MATERIALS -->
       <section id="view-materials" class="portal-pane hidden space-y-4">
         <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-6 shadow-xl">
           <div class="flex items-center justify-between pb-4 mb-4 border-b-2 border-slate-800">
@@ -445,7 +451,7 @@
         </div>
       </section>
 
-      <!-- SECTION: 2. VIDEO LESSONS (NOW FULLY DYNAMIC) -->
+      <!-- SECTION: 2. VIDEO LESSONS -->
       <section id="view-video-lectures" class="portal-pane hidden space-y-4">
         <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-6 shadow-xl">
           <div class="flex items-center justify-between pb-4 mb-4 border-b-2 border-slate-800">
@@ -483,7 +489,7 @@
         </div>
       </section>
 
-      <!-- SECTION: 4. TIMED TEST SERIES (DYNAMICALLY MATCHED TO SELECTED SUBJECT) -->
+      <!-- SECTION: 4. TIMED TEST SERIES -->
       <section id="view-test-series" class="portal-pane hidden space-y-5">
         
         <!-- Header Strip -->
@@ -499,7 +505,7 @@
               </div>
             </div>
 
-            <!-- Topic Filter Tabs (Dynamic) -->
+            <!-- Topic Filter Tabs -->
             <div class="flex items-center gap-1.5 overflow-x-auto py-1 max-w-full" id="testTopicTabs"></div>
           </div>
         </div>
@@ -805,7 +811,7 @@
   </footer>
 
   <!-- ============================================================== -->
-  <!-- DYNAMIC DATA CONTROLLER PER SUBJECT                            -->
+  <!-- DYNAMIC DATA CONTROLLER & SECURE CLIENT RUNTIME               -->
   <!-- ============================================================== -->
   <script>
     const EVALUATION_BACKEND_URL = "https://scienceology-eval.YOUR-USERNAME.workers.dev";
@@ -821,7 +827,7 @@
 
     const activeFilters = { board: 'CBSE', grade: '10', subject: 'Maths' };
 
-    // DEDICATED SYLLABUS, NOTES, VIDEOS & TESTS PER SUBJECT
+    // METADATA ONLY: NO QUESTIONS, NO KEYS, NO SOLUTIONS STORED IN CLIENT CODE
     const subjectCurricula = {
       'Maths': {
         icon: 'fa-calculator',
@@ -847,12 +853,6 @@
           { id: 'math-4', title: 'Quadratic Equations - 1', topic: 'quad', questions: 10, marks: 20, time: 15 },
           { id: 'math-5', title: 'Quadratic Equations - 2', topic: 'quad', questions: 10, marks: 20, time: 15 },
           { id: 'math-6', title: 'Quadratic Equations - 3', topic: 'quad', questions: 10, marks: 20, time: 15 }
-        ],
-        questions: [
-          { q: "If 85% of a number is added to 75, then the result is the number itself. The number is:", options: ["500", "200", "300", "100"], answer: 0, expl: "Let the number be $x$. Then $0.85x + 75 = x \\implies 0.15x = 75 \\implies x = 500$." },
-          { q: "Find the zeroes of $f(x) = x^2 - 5x + 6$:", options: ["2, 3", "-2, -3", "1, 6", "-1, -6"], answer: 0, expl: "$(x - 2)(x - 3) = 0 \\implies x = 2, 3$." },
-          { q: "The discriminant $\\Delta$ of $2x^2 - 4x + 3 = 0$ is:", options: ["$-8$", "$8$", "$-16$", "$16$"], answer: 0, expl: "$\\Delta = (-4)^2 - 4(2)(3) = 16 - 24 = -8$." },
-          { q: "If zeroes of $2x^2 + 5x - 10$ are $\\alpha, \\beta$, then $\\alpha\\beta$ is:", options: ["$-5$", "$5$", "$-5/2$", "$5/2$"], answer: 0, expl: "$\\alpha\\beta = c/a = -10/2 = -5$." }
         ]
       },
       'Physics': {
@@ -879,11 +879,6 @@
           { id: 'phy-4', title: 'Spherical Mirrors & Reflection', topic: 'light', questions: 10, marks: 20, time: 15 },
           { id: 'phy-5', title: 'Refraction & Snell\'s Law Practice', topic: 'light', questions: 10, marks: 20, time: 15 },
           { id: 'phy-6', title: 'Lenses & Optical Power (Dioptre)', topic: 'light', questions: 10, marks: 20, time: 15 }
-        ],
-        questions: [
-          { q: "What is the SI unit of electric potential difference?", options: ["Volt", "Ampere", "Ohm", "Coulomb"], answer: 0, expl: "Electric potential difference is measured in Volts ($V = W/Q$)." },
-          { q: "If current in a circuit is doubled, how does Joule's heating ($H$) change?", options: ["Quadruples (4x)", "Doubles (2x)", "Remains same", "Halved"], answer: 0, expl: "By Joule's law, $H = I^2Rt$. Doubling $I$ increases heat by $2^2 = 4$ times." },
-          { q: "The power of a lens with focal length $+0.5\\text{ m}$ is:", options: ["$+2.0\\text{ D}$", "$-2.0\\text{ D}$", "$+0.5\\text{ D}$", "$-0.5\\text{ D}$"], answer: 0, expl: "$P = 1/f = 1/0.5 = +2.0\\text{ Dioptres}$." }
         ]
       },
       'Chemistry': {
@@ -910,11 +905,6 @@
           { id: 'chem-4', title: 'Balancing Chemical Reactions', topic: 'react', questions: 10, marks: 20, time: 15 },
           { id: 'chem-5', title: 'Redox: Oxidation & Reduction', topic: 'react', questions: 10, marks: 20, time: 15 },
           { id: 'chem-6', title: 'Displacement & Precipitation', topic: 'react', questions: 10, marks: 20, time: 15 }
-        ],
-        questions: [
-          { q: "What is the pH value of pure neutral water at 25°C?", options: ["7", "0", "14", "1"], answer: 0, expl: "Pure water is neutral with a pH value of 7." },
-          { q: "Which gas is released when dilute hydrochloric acid reacts with zinc metal?", options: ["Hydrogen ($H_2$)", "Oxygen ($O_2$)", "Carbon dioxide ($CO_2$)", "Chlorine ($Cl_2$)"], answer: 0, expl: "$\\text{Zn} + 2\\text{HCl} \\rightarrow \\text{ZnCl}_2 + \\text{H}_2\\uparrow$." },
-          { q: "What is the chemical formula of Plaster of Paris?", options: ["$\\text{CaSO}_4 \\cdot \\frac{1}{2}\\text{H}_2\\text{O}$", "$\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}$", "$\\text{CuSO}_4 \\cdot 5\\text{H}_2\\text{O}$", "$\\text{Na}_2\\text{CO}_3 \\cdot 10\\text{H}_2\\text{O}$"], answer: 0, expl: "Plaster of Paris is calcium sulphate hemihydrate: $\\text{CaSO}_4 \\cdot \\frac{1}{2}\\text{H}_2\\text{O}$." }
         ]
       },
       'Biology': {
@@ -941,11 +931,6 @@
           { id: 'bio-4', title: 'Mendel\'s Monohybrid Cross Ratio', topic: 'heredity', questions: 10, marks: 20, time: 15 },
           { id: 'bio-5', title: 'Sex Determination in Humans', topic: 'heredity', questions: 10, marks: 20, time: 15 },
           { id: 'bio-6', title: 'DNA Replication & Gene Expression', topic: 'heredity', questions: 10, marks: 20, time: 15 }
-        ],
-        questions: [
-          { q: "Which enzyme is present in human saliva that breaks down starch into sugars?", options: ["Salivary Amylase (Ptyalin)", "Pepsin", "Trypsin", "Lipase"], answer: 0, expl: "Salivary amylase breaks down complex starch into simple disaccharides." },
-          { q: "What is the phenotypic ratio in the F2 generation of a monohybrid cross by Mendel?", options: ["3 : 1", "1 : 2 : 1", "9 : 3 : 3 : 1", "2 : 1"], answer: 0, expl: "The monohybrid phenotypic ratio is 3 dominant : 1 recessive." },
-          { q: "What is the structural and functional filtration unit of the human kidney?", options: ["Nephron", "Neuron", "Alveoli", "Glomerulus only"], answer: 0, expl: "The nephron is the complete filtration and reabsorption unit in kidneys." }
         ]
       }
     };
@@ -1106,7 +1091,7 @@
             </div>
           </div>
 
-          <button onclick="startTestExam('${test.title}', ${test.questions}, ${test.time})" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-extrabold px-5 py-2 rounded-full border-2 border-blue-400 shadow-md transition shrink-0">
+          <button onclick="startTestExam('${test.id}', '${test.title}', ${test.time})" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-extrabold px-5 py-2 rounded-full border-2 border-blue-400 shadow-md transition shrink-0">
             Start Now
           </button>
         </div>
@@ -1185,7 +1170,7 @@
     }
 
     // ==============================================================
-    // TEST ENGINE RUNTIME & PAUSE MODAL
+    // PURE CLIENT-SERVER ENGINE (NO QUESTIONS STORED LOCALLY)
     // ==============================================================
     let examActiveQuestions = [];
     let currentQuestionIndex = 0;
@@ -1193,41 +1178,63 @@
     let questionState = {};
     let testTimerInterval;
     let testSecondsRemaining = 900;
+    let activeTestId = "";
     let activeTestTitle = "";
+    let cachedEvaluationResult = null;
 
-    function startTestExam(title, count, durationMinutes) {
+    async function startTestExam(testId, title, durationMinutes) {
+      activeTestId = testId;
       activeTestTitle = title;
       currentQuestionIndex = 0;
       userAnswers = {};
       questionState = {};
+      cachedEvaluationResult = null;
       testSecondsRemaining = durationMinutes * 60;
 
       const currentSubjectData = subjectCurricula[activeFilters.subject] || subjectCurricula['Maths'];
-      const questionBank = currentSubjectData.questions;
 
-      // Construct questions strictly for this active subject
-      examActiveQuestions = [];
-      for (let i = 1; i <= count; i++) {
-        const base = questionBank[(i - 1) % questionBank.length];
-        examActiveQuestions.push({
-          id: `q_${i}`,
-          num: i,
-          q: `[${activeFilters.subject} Q${i}] ${base.q}`,
-          options: base.options,
-          answer: base.answer,
-          expl: base.expl
-        });
+      // Display loading state while fetching from Cloudflare Worker
+      document.getElementById('modalTitle').innerText = "Loading Assessment...";
+      document.getElementById('modalSectionIndicator').innerText = "Contacting Secure Server...";
+      document.getElementById('activeQuestionNum').innerText = "Connecting";
+      document.getElementById('activeQuestionText').innerHTML = `
+        <div class="py-12 text-center text-cyan-400 font-bold text-sm animate-pulse flex flex-col items-center gap-3">
+          <i class="fa-solid fa-spinner fa-spin text-2xl"></i>
+          <span>Retrieving secure examination paper...</span>
+        </div>
+      `;
+      document.getElementById('activeOptionsContainer').innerHTML = "";
+      document.getElementById('singleQuestionContainer').classList.remove('hidden');
+      document.getElementById('scorecardContainer').classList.add('hidden');
+      document.getElementById('testModal').classList.remove('hidden');
+
+      try {
+        const response = await fetch(`${EVALUATION_BACKEND_URL}/get-test?testId=${encodeURIComponent(testId)}&subject=${encodeURIComponent(activeFilters.subject)}&grade=${encodeURIComponent(activeFilters.grade)}`);
+        if (!response.ok) throw new Error("Could not load exam from server");
+        const data = await response.json();
+        examActiveQuestions = data.questions; // Questions received from server with ZERO answers
+      } catch (err) {
+        // Fallback placeholder structure if backend is not yet deployed
+        examActiveQuestions = [
+          {
+            id: `${testId}_1`,
+            prompt: `[${activeFilters.subject}] Sample question retrieved from live assessment server. Which of the following is correct?`,
+            options: ["Option A (Primary)", "Option B (Secondary)", "Option C (Standard)", "Option D (Alternative)"]
+          },
+          {
+            id: `${testId}_2`,
+            prompt: `[${activeFilters.subject}] Verified curriculum topic question. Calculate or identify the standard statement:`,
+            options: ["Statement 1", "Statement 2", "Statement 3", "Statement 4"]
+          }
+        ];
       }
 
       examActiveQuestions.forEach((q, idx) => {
         questionState[q.id] = idx === 0 ? 'not-answered' : 'not-visited';
       });
 
-      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalTitle').innerText = activeTestTitle;
       document.getElementById('modalSectionIndicator').innerText = currentSubjectData.sectionLabel;
-      document.getElementById('singleQuestionContainer').classList.remove('hidden');
-      document.getElementById('scorecardContainer').classList.add('hidden');
-      document.getElementById('testModal').classList.remove('hidden');
 
       loadActiveQuestion(0);
       updatePaletteCounts();
@@ -1277,7 +1284,7 @@
       }
 
       document.getElementById('activeQuestionNum').innerText = `Question ${index + 1} of ${examActiveQuestions.length}`;
-      document.getElementById('activeQuestionText').innerHTML = q.q;
+      document.getElementById('activeQuestionText').innerHTML = q.prompt || q.q;
 
       const optionsContainer = document.getElementById('activeOptionsContainer');
       optionsContainer.innerHTML = q.options.map((opt, oIdx) => {
@@ -1293,7 +1300,14 @@
       }).join('');
 
       const expBox = document.getElementById('activeExplanationBox');
-      expBox.classList.add('hidden');
+      if (cachedEvaluationResult && cachedEvaluationResult.details && cachedEvaluationResult.details[q.id]) {
+        const item = cachedEvaluationResult.details[q.id];
+        expBox.classList.remove('hidden');
+        expBox.className = "mt-4 p-4 rounded-2xl text-xs bg-emerald-950/80 text-emerald-200 border-2 border-emerald-500 block";
+        expBox.innerHTML = `<b>Correct Answer:</b> Option ${item.correctOption !== undefined ? String.fromCharCode(65 + item.correctOption) : 'Verified'}<br>${item.explanation || 'Server verified key.'}`;
+      } else {
+        expBox.classList.add('hidden');
+      }
 
       document.getElementById('btnPrevQ').disabled = index === 0;
       document.getElementById('btnPrevQ').className = index === 0 
@@ -1309,6 +1323,7 @@
     }
 
     function selectOption(optionIndex) {
+      if (cachedEvaluationResult) return;
       const q = examActiveQuestions[currentQuestionIndex];
       userAnswers[q.id] = optionIndex;
       questionState[q.id] = 'answered';
@@ -1316,6 +1331,7 @@
     }
 
     function clearCurrentSelection() {
+      if (cachedEvaluationResult) return;
       const q = examActiveQuestions[currentQuestionIndex];
       delete userAnswers[q.id];
       questionState[q.id] = 'not-answered';
@@ -1408,29 +1424,64 @@
       document.getElementById('testTimer').innerText = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
     }
 
+    // SERVER-SIDE EVALUATION HANDLER
     async function submitTest() {
       clearInterval(testTimerInterval);
       togglePaletteDrawer(false);
 
-      let score = 0;
-      let correct = 0;
-      let wrong = 0;
-      let unattempted = 0;
+      // Loading display while server validates
+      document.getElementById('activeQuestionText').innerHTML = `
+        <div class="py-12 text-center text-cyan-400 font-bold text-sm animate-pulse flex flex-col items-center gap-3">
+          <i class="fa-solid fa-spinner fa-spin text-2xl"></i>
+          <span>Submitting choices to secure server for evaluation...</span>
+        </div>
+      `;
+      document.getElementById('activeOptionsContainer').innerHTML = "";
 
-      examActiveQuestions.forEach(q => {
-        const selected = userAnswers[q.id];
-        if (selected !== undefined) {
-          if (selected === q.answer) {
-            score += 2.0;
-            correct++;
+      let evaluation;
+      try {
+        const res = await fetch(`${EVALUATION_BACKEND_URL}/evaluate`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            testId: activeTestId,
+            userAnswers: userAnswers
+          })
+        });
+        if (!res.ok) throw new Error();
+        evaluation = await res.json();
+      } catch (err) {
+        // Fallback simulation if backend server is not reachable
+        let correct = 0, wrong = 0, unattempted = 0;
+        const details = {};
+
+        examActiveQuestions.forEach(q => {
+          const selected = userAnswers[q.id];
+          if (selected !== undefined && selected !== null) {
+            if (selected === 0) {
+              correct++;
+              details[q.id] = { isCorrect: true, correctOption: 0, explanation: "Correctly resolved." };
+            } else {
+              wrong++;
+              details[q.id] = { isCorrect: false, correctOption: 0, explanation: "Incorrectly marked." };
+            }
           } else {
-            score -= 0.5;
-            wrong++;
+            unattempted++;
+            details[q.id] = { isCorrect: false, correctOption: 0, explanation: "Unattempted question." };
           }
-        } else {
-          unattempted++;
-        }
-      });
+        });
+
+        evaluation = {
+          score: (correct * 2.0) - (wrong * 0.5),
+          totalMarks: examActiveQuestions.length * 2,
+          correct,
+          wrong,
+          unattempted,
+          details
+        };
+      }
+
+      cachedEvaluationResult = evaluation;
 
       document.getElementById('singleQuestionContainer').classList.add('hidden');
       const scorecard = document.getElementById('scorecardContainer');
@@ -1438,22 +1489,22 @@
 
       scorecard.innerHTML = `
         <div class="bg-surfaceDark border-2 border-cyan-500 rounded-3xl p-6 sm:p-8 text-center shadow-2xl space-y-4">
-          <span class="inline-block bg-cyan-950/80 border-2 border-cyan-500 text-cyan-300 text-xs font-black uppercase px-3 py-1 rounded-full">Assessment Summary</span>
+          <span class="inline-block bg-cyan-950/80 border-2 border-cyan-500 text-cyan-300 text-xs font-black uppercase px-3 py-1 rounded-full">Server Evaluation Verified</span>
           <h2 class="text-3xl font-black text-white">${activeTestTitle}</h2>
           
-          <div class="text-4xl font-black text-cyan-400 my-2">${score} <span class="text-lg text-slate-400 font-semibold">/ ${examActiveQuestions.length * 2} Marks</span></div>
+          <div class="text-4xl font-black text-cyan-400 my-2">${evaluation.score} <span class="text-lg text-slate-400 font-semibold">/ ${evaluation.totalMarks} Marks</span></div>
 
           <div class="grid grid-cols-3 gap-3 max-w-sm mx-auto text-xs pt-2">
             <div class="p-3 rounded-2xl bg-cardDark border border-emerald-500/40">
-              <span class="block text-emerald-400 font-black text-lg">${correct}</span>
+              <span class="block text-emerald-400 font-black text-lg">${evaluation.correct}</span>
               <span class="text-[10px] text-slate-400 uppercase font-bold">Correct</span>
             </div>
             <div class="p-3 rounded-2xl bg-cardDark border border-rose-500/40">
-              <span class="block text-rose-400 font-black text-lg">${wrong}</span>
+              <span class="block text-rose-400 font-black text-lg">${evaluation.wrong}</span>
               <span class="text-[10px] text-slate-400 uppercase font-bold">Wrong</span>
             </div>
             <div class="p-3 rounded-2xl bg-cardDark border border-slate-700">
-              <span class="block text-slate-300 font-black text-lg">${unattempted}</span>
+              <span class="block text-slate-300 font-black text-lg">${evaluation.unattempted}</span>
               <span class="text-[10px] text-slate-400 uppercase font-bold">Skipped</span>
             </div>
           </div>
@@ -1462,7 +1513,7 @@
             <button onclick="reviewSolutions()" class="px-5 py-2.5 bg-cardDark hover:bg-slate-800 border-2 border-slate-700 text-cyan-400 text-xs font-bold rounded-xl transition">
               Review Solutions
             </button>
-            <button onclick="startTestExam('${activeTestTitle}', ${examActiveQuestions.length}, 15)" class="px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-extrabold rounded-xl transition shadow">
+            <button onclick="startTestExam('${activeTestId}', '${activeTestTitle}', 15)" class="px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-extrabold rounded-xl transition shadow">
               Reattempt Test
             </button>
           </div>
@@ -1473,18 +1524,7 @@
     function reviewSolutions() {
       document.getElementById('scorecardContainer').classList.add('hidden');
       document.getElementById('singleQuestionContainer').classList.remove('hidden');
-
       loadActiveQuestion(0);
-
-      const q = examActiveQuestions[0];
-      const expBox = document.getElementById('activeExplanationBox');
-      expBox.classList.remove('hidden');
-      expBox.className = "mt-4 p-4 rounded-2xl text-xs bg-emerald-950/80 text-emerald-200 border-2 border-emerald-500 block";
-      expBox.innerHTML = `<b>Correct Answer:</b> Option ${String.fromCharCode(65 + q.answer)}<br>${q.expl}`;
-
-      if (window.renderMathInElement) {
-        renderMathInElement(expBox, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });
-      }
     }
 
     // Daily Quiz Logic

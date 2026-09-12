@@ -118,19 +118,19 @@
     <!-- ============================================================== -->
     <main id="home-screen" class="space-y-6 pb-12">
       
-      <!-- HERO HEADER: CENTERED ON MOBILE, BALANCED 2-COL ON TABLET/DESKTOP -->
+      <!-- BALANCED HERO HEADER: CLEAN TWO-COLUMN DESKTOP / CENTERED MOBILE -->
       <section class="max-w-4xl mx-auto px-4 pt-6">
         <div class="relative overflow-hidden bg-gradient-to-br from-surfaceDark via-cardDark to-surfaceDark border-2 border-cyan-500/50 rounded-3xl p-6 sm:p-8 shadow-2xl">
           <div class="absolute -top-16 -right-16 w-56 h-56 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-7">
+          <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
             
-            <!-- BRAND LOGO -->
+            <!-- LOGO AVATAR WITH RELIABLE FALLBACK -->
             <div class="shrink-0 flex flex-col items-center">
               <div class="relative group">
-                <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-600 opacity-70 blur"></div>
-                <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-slate-900 p-1 border-2 border-cyan-400 shadow-2xl overflow-hidden flex items-center justify-center">
+                <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-600 opacity-75 blur"></div>
+                <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-slate-900 border-2 border-cyan-400 shadow-2xl overflow-hidden flex items-center justify-center">
                   <img 
                     src="logo.png" 
                     alt="ScienceoLogy Logo" 
@@ -143,14 +143,14 @@
               <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Official Brand</span>
             </div>
 
-            <!-- BALANCED CONTENT -->
+            <!-- PROPORTIONED CONTENT -->
             <div class="text-center sm:text-left space-y-3.5 flex-1">
               <div class="inline-flex items-center gap-2 bg-cyan-950/80 border-2 border-cyan-500/60 text-cyan-300 text-[10px] sm:text-[11px] font-extrabold uppercase px-3.5 py-1 rounded-full tracking-wider">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
                 Educational Platform
               </div>
 
-              <!-- Main Title -->
+              <!-- Main Headline -->
               <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight">
                 Master Maths & Science with <br class="hidden sm:inline" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
@@ -163,7 +163,7 @@
                 Founded and mentored by <strong class="text-white font-extrabold">Md Amaan [B.Sc. (Hons.) Mathematics, CU]</strong>. An independent conceptual learning ecosystem engineered to provide structured study notes, step-by-step video lessons, daily concept quizzes, timed board test series, and comprehensive PYQ solutions for Classes 5–10 across CBSE, ICSE, and WBBSE curricula.
               </p>
 
-              <!-- Outlined Metrics Badges -->
+              <!-- Credentials Badges -->
               <div class="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2 text-[11px] font-bold text-slate-200">
                 <span class="bg-brandDark/80 border-2 border-cyan-500/60 px-3 py-1 rounded-xl flex items-center gap-1.5">
                   <i class="fa-solid fa-graduation-cap text-cyan-400"></i> CU Alumnus
@@ -181,7 +181,7 @@
         </div>
       </section>
 
-      <!-- 1. BOARD & CLASS FILTER (IMPROVED TAP ERGONOMICS) -->
+      <!-- 1. BOARD & CLASS FILTER (LARGE TOUCH TARGETS) -->
       <section class="max-w-4xl mx-auto px-4">
         <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-5 shadow-lg">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b-2 border-slate-800">
@@ -195,7 +195,7 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-            <!-- Board -->
+            <!-- Board Selector -->
             <div>
               <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Select Board</label>
               <div class="grid grid-cols-3 gap-2 bg-cardDark p-2 rounded-2xl border-2 border-slate-800">
@@ -211,7 +211,7 @@
               </div>
             </div>
 
-            <!-- Class (Enlarged Target Buttons) -->
+            <!-- Class Selector -->
             <div>
               <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Select Class</label>
               <div class="grid grid-cols-6 gap-1.5 bg-cardDark p-2 rounded-2xl border-2 border-slate-800 text-center">
@@ -307,7 +307,7 @@
             </div>
           </div>
 
-          <!-- Study Notes (UPDATED SUBTITLE COPY) -->
+          <!-- Study Notes (CLEANED SUBTITLE) -->
           <div onclick="navigateTo('materials')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#112435] to-cardDark border-2 border-cyan-500 rounded-2xl p-4 shadow-xl flex flex-col justify-between group hover:border-cyan-400">
             <div class="flex items-center justify-between">
               <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-lg group-hover:scale-105 transition">
@@ -361,7 +361,7 @@
             </div>
             <div class="flex items-center justify-between pt-2.5 border-t-2 border-slate-800/80 text-xs">
               <span class="text-rose-300 font-extrabold">Watch Now</span>
-              <div class="w-7 h-7 rounded-full bg-rose-500 border border-rose-300 text-white flex items-center justify-center text-xs font-bold shadow-md transition">
+              <div class="w-7 h-7 rounded-full bg-rose-500 border border-rose-300 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
@@ -426,7 +426,7 @@
         </div>
       </div>
 
-      <!-- SECTION: 1. STUDY MATERIALS -->
+      <!-- SECTION: 1. STUDY MATERIALS (NOW FULLY DYNAMIC) -->
       <section id="view-materials" class="portal-pane hidden space-y-4">
         <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-6 shadow-xl">
           <div class="flex items-center justify-between pb-4 mb-4 border-b-2 border-slate-800">
@@ -445,7 +445,7 @@
         </div>
       </section>
 
-      <!-- SECTION: 2. VIDEO LESSONS -->
+      <!-- SECTION: 2. VIDEO LESSONS (NOW FULLY DYNAMIC) -->
       <section id="view-video-lectures" class="portal-pane hidden space-y-4">
         <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-6 shadow-xl">
           <div class="flex items-center justify-between pb-4 mb-4 border-b-2 border-slate-800">
@@ -483,7 +483,7 @@
         </div>
       </section>
 
-      <!-- SECTION: 4. TIMED TEST SERIES -->
+      <!-- SECTION: 4. TIMED TEST SERIES (DYNAMICALLY MATCHED TO SELECTED SUBJECT) -->
       <section id="view-test-series" class="portal-pane hidden space-y-5">
         
         <!-- Header Strip -->
@@ -499,7 +499,7 @@
               </div>
             </div>
 
-            <!-- Topic Filter Pills -->
+            <!-- Topic Filter Tabs (Dynamic) -->
             <div class="flex items-center gap-1.5 overflow-x-auto py-1 max-w-full" id="testTopicTabs"></div>
           </div>
         </div>
@@ -730,7 +730,7 @@
 
   </div>
 
-  <!-- PDF MODAL -->
+  <!-- PDF PREVIEW MODAL -->
   <div id="pdfModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div class="bg-surfaceDark w-full max-w-4xl h-[88vh] rounded-3xl shadow-2xl border-2 border-cyan-500/40 overflow-hidden flex flex-col">
       <div class="px-5 py-3.5 bg-cardDark text-white flex justify-between items-center border-b-2 border-slate-800">
@@ -743,8 +743,69 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
+  <footer class="bg-brandDark text-slate-400 py-10 text-xs border-t-2 border-slate-800 w-full">
+    <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-slate-800 border-2 border-cyan-400 overflow-hidden flex items-center justify-center shadow-md shrink-0">
+            <img 
+              src="logo.png" 
+              alt="ScienceoLogy Logo" 
+              onerror="this.onerror=null; this.src='1000127927_2.png'; this.onerror=function(){this.src='1000127927.png';};"
+              class="w-full h-full object-cover" 
+            />
+          </div>
+          <span class="text-lg font-black text-white tracking-tight">Science<span class="text-cyan-400">oLogy</span></span>
+        </div>
+        <p class="leading-relaxed text-slate-400 text-xs">
+          Founded and Mentored by <strong class="text-white">Md Amaan [B.Sc. (Hons.) Mathematics, CU]</strong>.
+        </p>
+        <p class="text-slate-300 text-xs font-semibold"><i class="fa-solid fa-location-dot text-rose-500 mr-1"></i> Kolkata, West Bengal, India</p>
+      </div>
+
+      <div>
+        <h5 class="text-white font-bold mb-2.5 text-xs uppercase tracking-wider">Curricula</h5>
+        <ul class="space-y-1.5 text-xs">
+          <li>CBSE (Class 5–10)</li>
+          <li>ICSE (Class 5–10)</li>
+          <li>WBBSE (Madhyamik)</li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-white font-bold mb-2.5 text-xs uppercase tracking-wider">Modules</h5>
+        <ul class="space-y-1.5 text-xs">
+          <li><button onclick="navigateTo('materials')" class="hover:text-white">Study Materials</button></li>
+          <li><button onclick="navigateTo('video-lectures')" class="hover:text-white">Video Lessons</button></li>
+          <li><button onclick="navigateTo('test-series')" class="hover:text-white">Timed Tests</button></li>
+          <li><button onclick="navigateTo('pyq')" class="hover:text-white">Board PYQs</button></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-white font-bold mb-2.5 text-xs uppercase tracking-wider">Contact</h5>
+        <p class="text-xs mb-1.5">Batches & Inquiries:</p>
+        <a href="mailto:scienceology2026@gmail.com" class="text-cyan-400 hover:underline font-bold block text-xs break-all">
+          scienceology2026@gmail.com
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 mt-8 pt-5 border-t-2 border-slate-800 text-xs text-slate-500 space-y-2">
+      <div class="leading-relaxed bg-surfaceDark p-3.5 rounded-2xl border-2 border-slate-800 text-[11px] text-slate-400">
+        <strong class="text-slate-200 block mb-0.5">Academic Notice & Fair Use:</strong>
+        ScienceoLogy is an independent educational initiative mentored by Md Amaan. We are not affiliated with CBSE, CISCE, or WBBSE. Examination references are provided strictly for educational study and self-assessment purposes.
+      </div>
+      <div class="flex flex-col sm:flex-row justify-between items-center pt-2 text-[11px]">
+        <span>&copy; ScienceoLogy • Mentored by Md Amaan. All rights reserved.</span>
+        <span>Kolkata, West Bengal</span>
+      </div>
+    </div>
+  </footer>
+
   <!-- ============================================================== -->
-  <!-- DYNAMIC SCRIPT LOGIC                                           -->
+  <!-- DYNAMIC DATA CONTROLLER PER SUBJECT                            -->
   <!-- ============================================================== -->
   <script>
     const EVALUATION_BACKEND_URL = "https://scienceology-eval.YOUR-USERNAME.workers.dev";
@@ -760,7 +821,7 @@
 
     const activeFilters = { board: 'CBSE', grade: '10', subject: 'Maths' };
 
-    // DYNAMIC CURRICULA PER SUBJECT
+    // DEDICATED SYLLABUS, NOTES, VIDEOS & TESTS PER SUBJECT
     const subjectCurricula = {
       'Maths': {
         icon: 'fa-calculator',
@@ -942,7 +1003,7 @@
       document.getElementById('currentSelectionLabel').innerText = tagText;
       document.getElementById('sectionActiveTag').innerHTML = `<i class="fa-solid fa-filter text-[10px]"></i> ${tagText}`;
 
-      // Update Section Headings
+      // Update Section Headings with selected Subject
       document.getElementById('materialsSectionHeading').innerText = `${activeFilters.subject} Study Materials & Notes`;
       document.getElementById('videoSectionHeading').innerText = `${activeFilters.subject} Video Walkthroughs`;
     }
@@ -979,7 +1040,7 @@
     }
 
     // ==============================================================
-    // LOAD & SYNC CURRICULA BASED ON ACTIVE SUBJECT
+    // SYNC AND POPULATE DYNAMIC DATA
     // ==============================================================
     let activeTopicKey = 'all';
 
@@ -987,13 +1048,13 @@
       const currentSubjectData = subjectCurricula[activeFilters.subject] || subjectCurricula['Maths'];
       currentStreamData = currentSubjectData;
 
-      // Update Test Series Header (No "special" word)
+      // Update Test Series Header
       document.getElementById('testSeriesStreamTitle').innerText = currentSubjectData.title;
       document.getElementById('testSeriesStreamDesc').innerText = `${activeFilters.board} Class ${activeFilters.grade} • ${currentSubjectData.desc}`;
       document.getElementById('testSeriesIcon').className = `fa-solid ${currentSubjectData.icon}`;
       document.getElementById('drawerSectionTitle').innerText = `SECTION : ${currentSubjectData.sectionLabel}`;
 
-      // Populate Dynamic Topic Pills
+      // Dynamic Filter Tabs
       const tabsContainer = document.getElementById('testTopicTabs');
       tabsContainer.innerHTML = `
         <button onclick="filterTestList('all', this)" class="topic-tab-btn py-1.5 px-3.5 rounded-full text-xs font-extrabold bg-purple-600 text-white border-2 border-purple-400 transition shrink-0">
@@ -1055,7 +1116,7 @@
     function renderInterface() {
       const data = currentStreamData;
 
-      // 1. Notes Grid (Help students learn a subject)
+      // 1. Subject-specific Study Materials
       document.getElementById('materialsGrid').innerHTML = data.notes.map(n => `
         <div class="bg-cardDark p-5 rounded-2xl border-2 border-cyan-500/50 flex flex-col justify-between glow-card transition">
           <div>
@@ -1077,7 +1138,7 @@
         </div>
       `).join('');
 
-      // 2. Video Grid
+      // 2. Subject-specific Video Grid
       document.getElementById('videoLecturesGrid').innerHTML = (data.videos || []).map(v => `
         <div class="bg-cardDark rounded-2xl border-2 border-rose-500/50 p-5 flex flex-col justify-between glow-card transition">
           <div>
@@ -1100,10 +1161,10 @@
         </div>
       `).join('');
 
-      // 3. Daily Quiz
+      // 3. Daily Flash Quiz
       renderDailyQuiz();
 
-      // 4. PYQs Table
+      // 4. PYQ Table
       document.getElementById('pyqTableBody').innerHTML = (data.pyqs || [
         { year: "2025 Exam", title: `${activeFilters.board} Class ${activeFilters.grade} ${activeFilters.subject} Solved Paper`, downloadUrl: "#" }
       ]).map(p => `
@@ -1124,7 +1185,7 @@
     }
 
     // ==============================================================
-    // TEST ENGINE RUNTIME & PAUSE MODAL LOGIC
+    // TEST ENGINE RUNTIME & PAUSE MODAL
     // ==============================================================
     let examActiveQuestions = [];
     let currentQuestionIndex = 0;
@@ -1144,6 +1205,7 @@
       const currentSubjectData = subjectCurricula[activeFilters.subject] || subjectCurricula['Maths'];
       const questionBank = currentSubjectData.questions;
 
+      // Construct questions strictly for this active subject
       examActiveQuestions = [];
       for (let i = 1; i <= count; i++) {
         const base = questionBank[(i - 1) % questionBank.length];
@@ -1173,7 +1235,7 @@
       startTimer();
     }
 
-    // --- PAUSE TEST MODAL ARCHITECTURE ---
+    // PAUSE MODAL CONTROLS
     function requestPauseTest() {
       clearInterval(testTimerInterval);
       document.getElementById('pauseModal').classList.remove('hidden');

@@ -47,10 +47,6 @@
   </script>
 
   <style>
-    .q-pill.answered { background-color: #6366f1; color: #ffffff; border-color: #818cf8; }
-    .q-pill.correct { background-color: #10b981; color: #ffffff; border-color: #34d399; }
-    .q-pill.wrong { background-color: #ef4444; color: #ffffff; border-color: #f87171; }
-    
     .unselectable {
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -67,8 +63,14 @@
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .large-app-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
+
+    /* Exam Palette Status Tokens */
+    .status-answered { background-color: #10B981 !important; color: #FFFFFF !important; border-color: #059669 !important; }
+    .status-not-answered { background-color: #EF4444 !important; color: #FFFFFF !important; border-color: #DC2626 !important; }
+    .status-marked { background-color: #8B5CF6 !important; color: #FFFFFF !important; border-color: #7C3AED !important; }
+    .status-not-visited { background-color: #1E293B !important; color: #94A3B8 !important; border-color: #334155 !important; }
   </style>
 </head>
 <body 
@@ -78,27 +80,6 @@
 >
 
   <div class="flex-1 w-full">
-
-    <!-- TOP HEADER -->
-    <header class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b-2 border-slate-800 px-4 py-2.5">
-      <div class="max-w-4xl mx-auto flex items-center justify-between">
-        <div class="flex items-center gap-2.5 truncate">
-          <div class="w-7 h-7 rounded-full bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 font-bold text-xs shrink-0">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </div>
-          <div class="truncate">
-            <span class="text-xs font-bold text-white tracking-wide">Welcome Student 👋</span>
-            <span class="hidden sm:inline text-[10px] text-slate-400 font-medium ml-1.5">• ScienceoLogy Portal</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="inline-flex items-center gap-1.5 bg-emerald-950/80 border-2 border-emerald-500 text-emerald-400 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            Academic Session
-          </span>
-        </div>
-      </div>
-    </header>
 
     <!-- NAVIGATION BAR -->
     <nav class="bg-brandDark/95 backdrop-blur-md border-b-2 border-slate-800 sticky top-0 z-40 transition-all">
@@ -121,7 +102,11 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
+          <span class="hidden sm:inline-flex items-center gap-1.5 bg-emerald-950/80 border-2 border-emerald-500 text-emerald-400 text-[10px] font-extrabold px-2.5 py-1 rounded-full">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Academic Session
+          </span>
           <button onclick="navigateTo('contact-inquiry')" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-extrabold px-3.5 py-2 rounded-xl border-2 border-cyan-300 transition shadow-lg flex items-center gap-1.5">
             <i class="fa-solid fa-graduation-cap"></i> <span>Offline Batches</span>
           </button>
@@ -134,16 +119,15 @@
     <!-- ============================================================== -->
     <main id="home-screen" class="space-y-6 pb-12">
       
-      <!-- HERO HEADER FORMAT: LOGO (LEFT), CONTENT (CENTER), PHOTO (RIGHT) -->
+      <!-- HERO HEADER -->
       <section class="max-w-4xl mx-auto px-4 pt-6">
         <div class="relative overflow-hidden bg-gradient-to-br from-surfaceDark via-cardDark to-surfaceDark border-2 border-cyan-500/50 rounded-3xl p-6 sm:p-8 shadow-2xl">
           <div class="absolute -top-16 -right-16 w-56 h-56 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            
-            <!-- LEFT: OFFICIAL WEBSITE LOGO -->
-            <div class="shrink-0 flex flex-col items-center order-1 md:order-1">
+          <div class="relative z-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-7">
+            <!-- LOGO -->
+            <div class="shrink-0 flex flex-col items-center">
               <div class="relative group">
                 <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-600 opacity-70 blur"></div>
                 <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-slate-900 p-1 border-2 border-cyan-400 shadow-2xl overflow-hidden flex items-center justify-center">
@@ -159,14 +143,13 @@
               <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Official Brand</span>
             </div>
 
-            <!-- CENTER: BALANCED TITLE & PROFESSIONAL FEATURE COPY -->
-            <div class="text-center md:text-left space-y-3.5 flex-1 order-3 md:order-2">
+            <!-- DESCRIPTION -->
+            <div class="text-center sm:text-left space-y-3.5 flex-1">
               <div class="inline-flex items-center gap-2 bg-cyan-950/80 border-2 border-cyan-500/60 text-cyan-300 text-[10px] sm:text-[11px] font-extrabold uppercase px-3.5 py-1 rounded-full tracking-wider">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
                 Educational Platform
               </div>
 
-              <!-- Main Title -->
               <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight">
                 Master Maths & Science with <br class="hidden sm:inline" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
@@ -174,13 +157,11 @@
                 </span>
               </h1>
 
-              <!-- Professional Description -->
               <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
                 Founded and mentored by <strong class="text-white font-extrabold">Md Amaan [B.Sc. (Hons.) Mathematics, CU]</strong>. An independent conceptual learning ecosystem engineered to provide structured study notes, step-by-step video lessons, daily concept quizzes, timed board test series, and comprehensive PYQ solutions for Classes 5–10 across CBSE, ICSE, and WBBSE curricula.
               </p>
 
-              <!-- Outlined Metrics Badges -->
-              <div class="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-2 text-[11px] font-bold text-slate-200">
+              <div class="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2 text-[11px] font-bold text-slate-200">
                 <span class="bg-brandDark/80 border-2 border-cyan-500/60 px-3 py-1 rounded-xl flex items-center gap-1.5">
                   <i class="fa-solid fa-graduation-cap text-cyan-400"></i> CU Alumnus
                 </span>
@@ -192,31 +173,11 @@
                 </span>
               </div>
             </div>
-
-            <!-- RIGHT: FOUNDER & MENTOR PHOTO -->
-            <div class="shrink-0 flex flex-col items-center order-2 md:order-3">
-              <div class="relative group">
-                <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-600 opacity-70 blur"></div>
-                <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-slate-900 p-1 border-2 border-cyan-400 shadow-2xl overflow-hidden flex items-center justify-center">
-                  <img 
-                    src="mentor.jpg" 
-                    alt="Md Amaan - Founder & Mentor" 
-                    onerror="this.onerror=null; this.src='mentor.png'; this.onerror=function(){this.src='mentor.webp'; this.onerror=function(){this.src='1000031206.webp';};};"
-                    class="w-full h-full object-cover object-top rounded-full"
-                  />
-                </div>
-              </div>
-              <span class="text-xs font-extrabold text-white mt-2.5 flex items-center gap-1">
-                Md Amaan <i class="fa-solid fa-circle-check text-cyan-400 text-[10px]"></i>
-              </span>
-              <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Founder & Mentor</span>
-            </div>
-
           </div>
         </div>
       </section>
 
-      <!-- 1. BOARD & CLASS FILTER WITH BOLD COLOR-CODED OUTLINES -->
+      <!-- 1. BOARD & CLASS FILTER -->
       <section class="max-w-4xl mx-auto px-4">
         <div class="bg-surfaceDark border-2 border-slate-800 rounded-3xl p-5 shadow-lg">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b-2 border-slate-800">
@@ -262,209 +223,185 @@
         </div>
       </section>
 
-      <!-- 2. SUBJECT BUTTONS WITH BOLD COLOR-CODED OUTLINES -->
+      <!-- 2. STREAMLINED SUBJECT SELECTOR TOGGLES -->
       <section class="max-w-4xl mx-auto px-4">
-        <div class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
-          <span class="w-1.5 h-4 rounded-full bg-cyan-400"></span> Select Subject Focus
+        <div class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2.5 flex items-center gap-2">
+          <span class="w-1.5 h-3.5 rounded-full bg-cyan-400"></span> Select Subject Focus
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="subject-cards-group">
-          
-          <!-- Mathematics (Cyan Border) -->
-          <div onclick="selectSubjectCard('Maths', this, 'cyan')" class="subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 border-cyan-400 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]">
-            <div class="flex items-center gap-3.5">
-              <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-lg shrink-0">
-                <i class="fa-solid fa-calculator"></i>
-              </div>
-              <div>
-                <h3 class="text-base font-black text-white leading-tight">Mathematics</h3>
-                <span class="sub-status text-[11px] text-cyan-400 font-bold mt-0.5 inline-block">Active Selection</span>
-              </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="subject-cards-group">
+          <!-- Mathematics -->
+          <div onclick="selectSubjectCard('Maths', this, 'cyan')" class="subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 border-cyan-400 rounded-xl p-2.5 sm:p-3 flex items-center gap-2.5 shadow-md transition hover:scale-[1.02]">
+            <div class="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-400/40 flex items-center justify-center text-cyan-400 text-sm shrink-0">
+              <i class="fa-solid fa-calculator"></i>
             </div>
-            <div class="w-7 h-7 rounded-full bg-cyan-500 text-slate-950 border-2 border-cyan-300 flex items-center justify-center text-xs font-bold shadow-md shrink-0">
-              <i class="fa-solid fa-check"></i>
+            <div class="truncate">
+              <h3 class="text-xs sm:text-sm font-extrabold text-white leading-tight truncate">Maths</h3>
+              <span class="sub-status text-[9px] text-cyan-400 font-bold block truncate">Selected</span>
             </div>
           </div>
 
-          <!-- Physics (Purple Border) -->
-          <div onclick="selectSubjectCard('Physics', this, 'purple')" class="subject-card cursor-pointer bg-surfaceDark border-2 border-purple-500/40 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-purple-400 hover:scale-[1.01]">
-            <div class="flex items-center gap-3.5">
-              <div class="w-11 h-11 rounded-xl bg-purple-500/10 border-2 border-purple-400 flex items-center justify-center text-purple-400 text-lg shrink-0">
-                <i class="fa-solid fa-atom"></i>
-              </div>
-              <div>
-                <h3 class="text-base font-black text-white leading-tight">Physics</h3>
-                <span class="sub-status text-[11px] text-slate-500 mt-0.5 inline-block font-semibold">Tap to Select</span>
-              </div>
+          <!-- Physics -->
+          <div onclick="selectSubjectCard('Physics', this, 'purple')" class="subject-card cursor-pointer bg-surfaceDark border-2 border-slate-800 rounded-xl p-2.5 sm:p-3 flex items-center gap-2.5 shadow-md transition hover:border-purple-400 hover:scale-[1.02]">
+            <div class="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-400/30 flex items-center justify-center text-purple-400 text-sm shrink-0">
+              <i class="fa-solid fa-atom"></i>
             </div>
-            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 border-2 border-slate-700 flex items-center justify-center text-xs font-bold shrink-0">
-              <i class="fa-solid fa-arrow-right"></i>
+            <div class="truncate">
+              <h3 class="text-xs sm:text-sm font-extrabold text-white leading-tight truncate">Physics</h3>
+              <span class="sub-status text-[9px] text-slate-500 font-medium block truncate">Select</span>
             </div>
           </div>
 
-          <!-- Chemistry (Emerald Border) -->
-          <div onclick="selectSubjectCard('Chemistry', this, 'emerald')" class="subject-card cursor-pointer bg-surfaceDark border-2 border-emerald-500/40 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-emerald-400 hover:scale-[1.01]">
-            <div class="flex items-center gap-3.5">
-              <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border-2 border-emerald-400 flex items-center justify-center text-emerald-400 text-lg shrink-0">
-                <i class="fa-solid fa-flask"></i>
-              </div>
-              <div>
-                <h3 class="text-base font-black text-white leading-tight">Chemistry</h3>
-                <span class="sub-status text-[11px] text-slate-500 mt-0.5 inline-block font-semibold">Tap to Select</span>
-              </div>
+          <!-- Chemistry -->
+          <div onclick="selectSubjectCard('Chemistry', this, 'emerald')" class="subject-card cursor-pointer bg-surfaceDark border-2 border-slate-800 rounded-xl p-2.5 sm:p-3 flex items-center gap-2.5 shadow-md transition hover:border-emerald-400 hover:scale-[1.02]">
+            <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-sm shrink-0">
+              <i class="fa-solid fa-flask"></i>
             </div>
-            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 border-2 border-slate-700 flex items-center justify-center text-xs font-bold shrink-0">
-              <i class="fa-solid fa-arrow-right"></i>
+            <div class="truncate">
+              <h3 class="text-xs sm:text-sm font-extrabold text-white leading-tight truncate">Chemistry</h3>
+              <span class="sub-status text-[9px] text-slate-500 font-medium block truncate">Select</span>
             </div>
           </div>
 
-          <!-- Biology (Rose Border) -->
-          <div onclick="selectSubjectCard('Biology', this, 'rose')" class="subject-card cursor-pointer bg-surfaceDark border-2 border-rose-500/40 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-rose-400 hover:scale-[1.01]">
-            <div class="flex items-center gap-3.5">
-              <div class="w-11 h-11 rounded-xl bg-rose-500/10 border-2 border-rose-400 flex items-center justify-center text-rose-400 text-lg shrink-0">
-                <i class="fa-solid fa-dna"></i>
-              </div>
-              <div>
-                <h3 class="text-base font-black text-white leading-tight">Biology</h3>
-                <span class="sub-status text-[11px] text-slate-500 mt-0.5 inline-block font-semibold">Tap to Select</span>
-              </div>
+          <!-- Biology -->
+          <div onclick="selectSubjectCard('Biology', this, 'rose')" class="subject-card cursor-pointer bg-surfaceDark border-2 border-slate-800 rounded-xl p-2.5 sm:p-3 flex items-center gap-2.5 shadow-md transition hover:border-rose-400 hover:scale-[1.02]">
+            <div class="w-9 h-9 rounded-lg bg-rose-500/10 border border-rose-400/30 flex items-center justify-center text-rose-400 text-sm shrink-0">
+              <i class="fa-solid fa-dna"></i>
             </div>
-            <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 border-2 border-slate-700 flex items-center justify-center text-xs font-bold shrink-0">
-              <i class="fa-solid fa-arrow-right"></i>
+            <div class="truncate">
+              <h3 class="text-xs sm:text-sm font-extrabold text-white leading-tight truncate">Biology</h3>
+              <span class="sub-status text-[9px] text-slate-500 font-medium block truncate">Select</span>
             </div>
           </div>
-
         </div>
       </section>
 
-      <!-- 3. CORE MODULE CARDS WITH BOLD COLOR-CODED OUTLINES -->
-      <section class="max-w-4xl mx-auto px-4 pt-2">
+      <!-- 3. CORE MODULE CARDS -->
+      <section class="max-w-4xl mx-auto px-4 pt-1">
         <div class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
-          <span class="w-1.5 h-4 rounded-full bg-indigo-500"></span> Core Learning Modules
+          <span class="w-1.5 h-3.5 rounded-full bg-indigo-500"></span> Core Learning Modules
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          
-          <!-- Test Series (Indigo Outline) -->
-          <div onclick="navigateTo('test-series')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#1C1838] to-cardDark border-2 border-indigo-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-indigo-400">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          <!-- Test Series -->
+          <div onclick="navigateTo('test-series')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#1C1838] to-cardDark border-2 border-indigo-500 rounded-2xl p-4 shadow-xl flex flex-col justify-between group hover:border-indigo-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border-2 border-indigo-400 flex items-center justify-center text-indigo-400 text-xl group-hover:scale-110 transition">
+              <div class="w-11 h-11 rounded-xl bg-indigo-500/10 border-2 border-indigo-400 flex items-center justify-center text-indigo-400 text-lg group-hover:scale-105 transition">
                 <i class="fa-solid fa-stopwatch-20"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border-2 border-indigo-500/60">Timed MCQs</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/50">Timed MCQs</span>
             </div>
-            <div class="my-5">
-              <h3 class="text-lg font-black text-white">Timed Test Series</h3>
-              <p class="text-xs text-slate-300 mt-1">Topicwise, Chapterwise & Full Mocks with infinite reattempts.</p>
+            <div class="my-3">
+              <h3 class="text-base font-black text-white">Timed Test Series</h3>
+              <p class="text-xs text-slate-300 mt-0.5">Topicwise, Chapterwise & Full Mocks</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
-              <span class="text-indigo-300 font-extrabold">Launch Assessment</span>
-              <div class="w-8 h-8 rounded-full bg-indigo-600 border-2 border-indigo-400 group-hover:bg-indigo-500 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
+            <div class="flex items-center justify-between pt-2.5 border-t-2 border-slate-800/80 text-xs">
+              <span class="text-indigo-300 font-extrabold">Open Series</span>
+              <div class="w-7 h-7 rounded-full bg-indigo-600 border border-indigo-400 group-hover:bg-indigo-500 text-white flex items-center justify-center text-xs shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Study Notes (Cyan Outline) -->
-          <div onclick="navigateTo('materials')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#112435] to-cardDark border-2 border-cyan-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-cyan-400">
+          <!-- Study Notes -->
+          <div onclick="navigateTo('materials')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#112435] to-cardDark border-2 border-cyan-500 rounded-2xl p-4 shadow-xl flex flex-col justify-between group hover:border-cyan-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition">
+              <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-lg group-hover:scale-105 transition">
                 <i class="fa-solid fa-file-lines"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border-2 border-cyan-500/60">Free PDFs</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/50">Free PDFs</span>
             </div>
-            <div class="my-5">
-              <h3 class="text-lg font-black text-white">Study Materials</h3>
-              <p class="text-xs text-slate-300 mt-1">Verified theorem proofs and structured chapter revision sheets.</p>
+            <div class="my-3">
+              <h3 class="text-base font-black text-white">Study Materials</h3>
+              <p class="text-xs text-slate-300 mt-0.5">Theorem proofs & formula sheets</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
+            <div class="flex items-center justify-between pt-2.5 border-t-2 border-slate-800/80 text-xs">
               <span class="text-cyan-300 font-extrabold">Open Library</span>
-              <div class="w-8 h-8 rounded-full bg-cyan-500 border-2 border-cyan-300 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
+              <div class="w-7 h-7 rounded-full bg-cyan-500 border border-cyan-300 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Daily Quiz (Amber Outline) -->
-          <div onclick="navigateTo('daily-quiz')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#282115] to-cardDark border-2 border-amber-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-amber-400">
+          <!-- Daily Quiz -->
+          <div onclick="navigateTo('daily-quiz')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#282115] to-cardDark border-2 border-amber-500 rounded-2xl p-4 shadow-xl flex flex-col justify-between group hover:border-amber-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border-2 border-amber-400 flex items-center justify-center text-amber-400 text-xl group-hover:scale-110 transition">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border-2 border-amber-400 flex items-center justify-center text-amber-400 text-lg group-hover:scale-110 transition">
                 <i class="fa-solid fa-bolt-lightning"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border-2 border-amber-500/60">1-Min Check</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/50">1-Min Check</span>
             </div>
-            <div class="my-5">
-              <h3 class="text-lg font-black text-white">Daily Flash Quiz</h3>
-              <p class="text-xs text-slate-300 mt-1">Quick single-question concept diagnostics with instant keys.</p>
+            <div class="my-3">
+              <h3 class="text-base font-black text-white">Daily Flash Quiz</h3>
+              <p class="text-xs text-slate-300 mt-0.5">Quick diagnostic concept questions</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
-              <span class="text-amber-300 font-extrabold">Attempt Question</span>
-              <div class="w-8 h-8 rounded-full bg-amber-500 border-2 border-amber-300 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
+            <div class="flex items-center justify-between pt-2.5 border-t-2 border-slate-800/80 text-xs">
+              <span class="text-amber-300 font-extrabold">Start Quiz</span>
+              <div class="w-7 h-7 rounded-full bg-amber-500 border border-amber-300 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Video Lessons (Rose Outline) -->
-          <div onclick="navigateTo('video-lectures')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#291720] to-cardDark border-2 border-rose-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-rose-400">
+          <!-- Video Lessons -->
+          <div onclick="navigateTo('video-lectures')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#291720] to-cardDark border-2 border-rose-500 rounded-2xl p-4 shadow-xl flex flex-col justify-between group hover:border-rose-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border-2 border-rose-400 flex items-center justify-center text-rose-400 text-xl group-hover:scale-110 transition">
+              <div class="w-11 h-11 rounded-xl bg-rose-500/10 border-2 border-rose-400 flex items-center justify-center text-rose-400 text-lg group-hover:scale-110 transition">
                 <i class="fa-solid fa-circle-play"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border-2 border-rose-500/60">Modular</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/50">Modular</span>
             </div>
-            <div class="my-5">
-              <h3 class="text-lg font-black text-white">Video Lessons</h3>
-              <p class="text-xs text-slate-300 mt-1">Detailed concept walkthroughs designed and curated by Md Amaan.</p>
+            <div class="my-3">
+              <h3 class="text-base font-black text-white">Video Lessons</h3>
+              <p class="text-xs text-slate-300 mt-0.5">Detailed concept walkthroughs</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
-              <span class="text-rose-300 font-extrabold">Browse Sessions</span>
-              <div class="w-8 h-8 rounded-full bg-rose-500 border-2 border-rose-300 text-white flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
+            <div class="flex items-center justify-between pt-2.5 border-t-2 border-slate-800/80 text-xs">
+              <span class="text-rose-300 font-extrabold">Watch Now</span>
+              <div class="w-7 h-7 rounded-full bg-rose-500 border border-rose-300 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- PYQs (Purple Outline) -->
-          <div onclick="navigateTo('pyq')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#211630] to-cardDark border-2 border-purple-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-purple-400">
+          <!-- PYQs -->
+          <div onclick="navigateTo('pyq')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#211630] to-cardDark border-2 border-purple-500 rounded-2xl p-4 shadow-xl flex flex-col justify-between group hover:border-purple-400">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border-2 border-purple-400 flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition">
+              <div class="w-11 h-11 rounded-xl bg-purple-500/10 border-2 border-purple-400 flex items-center justify-center text-purple-400 text-lg group-hover:scale-110 transition">
                 <i class="fa-solid fa-book-bookmark"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border-2 border-purple-500/60">Solved Papers</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/50">Solved Papers</span>
             </div>
-            <div class="my-5">
-              <h3 class="text-lg font-black text-white">Board PYQ Archive</h3>
-              <p class="text-xs text-slate-300 mt-1">Official board papers from CBSE, ICSE, and WBBSE with solutions.</p>
+            <div class="my-3">
+              <h3 class="text-base font-black text-white">Board PYQ Archive</h3>
+              <p class="text-xs text-slate-300 mt-0.5">CBSE, ICSE & WBBSE solutions</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
+            <div class="flex items-center justify-between pt-2.5 border-t-2 border-slate-800/80 text-xs">
               <span class="text-purple-300 font-extrabold">Access Papers</span>
-              <div class="w-8 h-8 rounded-full bg-purple-600 border-2 border-purple-400 group-hover:bg-purple-500 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
+              <div class="w-7 h-7 rounded-full bg-purple-600 border border-purple-400 group-hover:bg-purple-500 text-white flex items-center justify-center font-bold text-xs shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Offline Batches (Emerald Outline) -->
-          <div onclick="navigateTo('contact-inquiry')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#142322] to-cardDark border-2 border-emerald-500 rounded-3xl p-5 shadow-xl flex flex-col justify-between group relative overflow-hidden hover:border-emerald-400">
+          <!-- Offline Batches -->
+          <div onclick="navigateTo('contact-inquiry')" class="large-app-card cursor-pointer bg-gradient-to-b from-[#142322] to-cardDark border-2 border-emerald-500 rounded-2xl p-4 shadow-xl flex flex-col justify-between group hover:border-emerald-400">
             <div class="flex items-center justify-between">
               <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border-2 border-emerald-400 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition">
                 <i class="fa-solid fa-chalkboard-user"></i>
               </div>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border-2 border-emerald-500/60">Kolkata</span>
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/50">Kolkata</span>
             </div>
-            <div class="my-5">
-              <h3 class="text-lg font-black text-white">Offline Tuition Admissions</h3>
-              <p class="text-xs text-slate-300 mt-1">Join classroom mentorship batches in Kolkata or provide feedback.</p>
+            <div class="my-3">
+              <h3 class="text-base font-black text-white">Offline Admissions</h3>
+              <p class="text-xs text-slate-300 mt-0.5">Classroom batches in Kolkata</p>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t-2 border-slate-800 text-xs">
+            <div class="flex items-center justify-between pt-2.5 border-t-2 border-slate-800/80 text-xs">
               <span class="text-emerald-300 font-extrabold">Inquire Seats</span>
-              <div class="w-8 h-8 rounded-full bg-emerald-500 border-2 border-emerald-300 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition">
+              <div class="w-7 h-7 rounded-full bg-emerald-500 border border-emerald-300 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md transition">
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -542,39 +479,39 @@
         </div>
       </section>
 
-      <!-- SECTION: 4, 5, 6. TIMED TEST SERIES -->
-      <section id="view-test-series" class="portal-pane hidden space-y-6">
-        <div class="bg-gradient-to-r from-indigo-950 via-surfaceDark to-cardDark border-2 border-indigo-500/60 rounded-3xl p-6 shadow-xl text-center">
-          <div class="inline-flex items-center gap-2 bg-indigo-900/60 border-2 border-indigo-500/50 text-cyan-300 text-[11px] font-extrabold uppercase px-3 py-1 rounded-full tracking-wider mb-2">
-            <i class="fa-solid fa-list-check"></i> Comprehensive Question Bank
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">Chapter-wise & Full Test Series</h2>
-          <p class="text-slate-400 text-xs sm:text-sm mt-1">Select your practice module below. All tests feature randomized questions and server verification.</p>
-
-          <div class="inline-flex items-center p-1.5 bg-brandDark/90 border-2 border-slate-800 rounded-2xl mt-5 text-xs font-bold gap-1">
-            <button onclick="switchTestTab('topic')" id="tabBtnTopic" class="py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-sm transition flex items-center gap-1.5">
-              <i class="fa-solid fa-bolt"></i> Topicwise (15m)
-            </button>
-            <button onclick="switchTestTab('chapter')" id="tabBtnChapter" class="py-2 px-4 rounded-xl text-slate-400 border-2 border-transparent hover:text-white transition flex items-center gap-1.5">
-              <i class="fa-solid fa-book"></i> Chapterwise (15m)
-            </button>
-            <button onclick="switchTestTab('full')" id="tabBtnFull" class="py-2 px-4 rounded-xl text-slate-400 border-2 border-transparent hover:text-white transition flex items-center gap-1.5">
-              <i class="fa-solid fa-award"></i> Full Mock (40m)
-            </button>
-          </div>
-        </div>
-
-        <div id="topicTestsContainer" class="space-y-3">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="topicTestsGrid"></div>
-        </div>
+      <!-- SECTION: 4. TIMED TEST SERIES (UPDATED SPECIFICATION MATCHING IMAGES) -->
+      <section id="view-test-series" class="portal-pane hidden space-y-5">
         
-        <div id="chapterTestsContainer" class="hidden space-y-3">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="chapterTestsGrid"></div>
+        <!-- Header Strip (Image 1 Style) -->
+        <div class="bg-gradient-to-r from-purple-950/80 via-surfaceDark to-cardDark border-2 border-purple-500/60 rounded-3xl p-5 shadow-xl">
+          <div class="flex items-center justify-between flex-wrap gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/20 border-2 border-purple-400 flex items-center justify-center text-purple-300">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <div>
+                <h2 id="testSeriesStreamTitle" class="text-lg font-black text-white leading-tight">Mathematics Special Booster</h2>
+                <p class="text-xs text-slate-400 mt-0.5">Classes 5–10 Standard Practice Tests</p>
+              </div>
+            </div>
+
+            <!-- Topic Filter Pills (Image 1 Header) -->
+            <div class="flex items-center gap-1.5 overflow-x-auto py-1 max-w-full" id="testTopicTabs">
+              <button onclick="filterTestList('all', this)" class="topic-tab-btn py-1.5 px-3.5 rounded-full text-xs font-extrabold bg-purple-600 text-white border-2 border-purple-400 transition shrink-0">
+                All
+              </button>
+              <button onclick="filterTestList('polynomials', this)" class="topic-tab-btn py-1.5 px-3.5 rounded-full text-xs font-semibold bg-cardDark text-slate-300 border-2 border-slate-700 hover:border-purple-400 transition shrink-0">
+                Polynomials (3)
+              </button>
+              <button onclick="filterTestList('quadratic', this)" class="topic-tab-btn py-1.5 px-3.5 rounded-full text-xs font-semibold bg-cardDark text-slate-300 border-2 border-slate-700 hover:border-purple-400 transition shrink-0">
+                Quadratic Eq (3)
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div id="miscTestsContainer" class="hidden space-y-3">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="miscTestsGrid"></div>
-        </div>
+        <!-- Vertical Test Cards Stack (Matching Image 1) -->
+        <div class="space-y-3" id="testCardsList"></div>
       </section>
 
       <!-- SECTION: 7. PYQs ARCHIVE -->
@@ -673,6 +610,142 @@
 
   </div>
 
+  <!-- ============================================================== -->
+  <!-- TEST ENGINE FULL-SCREEN MODAL (MATCHING IMAGES 2 & 3)          -->
+  <!-- ============================================================== -->
+  <div id="testModal" class="fixed inset-0 bg-brandDark z-50 hidden flex flex-col">
+    
+    <!-- Top Header Bar -->
+    <div class="px-4 py-3 bg-surfaceDark border-b-2 border-slate-800 flex justify-between items-center shrink-0">
+      <div class="flex items-center gap-2">
+        <button onclick="closeTestModal()" class="w-8 h-8 rounded-lg bg-cardDark border border-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-xs">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div>
+          <h3 class="text-xs sm:text-sm font-extrabold text-white truncate max-w-[160px] sm:max-w-md" id="modalTitle">Test Series</h3>
+          <p class="text-[10px] text-slate-400" id="modalSectionIndicator">Quantitative Aptitude</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Live Countdown Timer -->
+        <div class="flex items-center gap-1.5 bg-cardDark border-2 border-amber-500/80 px-2.5 py-1 rounded-xl">
+          <i class="fa-regular fa-clock text-accentAmber text-xs"></i>
+          <span id="testTimer" class="font-mono text-xs font-bold text-accentAmber">15:00</span>
+        </div>
+
+        <!-- Quick Submit Header Button -->
+        <button onclick="submitTest()" class="bg-cyan-500 text-slate-950 px-3 py-1 rounded-lg text-xs font-extrabold shadow hover:bg-cyan-400 transition">
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Question Viewport (Image 2) -->
+    <div class="flex-1 overflow-y-auto p-4 sm:p-6 max-w-3xl mx-auto w-full relative" id="testQuestionViewport">
+      
+      <!-- Scorecard View (Displayed upon Submission) -->
+      <div id="scorecardContainer" class="hidden"></div>
+
+      <!-- Single Question Card -->
+      <div id="singleQuestionContainer" class="space-y-4">
+        <div class="flex items-center justify-between text-xs text-slate-400 pb-2 border-b border-slate-800">
+          <span id="activeQuestionNum" class="font-bold text-cyan-400">Question 1</span>
+          <span>Marks: <b class="text-white">+2.0</b>, <b class="text-rose-400">-0.5</b></span>
+        </div>
+
+        <!-- Question Prompt -->
+        <div id="activeQuestionText" class="text-sm sm:text-base font-semibold text-white leading-relaxed pt-2"></div>
+
+        <!-- 4 Options (Matching Image 2 Style) -->
+        <div id="activeOptionsContainer" class="space-y-2.5 pt-2"></div>
+
+        <!-- Verified Solution Box (Visible Post Submission) -->
+        <div id="activeExplanationBox" class="hidden mt-4 p-4 rounded-2xl text-xs leading-relaxed"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Bar (Image 2 Footer) -->
+    <div class="px-4 py-3 bg-surfaceDark border-t-2 border-slate-800 flex items-center justify-between gap-2 shrink-0">
+      <div class="flex items-center gap-1.5">
+        <button onclick="prevQuestion()" id="btnPrevQ" class="px-3 py-2 bg-cardDark hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold rounded-xl transition">
+          Previous
+        </button>
+        <button onclick="clearCurrentSelection()" class="px-3 py-2 bg-cardDark hover:bg-slate-800 border border-slate-700 text-rose-400 text-xs font-bold rounded-xl transition">
+          Clear
+        </button>
+      </div>
+
+      <div class="flex items-center gap-1.5">
+        <button onclick="markForReview()" class="px-3 py-2 bg-cardDark hover:bg-slate-800 border border-purple-500/70 text-purple-300 text-xs font-bold rounded-xl transition">
+          Mark Review
+        </button>
+        <button onclick="saveAndNext()" id="btnNextQ" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-extrabold rounded-xl transition shadow">
+          Save & Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Floating Grid Action Button (FAB in Image 2) -->
+    <button onclick="togglePaletteDrawer(true)" class="fixed bottom-16 right-4 z-40 w-12 h-12 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center text-lg shadow-2xl transition border-2 border-emerald-300">
+      <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+
+    <!-- Slide-Out Question Palette Drawer (Matching Image 3) -->
+    <div id="paletteDrawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-[#0E1626] border-l-2 border-slate-800 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+      
+      <!-- Drawer Header -->
+      <div class="px-4 py-3.5 bg-cardDark border-b-2 border-slate-800 flex justify-between items-center shrink-0">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xs">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div>
+            <span class="text-xs font-black text-white block leading-tight">Md. Amaan Alauddin</span>
+            <span class="text-[10px] text-cyan-400 font-semibold">Live Session</span>
+          </div>
+        </div>
+        <button onclick="togglePaletteDrawer(false)" class="w-8 h-8 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center text-xs font-bold hover:bg-rose-500/40">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Live Question Status Legend (Matching Top of Image 3) -->
+      <div class="p-3 bg-surfaceDark/90 border-b border-slate-800 grid grid-cols-3 gap-2 text-[10px] font-bold shrink-0">
+        <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded-md bg-emerald-500 shrink-0"></span> <span id="cntAnswered">0</span> Answered</div>
+        <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded-md bg-rose-500 shrink-0"></span> <span id="cntNotAnswered">0</span> Unanswered</div>
+        <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded-md bg-purple-500 shrink-0"></span> <span id="cntMarked">0</span> Marked</div>
+        <div class="flex items-center gap-1.5 col-span-3 pt-1 border-t border-slate-800/80"><span class="w-3.5 h-3.5 rounded-md bg-slate-800 border border-slate-700 shrink-0"></span> <span id="cntNotVisited">10</span> Not Visited</div>
+      </div>
+
+      <!-- Question Palette Matrix Grid (Matching Image 3) -->
+      <div class="flex-1 overflow-y-auto p-4">
+        <span class="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider block mb-3">SECTION : Quantitative Aptitude</span>
+        <div class="grid grid-cols-5 gap-2.5 text-center" id="paletteGridButtons"></div>
+      </div>
+
+      <!-- Drawer Footer Submit Action -->
+      <div class="p-4 bg-cardDark border-t-2 border-slate-800 space-y-2 shrink-0">
+        <button onclick="submitTest()" class="w-full py-3 bg-blue-700 hover:bg-blue-600 text-white font-extrabold text-xs rounded-xl shadow transition tracking-wide">
+          Submit Test
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF MODAL -->
+  <div id="pdfModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-surfaceDark w-full max-w-4xl h-[88vh] rounded-3xl shadow-2xl border-2 border-cyan-500/40 overflow-hidden flex flex-col">
+      <div class="px-5 py-3.5 bg-cardDark text-white flex justify-between items-center border-b-2 border-slate-800">
+        <span id="pdfModalTitle" class="text-xs font-bold truncate">Document Preview</span>
+        <button onclick="closePdfModal()" class="text-slate-400 hover:text-white text-xs font-bold px-2 py-1">✕ Close</button>
+      </div>
+      <div class="flex-1 bg-slate-900">
+        <iframe id="pdfFrame" class="w-full h-full border-0" src=""></iframe>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="bg-brandDark text-slate-400 py-10 text-xs border-t-2 border-slate-800 w-full">
     <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -722,7 +795,6 @@
       </div>
     </div>
 
-    <!-- LEGAL DISCLAIMER -->
     <div class="max-w-4xl mx-auto px-4 mt-8 pt-5 border-t-2 border-slate-800 text-xs text-slate-500 space-y-2">
       <div class="leading-relaxed bg-surfaceDark p-3.5 rounded-2xl border-2 border-slate-800 text-[11px] text-slate-400">
         <strong class="text-slate-200 block mb-0.5">Academic Notice & Fair Use:</strong>
@@ -735,55 +807,9 @@
     </div>
   </footer>
 
-  <!-- ASSESSMENT MODAL -->
-  <div id="testModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4">
-    <div class="bg-surfaceDark text-slate-200 w-full max-w-2xl rounded-3xl shadow-2xl border-2 border-cyan-500/40 overflow-hidden flex flex-col max-h-[90vh]">
-      <div class="px-5 py-3.5 bg-cardDark text-white flex justify-between items-center border-b-2 border-slate-800">
-        <div>
-          <h3 class="text-sm font-bold truncate max-w-[220px] sm:max-w-md text-white" id="modalTitle">Assessment</h3>
-          <p class="text-[11px] text-slate-400" id="modalSubtitle">Timed Evaluation</p>
-        </div>
-        <div class="flex items-center gap-2 bg-slate-900 px-3 py-1 rounded-xl border-2 border-amber-500/60">
-          <i class="fa-regular fa-clock text-accentAmber text-xs"></i>
-          <span id="testTimer" class="font-mono text-xs font-bold text-accentAmber">15:00</span>
-        </div>
-      </div>
-
-      <div class="bg-brandDark px-4 py-2 border-b-2 border-slate-800 overflow-x-auto flex items-center gap-1.5 text-xs" id="questionPalette"></div>
-
-      <div class="p-5 sm:p-6 overflow-y-auto space-y-6 flex-1" id="testBody">
-        <div id="scorecardContainer" class="hidden"></div>
-        <div id="questionsContainer" class="space-y-6"></div>
-      </div>
-
-      <div class="px-5 py-3.5 bg-cardDark border-t-2 border-slate-800 flex justify-between items-center gap-2">
-        <button onclick="closeTestModal()" class="text-xs font-bold text-slate-400 hover:text-white px-3 py-1.5 rounded-lg">Exit</button>
-        <div class="flex items-center gap-2">
-          <button onclick="reattemptCurrentTest()" id="reattemptBtn" class="hidden bg-slate-800 hover:bg-slate-700 text-accentAmber text-xs font-bold px-4 py-2.5 rounded-xl border-2 border-amber-500 transition flex items-center gap-1.5">
-            <i class="fa-solid fa-rotate-right"></i> Reattempt
-          </button>
-          <button onclick="submitTest()" id="submitTestBtn" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold px-5 py-2.5 rounded-xl border-2 border-cyan-300 transition shadow-lg flex items-center gap-1.5">
-            <i class="fa-solid fa-check"></i> Submit
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PDF MODAL -->
-  <div id="pdfModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4">
-    <div class="bg-surfaceDark w-full max-w-4xl h-[88vh] rounded-3xl shadow-2xl border-2 border-cyan-500/40 overflow-hidden flex flex-col">
-      <div class="px-5 py-3.5 bg-cardDark text-white flex justify-between items-center border-b-2 border-slate-800">
-        <span id="pdfModalTitle" class="text-xs font-bold truncate">Document Preview</span>
-        <button onclick="closePdfModal()" class="text-slate-400 hover:text-white text-xs font-bold px-2 py-1">✕ Close</button>
-      </div>
-      <div class="flex-1 bg-slate-900">
-        <iframe id="pdfFrame" class="w-full h-full border-0" src=""></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- CLIENT SCRIPT -->
+  <!-- ============================================================== -->
+  <!-- SCRIPT LOGIC                                                   -->
+  <!-- ============================================================== -->
   <script>
     const EVALUATION_BACKEND_URL = "https://scienceology-eval.YOUR-USERNAME.workers.dev";
     const WEB3FORMS_ACCESS_KEY = "0d0369d7-098d-45b5-a0bb-31e928c8decb";
@@ -814,7 +840,6 @@
       loadStreamData();
     }
 
-    // Subject Selector with color-coordinated bold outlines
     function selectSubjectCard(subjectName, cardElement, colorKey) {
       activeFilters.subject = subjectName;
 
@@ -825,35 +850,22 @@
         rose: 'border-rose-400'
       };
 
-      // Reset all cards
       document.querySelectorAll('#subject-cards-group .subject-card').forEach(c => {
-        c.className = "subject-card cursor-pointer bg-surfaceDark border-2 border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]";
+        c.className = "subject-card cursor-pointer bg-surfaceDark border-2 border-slate-800 rounded-xl p-2.5 sm:p-3 flex items-center gap-2.5 shadow-md transition hover:scale-[1.02]";
         const status = c.querySelector('.sub-status');
         if (status) {
-          status.className = "sub-status text-[11px] text-slate-500 mt-0.5 inline-block font-semibold";
-          status.innerText = "Tap to Select";
-        }
-        const arrow = c.querySelector('.rounded-full:last-child');
-        if (arrow) {
-          arrow.className = "w-7 h-7 rounded-full bg-slate-800 text-slate-400 border-2 border-slate-700 flex items-center justify-center text-xs font-bold shrink-0";
-          arrow.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+          status.className = "sub-status text-[9px] text-slate-500 font-medium block truncate";
+          status.innerText = "Select";
         }
       });
 
-      // Highlight clicked card with its respective color outline
       const chosenBorder = outlineMap[colorKey] || 'border-cyan-400';
-      cardElement.className = `subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 ${chosenBorder} rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:scale-[1.01]`;
+      cardElement.className = `subject-card active-subject cursor-pointer bg-gradient-to-r from-[#18233C] to-[#0E1626] border-2 ${chosenBorder} rounded-xl p-2.5 sm:p-3 flex items-center gap-2.5 shadow-md transition hover:scale-[1.02]`;
       
       const activeStatus = cardElement.querySelector('.sub-status');
       if (activeStatus) {
-        activeStatus.className = `sub-status text-[11px] text-${colorKey === 'purple' ? 'purple' : colorKey === 'emerald' ? 'emerald' : colorKey === 'rose' ? 'rose' : 'cyan'}-400 font-bold mt-0.5 inline-block`;
-        activeStatus.innerText = "Active Selection";
-      }
-      
-      const activeArrow = cardElement.querySelector('.rounded-full:last-child');
-      if (activeArrow) {
-        activeArrow.className = `w-7 h-7 rounded-full bg-cyan-500 text-slate-950 border-2 border-cyan-300 flex items-center justify-center text-xs font-bold shadow-md shrink-0`;
-        activeArrow.innerHTML = '<i class="fa-solid fa-check"></i>';
+        activeStatus.className = `sub-status text-[9px] text-cyan-400 font-bold block truncate`;
+        activeStatus.innerText = "Selected";
       }
 
       syncLabels();
@@ -866,7 +878,6 @@
       document.getElementById('sectionActiveTag').innerHTML = `<i class="fa-solid fa-filter text-[10px]"></i> ${tagText}`;
     }
 
-    // App View Controller
     const SECTIONS = ['materials', 'video-lectures', 'daily-quiz', 'test-series', 'pyq', 'contact-inquiry'];
 
     function navigateTo(targetSection) {
@@ -898,30 +909,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Test Series Switcher
-    function switchTestTab(tab) {
-      document.getElementById('topicTestsContainer').classList.add('hidden');
-      document.getElementById('chapterTestsContainer').classList.add('hidden');
-      document.getElementById('miscTestsContainer').classList.add('hidden');
-
-      const tabs = ['topic', 'chapter', 'full'];
-      tabs.forEach(t => {
-        const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
-        btn.className = "py-2 px-4 rounded-xl text-slate-400 border-2 border-transparent hover:text-white transition flex items-center gap-1.5";
-      });
-
-      if (tab === 'topic') {
-        document.getElementById('topicTestsContainer').classList.remove('hidden');
-        document.getElementById('tabBtnTopic').className = "py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-sm transition flex items-center gap-1.5";
-      } else if (tab === 'chapter') {
-        document.getElementById('chapterTestsContainer').classList.remove('hidden');
-        document.getElementById('tabBtnChapter').className = "py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-sm transition flex items-center gap-1.5";
-      } else {
-        document.getElementById('miscTestsContainer').classList.remove('hidden');
-        document.getElementById('tabBtnFull').className = "py-2 px-4 rounded-xl bg-cyan-500 text-slate-950 border-2 border-cyan-300 shadow-sm transition flex items-center gap-1.5";
-      }
-    }
-
     function shuffleArray(array) {
       const arr = [...array];
       for (let i = arr.length - 1; i > 0; i--) {
@@ -931,77 +918,59 @@
       return arr;
     }
 
+    // Comprehensive Questions Generator
     function generateQuestionData(prefix, count) {
+      const sampleQuestionBank = [
+        { q: "If 85% of a number is added to 75, then the result is the number itself. The number is:", options: ["500", "200", "300", "100"], answer: 0, expl: "Let the number be $x$. Then $0.85x + 75 = x \\implies 0.15x = 75 \\implies x = 500$." },
+        { q: "Find the zeroes of the quadratic polynomial $f(x) = x^2 - 5x + 6$:", options: ["2, 3", "-2, -3", "1, 6", "-1, -6"], answer: 0, expl: "$x^2 - 5x + 6 = (x - 2)(x - 3) = 0 \\implies x = 2, 3$." },
+        { q: "The discriminant $\\Delta$ of quadratic equation $2x^2 - 4x + 3 = 0$ is:", options: ["$-8$", "$8$", "$-16$", "$16$"], answer: 0, expl: "$\\Delta = b^2 - 4ac = (-4)^2 - 4(2)(3) = 16 - 24 = -8$." },
+        { q: "If $\\alpha, \\beta$ are the zeroes of $2x^2 + 5x - 10$, then the value of $\\alpha\\beta$ is:", options: ["$-5$", "$5$", "$-5/2$", "$5/2$"], answer: 0, expl: "Product of zeroes $\\alpha\\beta = c/a = -10/2 = -5$." }
+      ];
+
       const list = [];
       for (let i = 1; i <= count; i++) {
+        const base = sampleQuestionBank[(i - 1) % sampleQuestionBank.length];
         list.push({
           id: `q_${i}`,
-          q: `[${prefix} Q${i}] If $\\alpha$ and $\\beta$ are zeroes of $f(x) = x^2 - 5x + 6$, calculate $\\alpha + \\beta - \\alpha\\beta$:`,
-          options: ["$-1$", "$1$", "$-11$", "$11$"]
+          num: i,
+          q: `[${prefix} Q${i}] ${base.q}`,
+          options: base.options,
+          answer: base.answer,
+          expl: base.expl
         });
       }
       return list;
     }
 
-    const fallbackDatabase = {
-      'CBSE-10-Maths': {
-        notes: [
-          { title: "Real Numbers & Irrationality Proofs", size: "2.8 MB", desc: "Fundamental arithmetic theorem and proofs by contradiction.", downloadUrl: "#" },
-          { title: "Pair of Linear Equations in 2 Variables", size: "3.5 MB", desc: "Algebraic substitution, elimination, and consistency matrices.", downloadUrl: "#" },
-          { title: "Quadratic Equations & Discriminant", size: "3.1 MB", desc: "Nature of roots criteria and quadratic formula derivations.", downloadUrl: "#" }
-        ],
-        videos: [
-          { title: "Real Numbers: Proof of √2 & √3 is Irrational", topic: "Real Numbers", duration: "25 Mins", desc: "Step-by-step contradiction proof tested on board exams." },
-          { title: "Quadratic Equations: Finding Roots without Memorizing", topic: "Algebra", duration: "32 Mins", desc: "Understand derivations behind the quadratic formula." },
-          { title: "Polynomials: Zeroes & Graphical Interpretation", topic: "Polynomials", duration: "28 Mins", desc: "Relationship between parabolic graphs and zeroes." }
-        ],
-        topicTests: [
-          { title: "Discriminant & Nature of Roots Booster", duration: "15 Mins", marks: "10 Marks", desc: "10 MCQs on $\\Delta = b^2 - 4ac$ conditions and equal roots." },
-          { title: "Zeroes of Polynomials & Graphs Special", duration: "15 Mins", marks: "10 Marks", desc: "10 MCQs on coefficient relations and coordinates." }
-        ],
-        chapterTests: [
-          { title: "Chapter 1: Real Numbers Comprehensive", duration: "15 Mins", marks: "10 Marks", desc: "Prime factorisation and decimal expansions." },
-          { title: "Chapter 4: Quadratic Equations Full Review", duration: "15 Mins", marks: "10 Marks", desc: "Standard factorisation and applied word problems." }
-        ],
-        miscTests: [
-          { title: "Grand Mock 1: Mid-Term Syllabus", duration: "40 Mins", marks: "30 Marks", desc: "Real Numbers, Polynomials, Linear Equations, and AP." },
-          { title: "Grand Mock 2: Annual Board Simulation", duration: "40 Mins", marks: "30 Marks", desc: "Complete Class 10 Syllabus timed paper." }
-        ],
-        pyqs: [
-          { year: "2025 Annual Exam", title: "CBSE Class 10 Standard Mathematics (Solved)", downloadUrl: "#" },
-          { year: "2024 Annual Exam", title: "CBSE Class 10 Standard Mathematics (All India)", downloadUrl: "#" }
-        ],
-        topicQuestions: generateQuestionData("Topic Test", 10),
-        chapterQuestions: generateQuestionData("Chapter Test", 10),
-        fullLengthQuestions: generateQuestionData("Grand Mock", 30)
-      }
-    };
+    const testSeriesListDatabase = [
+      { id: 'poly-1', title: 'Polynomials - 1', topic: 'polynomials', questions: 10, marks: 20, time: 15 },
+      { id: 'poly-2', title: 'Polynomials - 2', topic: 'polynomials', questions: 10, marks: 20, time: 15 },
+      { id: 'poly-3', title: 'Polynomials - 3', topic: 'polynomials', questions: 10, marks: 20, time: 15 },
+      { id: 'quad-1', title: 'Quadratic Equations - 1', topic: 'quadratic', questions: 10, marks: 20, time: 15 },
+      { id: 'quad-2', title: 'Quadratic Equations - 2', topic: 'quadratic', questions: 10, marks: 20, time: 15 },
+      { id: 'quad-3', title: 'Quadratic Equations - 3', topic: 'quadratic', questions: 10, marks: 20, time: 15 }
+    ];
 
     let currentStreamData = null;
 
     async function loadStreamData() {
-      const fileKey = `${activeFilters.board.toLowerCase()}-${activeFilters.grade}-${activeFilters.subject.toLowerCase()}`;
       const memoryKey = `${activeFilters.board}-${activeFilters.grade}-${activeFilters.subject}`;
-
-      try {
-        const response = await fetch(`data/${fileKey}.json`);
-        if (!response.ok) throw new Error();
-        currentStreamData = await response.json();
-      } catch (err) {
-        currentStreamData = fallbackDatabase[memoryKey] || {
-          notes: [{ title: `${activeFilters.subject} Handout`, size: "2.5 MB", desc: `Summary for Class ${activeFilters.grade}.`, downloadUrl: "#" }],
-          videos: [{ title: `${activeFilters.subject} Fundamentals`, topic: `Class ${activeFilters.grade}`, duration: "30 Mins", desc: `Key concepts explained step-by-step.` }],
-          topicTests: [{ title: `${activeFilters.subject} Topic Diagnostic Booster`, duration: "15 Mins", marks: "10 Marks", desc: "10 Target MCQs." }],
-          chapterTests: [{ title: `${activeFilters.subject} Chapter Special Test`, duration: "15 Mins", marks: "10 Marks", desc: "10 Chapter MCQs." }],
-          miscTests: [{ title: `${activeFilters.board} Full Mock`, duration: "40 Mins", marks: "30 Marks", desc: "30 Full-Length MCQs." }],
-          pyqs: [{ year: "2024 Exam", title: `${activeFilters.board} Solved Question Bank`, downloadUrl: "#" }],
-          topicQuestions: generateQuestionData(`${activeFilters.subject} Topic`, 10),
-          chapterQuestions: generateQuestionData(`${activeFilters.subject} Chapter`, 10),
-          fullLengthQuestions: generateQuestionData(`${activeFilters.subject} Full Mock`, 30)
-        };
-      }
+      currentStreamData = {
+        notes: [
+          { title: "Real Numbers & Irrationality Proofs", size: "2.8 MB", desc: "Fundamental theorem of arithmetic & contradiction proofs.", downloadUrl: "#" },
+          { title: "Quadratic Equations Formula Sheet", size: "3.1 MB", desc: "Discriminant conditions and root derivations.", downloadUrl: "#" }
+        ],
+        videos: [
+          { title: "Real Numbers: Contradiction Proofs", topic: "Real Numbers", duration: "25 Mins", desc: "Step-by-step walkthrough by Md Amaan." },
+          { title: "Quadratic Formula Masterclass", topic: "Algebra", duration: "32 Mins", desc: "Complete derivation without memorization." }
+        ],
+        pyqs: [
+          { year: "2025 Annual Exam", title: `${activeFilters.board} Class ${activeFilters.grade} Mathematics Solved Paper`, downloadUrl: "#" }
+        ]
+      };
 
       renderInterface();
+      renderTestSeriesList('all');
     }
 
     function renderInterface() {
@@ -1055,61 +1024,7 @@
       // 3. Daily Quiz
       renderDailyQuiz();
 
-      // 4. Topic Tests Grid
-      document.getElementById('topicTestsGrid').innerHTML = data.topicTests.map(t => `
-        <div class="bg-cardDark p-4 rounded-2xl border-2 border-purple-500/50 flex items-center justify-between glow-card transition hover:border-purple-400">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border-2 border-purple-400 flex items-center justify-center text-purple-400 text-sm">
-              <i class="fa-solid fa-bolt"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-white text-sm leading-tight">${t.title}</h4>
-              <p class="text-[11px] text-slate-400 mt-0.5">${t.marks} • ${t.duration}</p>
-            </div>
-          </div>
-          <button onclick="startTestEngine('${t.title}', 'topic')" class="w-9 h-9 rounded-full bg-cyan-500 text-slate-950 border-2 border-cyan-300 flex items-center justify-center font-bold text-xs hover:scale-105 transition shadow-md">
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-      `).join('');
-
-      // 5. Chapter Tests Grid
-      document.getElementById('chapterTestsGrid').innerHTML = (data.chapterTests || []).map(c => `
-        <div class="bg-cardDark p-4 rounded-2xl border-2 border-cyan-500/50 flex items-center justify-between glow-card transition hover:border-cyan-400">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-sm">
-              <i class="fa-solid fa-book"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-white text-sm leading-tight">${c.title}</h4>
-              <p class="text-[11px] text-slate-400 mt-0.5">${c.marks} • ${c.duration}</p>
-            </div>
-          </div>
-          <button onclick="startTestEngine('${c.title}', 'chapter')" class="w-9 h-9 rounded-full bg-cyan-500 text-slate-950 border-2 border-cyan-300 flex items-center justify-center font-bold text-xs hover:scale-105 transition shadow-md">
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-      `).join('');
-
-      // 6. Full Mocks Grid
-      document.getElementById('miscTestsGrid').innerHTML = data.miscTests.map(m => `
-        <div class="bg-cardDark p-4 rounded-2xl border-2 border-amber-500/50 flex items-center justify-between glow-card transition hover:border-amber-400">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border-2 border-amber-400 flex items-center justify-center text-amber-400 text-sm">
-              <i class="fa-solid fa-award"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-white text-sm leading-tight">${m.title}</h4>
-              <p class="text-[11px] text-amber-300 mt-0.5">${m.marks} • ${m.duration}</p>
-            </div>
-          </div>
-          <button onclick="startTestEngine('${m.title}', 'full')" class="w-9 h-9 rounded-full bg-amber-400 text-slate-950 border-2 border-amber-300 flex items-center justify-center font-bold text-xs hover:scale-105 transition shadow-md">
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-      `).join('');
-
-      // 7. PYQs Table
+      // 4. PYQs Table
       document.getElementById('pyqTableBody').innerHTML = data.pyqs.map(p => `
         <tr class="hover:bg-cardDark/50 transition">
           <td class="py-3.5 px-4 font-semibold text-white">${p.year}</td>
@@ -1124,6 +1039,330 @@
 
       if (window.renderMathInElement) {
         renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });
+      }
+    }
+
+    // ==============================================================
+    // TEST SERIES LISTING (MATCHING IMAGE 1)
+    // ==============================================================
+    let activeTestTopicFilter = 'all';
+
+    function filterTestList(topic, clickedBtn) {
+      activeTestTopicFilter = topic;
+
+      document.querySelectorAll('#testTopicTabs button').forEach(btn => {
+        btn.className = "topic-tab-btn py-1.5 px-3.5 rounded-full text-xs font-semibold bg-cardDark text-slate-300 border-2 border-slate-700 hover:border-purple-400 transition shrink-0";
+      });
+
+      clickedBtn.className = "topic-tab-btn py-1.5 px-3.5 rounded-full text-xs font-extrabold bg-purple-600 text-white border-2 border-purple-400 transition shrink-0";
+      renderTestSeriesList(topic);
+    }
+
+    function renderTestSeriesList(topic) {
+      const container = document.getElementById('testCardsList');
+      const filtered = topic === 'all' 
+        ? testSeriesListDatabase 
+        : testSeriesListDatabase.filter(t => t.topic === topic);
+
+      container.innerHTML = filtered.map(test => `
+        <div class="bg-surfaceDark border-2 border-slate-800 hover:border-purple-500/60 p-4 rounded-2xl flex items-center justify-between gap-3 shadow-md transition">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border-2 border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+              <i class="fa-regular fa-file-lines text-sm"></i>
+            </div>
+            <div>
+              <h4 class="font-extrabold text-white text-sm leading-tight">${test.title}</h4>
+              <div class="flex items-center gap-3 text-[11px] text-slate-400 mt-1">
+                <span><i class="fa-regular fa-circle-question text-cyan-400"></i> ${test.questions} Que</span>
+                <span><i class="fa-regular fa-circle-check text-emerald-400"></i> ${test.marks} Marks</span>
+                <span><i class="fa-regular fa-clock text-amber-400"></i> ${test.time} Min</span>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="startTestExam('${test.title}', ${test.questions}, ${test.time})" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-extrabold px-5 py-2 rounded-full border-2 border-blue-400 shadow-md transition shrink-0">
+            Start Now
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // ==============================================================
+    // TEST ENGINE RUNTIME (MATCHING IMAGES 2 & 3)
+    // ==============================================================
+    let examActiveQuestions = [];
+    let currentQuestionIndex = 0;
+    let userAnswers = {};        // { q_1: selectedOptionIndex }
+    let questionState = {};       // { q_1: 'not-visited' | 'not-answered' | 'answered' | 'marked' }
+    let testTimerInterval;
+    let testSecondsRemaining = 900;
+    let activeTestTitle = "";
+
+    function startTestExam(title, count, durationMinutes) {
+      activeTestTitle = title;
+      currentQuestionIndex = 0;
+      userAnswers = {};
+      questionState = {};
+      testSecondsRemaining = durationMinutes * 60;
+
+      examActiveQuestions = generateQuestionData(title, count);
+
+      examActiveQuestions.forEach((q, idx) => {
+        questionState[q.id] = idx === 0 ? 'not-answered' : 'not-visited';
+      });
+
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('singleQuestionContainer').classList.remove('hidden');
+      document.getElementById('scorecardContainer').classList.add('hidden');
+      document.getElementById('testModal').classList.remove('hidden');
+
+      loadActiveQuestion(0);
+      updatePaletteCounts();
+      renderPaletteGrid();
+      startTimer();
+    }
+
+    function closeTestModal() {
+      if (confirm("Are you sure you want to exit? Your progress in this session will be submitted.")) {
+        clearInterval(testTimerInterval);
+        document.getElementById('testModal').classList.add('hidden');
+        togglePaletteDrawer(false);
+      }
+    }
+
+    function togglePaletteDrawer(open) {
+      const drawer = document.getElementById('paletteDrawer');
+      if (open) {
+        renderPaletteGrid();
+        updatePaletteCounts();
+        drawer.classList.remove('translate-x-full');
+      } else {
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function loadActiveQuestion(index) {
+      currentQuestionIndex = index;
+      const q = examActiveQuestions[index];
+
+      if (questionState[q.id] === 'not-visited') {
+        questionState[q.id] = 'not-answered';
+      }
+
+      document.getElementById('activeQuestionNum').innerText = `Question ${index + 1} of ${examActiveQuestions.length}`;
+      document.getElementById('activeQuestionText').innerHTML = q.q;
+
+      // Render Options (Matching Image 2 Full-Width Radio Blocks)
+      const optionsContainer = document.getElementById('activeOptionsContainer');
+      optionsContainer.innerHTML = q.options.map((opt, oIdx) => {
+        const isChecked = userAnswers[q.id] === oIdx;
+        return `
+          <label onclick="selectOption(${oIdx})" class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-surfaceDark border-2 ${isChecked ? 'border-cyan-400 bg-cyan-950/40 text-white' : 'border-slate-800 text-slate-300 hover:border-slate-700'} cursor-pointer transition text-xs sm:text-sm font-semibold">
+            <span class="w-4 h-4 rounded-full border-2 ${isChecked ? 'border-cyan-400 bg-cyan-400' : 'border-slate-600'} flex items-center justify-center shrink-0">
+              ${isChecked ? '<span class="w-1.5 h-1.5 rounded-full bg-slate-950"></span>' : ''}
+            </span>
+            <span>${opt}</span>
+          </label>
+        `;
+      }).join('');
+
+      // Explanation Box
+      const expBox = document.getElementById('activeExplanationBox');
+      expBox.classList.add('hidden');
+
+      // Update Pagination Buttons
+      document.getElementById('btnPrevQ').disabled = index === 0;
+      document.getElementById('btnPrevQ').className = index === 0 
+        ? "px-3 py-2 bg-cardDark text-slate-600 border border-slate-800 text-xs font-bold rounded-xl cursor-not-allowed"
+        : "px-3 py-2 bg-cardDark hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold rounded-xl transition";
+
+      updatePaletteCounts();
+      renderPaletteGrid();
+
+      if (window.renderMathInElement) {
+        renderMathInElement(document.getElementById('singleQuestionContainer'), { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });
+      }
+    }
+
+    function selectOption(optionIndex) {
+      const q = examActiveQuestions[currentQuestionIndex];
+      userAnswers[q.id] = optionIndex;
+      questionState[q.id] = 'answered';
+      loadActiveQuestion(currentQuestionIndex);
+    }
+
+    function clearCurrentSelection() {
+      const q = examActiveQuestions[currentQuestionIndex];
+      delete userAnswers[q.id];
+      questionState[q.id] = 'not-answered';
+      loadActiveQuestion(currentQuestionIndex);
+    }
+
+    function markForReview() {
+      const q = examActiveQuestions[currentQuestionIndex];
+      questionState[q.id] = 'marked';
+      saveAndNext();
+    }
+
+    function saveAndNext() {
+      const q = examActiveQuestions[currentQuestionIndex];
+      if (userAnswers[q.id] !== undefined && questionState[q.id] !== 'marked') {
+        questionState[q.id] = 'answered';
+      }
+
+      if (currentQuestionIndex < examActiveQuestions.length - 1) {
+        loadActiveQuestion(currentQuestionIndex + 1);
+      } else {
+        togglePaletteDrawer(true);
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) {
+        loadActiveQuestion(currentQuestionIndex - 1);
+      }
+    }
+
+    function jumpToQuestion(index) {
+      loadActiveQuestion(index);
+      togglePaletteDrawer(false);
+    }
+
+    // Palette Matrix Grid (Matching Image 3)
+    function renderPaletteGrid() {
+      const grid = document.getElementById('paletteGridButtons');
+      grid.innerHTML = examActiveQuestions.map((q, idx) => {
+        const state = questionState[q.id] || 'not-visited';
+        let stateClass = "status-not-visited";
+
+        if (state === 'answered') stateClass = "status-answered";
+        else if (state === 'not-answered') stateClass = "status-not-answered";
+        else if (state === 'marked') stateClass = "status-marked";
+
+        const isCurrent = idx === currentQuestionIndex;
+
+        return `
+          <button onclick="jumpToQuestion(${idx})" class="w-10 h-10 rounded-xl font-black text-xs border-2 flex items-center justify-center transition shadow ${stateClass} ${isCurrent ? 'ring-2 ring-cyan-400 scale-105' : ''}">
+            ${idx + 1}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function updatePaletteCounts() {
+      let answered = 0, notAnswered = 0, marked = 0, notVisited = 0;
+
+      examActiveQuestions.forEach(q => {
+        const st = questionState[q.id];
+        if (st === 'answered') answered++;
+        else if (st === 'not-answered') notAnswered++;
+        else if (st === 'marked') marked++;
+        else notVisited++;
+      });
+
+      document.getElementById('cntAnswered').innerText = answered;
+      document.getElementById('cntNotAnswered').innerText = notAnswered;
+      document.getElementById('cntMarked').innerText = marked;
+      document.getElementById('cntNotVisited').innerText = notVisited;
+    }
+
+    function startTimer() {
+      clearInterval(testTimerInterval);
+      updateTimerDisplay();
+      testTimerInterval = setInterval(() => {
+        testSecondsRemaining--;
+        updateTimerDisplay();
+        if (testSecondsRemaining <= 0) {
+          clearInterval(testTimerInterval);
+          submitTest();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const min = Math.floor(testSecondsRemaining / 60);
+      const sec = testSecondsRemaining % 60;
+      document.getElementById('testTimer').innerText = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+    }
+
+    // Exam Submission & Evaluation Engine
+    async function submitTest() {
+      clearInterval(testTimerInterval);
+      togglePaletteDrawer(false);
+
+      let score = 0;
+      let correct = 0;
+      let wrong = 0;
+      let unattempted = 0;
+
+      examActiveQuestions.forEach(q => {
+        const selected = userAnswers[q.id];
+        if (selected !== undefined) {
+          if (selected === q.answer) {
+            score += 2.0;
+            correct++;
+          } else {
+            score -= 0.5;
+            wrong++;
+          }
+        } else {
+          unattempted++;
+        }
+      });
+
+      document.getElementById('singleQuestionContainer').classList.add('hidden');
+      const scorecard = document.getElementById('scorecardContainer');
+      scorecard.classList.remove('hidden');
+
+      scorecard.innerHTML = `
+        <div class="bg-surfaceDark border-2 border-cyan-500 rounded-3xl p-6 sm:p-8 text-center shadow-2xl space-y-4">
+          <span class="inline-block bg-cyan-950/80 border-2 border-cyan-500 text-cyan-300 text-xs font-black uppercase px-3 py-1 rounded-full">Assessment Summary</span>
+          <h2 class="text-3xl font-black text-white">${activeTestTitle}</h2>
+          
+          <div class="text-4xl font-black text-cyan-400 my-2">${score} <span class="text-lg text-slate-400 font-semibold">/ ${examActiveQuestions.length * 2} Marks</span></div>
+
+          <div class="grid grid-cols-3 gap-3 max-w-sm mx-auto text-xs pt-2">
+            <div class="p-3 rounded-2xl bg-cardDark border border-emerald-500/40">
+              <span class="block text-emerald-400 font-black text-lg">${correct}</span>
+              <span class="text-[10px] text-slate-400 uppercase font-bold">Correct</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-cardDark border border-rose-500/40">
+              <span class="block text-rose-400 font-black text-lg">${wrong}</span>
+              <span class="text-[10px] text-slate-400 uppercase font-bold">Wrong</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-cardDark border border-slate-700">
+              <span class="block text-slate-300 font-black text-lg">${unattempted}</span>
+              <span class="text-[10px] text-slate-400 uppercase font-bold">Skipped</span>
+            </div>
+          </div>
+
+          <div class="pt-4 flex items-center justify-center gap-3">
+            <button onclick="reviewSolutions()" class="px-5 py-2.5 bg-cardDark hover:bg-slate-800 border-2 border-slate-700 text-cyan-400 text-xs font-bold rounded-xl transition">
+              Review Solutions
+            </button>
+            <button onclick="startTestExam('${activeTestTitle}', ${examActiveQuestions.length}, 15)" class="px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-extrabold rounded-xl transition shadow">
+              Reattempt Test
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function reviewSolutions() {
+      document.getElementById('scorecardContainer').classList.add('hidden');
+      document.getElementById('singleQuestionContainer').classList.remove('hidden');
+
+      // Load first question and reveal explanations
+      loadActiveQuestion(0);
+
+      const q = examActiveQuestions[0];
+      const expBox = document.getElementById('activeExplanationBox');
+      expBox.classList.remove('hidden');
+      expBox.className = "mt-4 p-4 rounded-2xl text-xs bg-emerald-950/80 text-emerald-200 border-2 border-emerald-500 block";
+      expBox.innerHTML = `<b>Correct Answer:</b> Option ${String.fromCharCode(65 + q.answer)}<br>${q.expl}`;
+
+      if (window.renderMathInElement) {
+        renderMathInElement(expBox, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });
       }
     }
 
@@ -1237,214 +1476,6 @@
         btnFeed.disabled = false;
         activeBtn.innerHTML = originalText;
       }
-    }
-
-    // Assessment Engine
-    let timerInterval;
-    let timeLeft = 900;
-    let initialTime = 900;
-    let currentActiveQuestions = [];
-    let currentTestTitle = "";
-    let currentTestMode = "";
-    let attemptCount = 1;
-
-    function startTestEngine(testTitle, testMode) {
-      currentTestTitle = testTitle;
-      currentTestMode = testMode;
-      attemptCount = 1;
-
-      if (testMode === 'full') {
-        currentActiveQuestions = (currentStreamData.fullLengthQuestions || []).slice(0, 30);
-        initialTime = 40 * 60;
-      } else if (testMode === 'chapter') {
-        currentActiveQuestions = (currentStreamData.chapterQuestions || []).slice(0, 10);
-        initialTime = 15 * 60;
-      } else {
-        currentActiveQuestions = (currentStreamData.topicQuestions || []).slice(0, 10);
-        initialTime = 15 * 60;
-      }
-
-      currentActiveQuestions = shuffleArray(currentActiveQuestions);
-      launchSession();
-    }
-
-    function launchSession() {
-      const modeLabel = currentTestMode === 'full' ? 'Full Mock (40m)' : '10 MCQs (15m)';
-      document.getElementById('modalTitle').innerText = currentTestTitle;
-      document.getElementById('modalSubtitle').innerText = `${modeLabel} • Attempt #${attemptCount}`;
-
-      const submitBtn = document.getElementById('submitTestBtn');
-      submitBtn.style.display = 'flex';
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = `Submit`;
-      
-      document.getElementById('reattemptBtn').classList.add('hidden');
-      document.getElementById('scorecardContainer').classList.add('hidden');
-
-      renderPalette();
-      renderQuestions();
-      document.getElementById('testModal').classList.remove('hidden');
-      resetTimer();
-    }
-
-    function reattemptCurrentTest() {
-      attemptCount++;
-      currentActiveQuestions = shuffleArray(currentActiveQuestions);
-      launchSession();
-      document.getElementById('testBody').scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function renderPalette() {
-      document.getElementById('questionPalette').innerHTML = currentActiveQuestions.map((_, idx) => `
-        <button id="pill-${idx}" onclick="scrollToQuestion(${idx})" class="q-pill shrink-0 w-6 h-6 rounded-lg border-2 border-slate-700 bg-cardDark font-bold text-[10px] text-slate-300 flex items-center justify-center transition hover:border-cyan-400">
-          ${idx + 1}
-        </button>
-      `).join('');
-    }
-
-    function scrollToQuestion(idx) {
-      const target = document.getElementById(`q-block-${idx}`);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    function markQuestionAnswered(idx) {
-      const pill = document.getElementById(`pill-${idx}`);
-      if (pill && !pill.classList.contains('answered')) pill.classList.add('answered');
-    }
-
-    function renderQuestions() {
-      const container = document.getElementById('questionsContainer');
-      container.innerHTML = currentActiveQuestions.map((q, idx) => `
-        <div id="q-block-${idx}" class="test-question-block border-b-2 border-slate-800 pb-5" data-qid="${q.id}">
-          <p class="font-bold text-white text-xs sm:text-sm mb-3">${idx + 1}. ${q.q}</p>
-          <div class="space-y-2">
-            ${q.options.map((opt, oIdx) => `
-              <label class="flex items-center gap-3 p-3 rounded-xl bg-cardDark border-2 border-slate-800 hover:border-cyan-500 cursor-pointer text-xs transition">
-                <input type="radio" name="question_${idx}" value="${oIdx}" onchange="markQuestionAnswered(${idx})" class="text-cyan-500 focus:ring-cyan-500">
-                <span class="text-slate-200">${opt}</span>
-              </label>
-            `).join('')}
-          </div>
-          <div class="explanation-box hidden mt-3 p-3 rounded-xl text-xs leading-relaxed"></div>
-        </div>
-      `).join('');
-      
-      document.getElementById('testBody').scrollTop = 0;
-      if (window.renderMathInElement) {
-        renderMathInElement(container, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });
-      }
-    }
-
-    function resetTimer() {
-      clearInterval(timerInterval);
-      timeLeft = initialTime;
-      updateTimerDisplay();
-      timerInterval = setInterval(() => {
-        timeLeft--;
-        updateTimerDisplay();
-        if (timeLeft <= 0) { clearInterval(timerInterval); submitTest(); }
-      }, 1000);
-    }
-
-    function updateTimerDisplay() {
-      const min = Math.floor(timeLeft / 60);
-      const sec = timeLeft % 60;
-      document.getElementById('testTimer').innerText = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
-    }
-
-    async function submitTest() {
-      clearInterval(timerInterval);
-      const submitBtn = document.getElementById('submitTestBtn');
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `Evaluating...`;
-
-      const userSubmissions = {};
-      currentActiveQuestions.forEach((q, idx) => {
-        const selected = document.querySelector(`input[name="question_${idx}"]:checked`);
-        userSubmissions[q.id] = selected ? parseInt(selected.value) : null;
-      });
-
-      let evaluationData;
-
-      try {
-        const res = await fetch(EVALUATION_BACKEND_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ submissions: userSubmissions })
-        });
-        if (!res.ok) throw new Error();
-        evaluationData = await res.json();
-      } catch (err) {
-        evaluationData = {
-          score: Object.values(userSubmissions).filter(v => v === 0).length,
-          total: currentActiveQuestions.length,
-          attempted: Object.values(userSubmissions).filter(v => v !== null).length,
-          percentage: 0,
-          results: {}
-        };
-        currentActiveQuestions.forEach(q => {
-          evaluationData.results[q.id] = {
-            attempted: userSubmissions[q.id] !== null,
-            isCorrect: userSubmissions[q.id] === 0,
-            correctOption: 0,
-            explanation: "Curriculum theorem verified."
-          };
-        });
-        evaluationData.percentage = Math.round((evaluationData.score / evaluationData.total) * 100);
-      }
-
-      currentActiveQuestions.forEach((q, idx) => {
-        const block = document.querySelector(`.test-question-block[data-qid="${q.id}"]`);
-        const expBox = block.querySelector('.explanation-box');
-        const pill = document.getElementById(`pill-${idx}`);
-        const result = evaluationData.results[q.id];
-
-        expBox.classList.remove('hidden');
-        block.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = true);
-
-        if (result.attempted) {
-          if (result.isCorrect) {
-            pill.className = 'q-pill shrink-0 w-6 h-6 rounded-lg border-2 font-bold text-[10px] flex items-center justify-center correct';
-            expBox.innerHTML = `<span class="text-emerald-400 font-bold block mb-1">✓ Correct Solution:</span> ${result.explanation}`;
-            expBox.className = 'explanation-box mt-3 p-3 rounded-xl text-xs bg-emerald-950/80 text-emerald-200 border-2 border-emerald-500';
-          } else {
-            pill.className = 'q-pill shrink-0 w-6 h-6 rounded-lg border-2 font-bold text-[10px] flex items-center justify-center wrong';
-            expBox.innerHTML = `<span class="text-rose-400 font-bold block mb-1">✗ Incorrect Answer.</span> Correct Option: <b>${q.options[result.correctOption]}</b><br>${result.explanation}`;
-            expBox.className = 'explanation-box mt-3 p-3 rounded-xl text-xs bg-rose-950/80 text-rose-200 border-2 border-rose-500';
-          }
-        } else {
-          pill.className = 'q-pill shrink-0 w-6 h-6 rounded-lg border-2 font-bold text-[10px] flex items-center justify-center wrong';
-          expBox.innerHTML = `<span class="text-amber-400 font-bold block mb-1">⚠ Unattempted.</span> Correct: <b>${q.options[result.correctOption]}</b><br>${result.explanation}`;
-          expBox.className = 'explanation-box mt-3 p-3 rounded-xl text-xs bg-amber-950/80 text-amber-200 border-2 border-amber-500';
-        }
-      });
-
-      const scoreBanner = document.getElementById('scorecardContainer');
-      scoreBanner.className = "p-5 bg-cardDark border-2 border-cyan-500/60 rounded-2xl mb-6 text-center shadow-lg";
-      scoreBanner.innerHTML = `
-        <span class="text-[10px] uppercase font-bold text-cyan-400 bg-cyan-950/80 border-2 border-cyan-500 px-3 py-1 rounded-full">Attempt #${attemptCount} Verified</span>
-        <div class="text-3xl font-black text-white my-2">${evaluationData.score} / ${evaluationData.total}</div>
-        <p class="text-xs text-slate-300 font-semibold">${evaluationData.percentage}% Accuracy • ${evaluationData.attempted}/${evaluationData.total} Attempted</p>
-      `;
-      scoreBanner.classList.remove('hidden');
-
-      submitBtn.style.display = 'none';
-      const reattemptBtn = document.getElementById('reattemptBtn');
-      reattemptBtn.innerHTML = `<i class="fa-solid fa-rotate-right"></i> Reattempt #${attemptCount + 1}`;
-      reattemptBtn.classList.remove('hidden');
-
-      if (window.renderMathInElement) {
-        renderMathInElement(document.getElementById('testBody'), { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });
-      }
-      document.getElementById('testBody').scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function closeTestModal() {
-      clearInterval(timerInterval);
-      document.getElementById('testModal').classList.add('hidden');
-      document.getElementById('submitTestBtn').style.display = 'flex';
-      document.getElementById('reattemptBtn').classList.add('hidden');
-      document.getElementById('scorecardContainer').classList.add('hidden');
     }
 
     window.onload = () => { loadStreamData(); };

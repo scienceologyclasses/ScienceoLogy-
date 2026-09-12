@@ -814,7 +814,8 @@
   <!-- DYNAMIC DATA CONTROLLER & SECURE CLIENT RUNTIME               -->
   <!-- ============================================================== -->
   <script>
-    const EVALUATION_BACKEND_URL = "https://scienceology-eval.YOUR-USERNAME.workers.dev";
+    // LIVE CLOUDFLARE WORKER BACKEND URL
+    const EVALUATION_BACKEND_URL = "https://scienceology-eval.scienceology2026.workers.dev";
     const WEB3FORMS_ACCESS_KEY = "0d0369d7-098d-45b5-a0bb-31e928c8decb";
 
     // Anti-Inspection Deterrents
@@ -1170,7 +1171,7 @@
     }
 
     // ==============================================================
-    // PURE CLIENT-SERVER ENGINE (NO QUESTIONS STORED LOCALLY)
+    // PURE CLIENT-SERVER ENGINE (FETCHES FROM CLOUDFLARE WORKER)
     // ==============================================================
     let examActiveQuestions = [];
     let currentQuestionIndex = 0;
@@ -1193,9 +1194,9 @@
 
       const currentSubjectData = subjectCurricula[activeFilters.subject] || subjectCurricula['Maths'];
 
-      // Display loading state while fetching from Cloudflare Worker
+      // Display loading state while contacting Cloudflare Worker
       document.getElementById('modalTitle').innerText = "Loading Assessment...";
-      document.getElementById('modalSectionIndicator').innerText = "Contacting Secure Server...";
+      document.getElementById('modalSectionIndicator').innerText = "Connecting to Cloudflare Worker...";
       document.getElementById('activeQuestionNum').innerText = "Connecting";
       document.getElementById('activeQuestionText').innerHTML = `
         <div class="py-12 text-center text-cyan-400 font-bold text-sm animate-pulse flex flex-col items-center gap-3">
@@ -1209,24 +1210,14 @@
       document.getElementById('testModal').classList.remove('hidden');
 
       try {
-        const response = await fetch(`${EVALUATION_BACKEND_URL}/get-test?testId=${encodeURIComponent(testId)}&subject=${encodeURIComponent(activeFilters.subject)}&grade=${encodeURIComponent(activeFilters.grade)}`);
+        const response = await fetch(`${EVALUATION_BACKEND_URL}/get-test?testId=${encodeURIComponent(testId)}`);
         if (!response.ok) throw new Error("Could not load exam from server");
         const data = await response.json();
-        examActiveQuestions = data.questions; // Questions received from server with ZERO answers
+        examActiveQuestions = data.questions; // Questions received with zero answer keys attached
       } catch (err) {
-        // Fallback placeholder structure if backend is not yet deployed
-        examActiveQuestions = [
-          {
-            id: `${testId}_1`,
-            prompt: `[${activeFilters.subject}] Sample question retrieved from live assessment server. Which of the following is correct?`,
-            options: ["Option A (Primary)", "Option B (Secondary)", "Option C (Standard)", "Option D (Alternative)"]
-          },
-          {
-            id: `${testId}_2`,
-            prompt: `[${activeFilters.subject}] Verified curriculum topic question. Calculate or identify the standard statement:`,
-            options: ["Statement 1", "Statement 2", "Statement 3", "Statement 4"]
-          }
-        ];
+        alert("Failed to load test from backend worker. Make sure your worker script is deployed.");
+        document.getElementById('testModal').classList.add('hidden');
+        return;
       }
 
       examActiveQuestions.forEach((q, idx) => {
@@ -1429,7 +1420,7 @@
       clearInterval(testTimerInterval);
       togglePaletteDrawer(false);
 
-      // Loading display while server validates
+      // Loading display while Cloudflare Worker validates
       document.getElementById('activeQuestionText').innerHTML = `
         <div class="py-12 text-center text-cyan-400 font-bold text-sm animate-pulse flex flex-col items-center gap-3">
           <i class="fa-solid fa-spinner fa-spin text-2xl"></i>
@@ -1451,34 +1442,8 @@
         if (!res.ok) throw new Error();
         evaluation = await res.json();
       } catch (err) {
-        // Fallback simulation if backend server is not reachable
-        let correct = 0, wrong = 0, unattempted = 0;
-        const details = {};
-
-        examActiveQuestions.forEach(q => {
-          const selected = userAnswers[q.id];
-          if (selected !== undefined && selected !== null) {
-            if (selected === 0) {
-              correct++;
-              details[q.id] = { isCorrect: true, correctOption: 0, explanation: "Correctly resolved." };
-            } else {
-              wrong++;
-              details[q.id] = { isCorrect: false, correctOption: 0, explanation: "Incorrectly marked." };
-            }
-          } else {
-            unattempted++;
-            details[q.id] = { isCorrect: false, correctOption: 0, explanation: "Unattempted question." };
-          }
-        });
-
-        evaluation = {
-          score: (correct * 2.0) - (wrong * 0.5),
-          totalMarks: examActiveQuestions.length * 2,
-          correct,
-          wrong,
-          unattempted,
-          details
-        };
+        alert("Failed to evaluate test with Cloudflare backend.");
+        return;
       }
 
       cachedEvaluationResult = evaluation;
